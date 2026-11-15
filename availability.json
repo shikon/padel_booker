@@ -1,5 +1,20 @@
 {
-  "updatedAt": "2026-11-15T23:41:12.929Z",
-  "source": "GitHub Actions Live Scraper",
-  "slots": {}
+  "generatedAt": "2026-11-15T23:53:02.359035+00:00",
+  "clubs": [
+    {
+      "id": "peakz-ehv",
+      "name": "Peakz Padel Eindhoven (Vijfkamplaan / Beursgebouw)",
+      "platform": "FOYS",
+      "bookingUrl": "https://www.peakzpadel.nl/reserveren/court-booking/reservation",
+      "rawResponsesCount": 9
+    },
+    {
+      "id": "padellers-vhv",
+      "name": "The Padellers Veldhoven",
+      "platform": "Bookaball",
+      "bookingUrl": "https://thepadellers.bookaball.com/",
+      "rawResponsesCount": 4
+    }
+  ],
+  "slots": []
 }

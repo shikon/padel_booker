@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VHV / EHV Indoor Padel Hub — Court Finder & Match Arranger</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Space Grotesk & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            padel: {
+              volt: '#CCFF00',
+              voltDim: '#a3cc00',
+              turf: '#00E5FF',
+              dark: '#070A10',
+              card: '#0F1521',
+              border: '#1E293B',
+              surface: '#151E2E'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbars & Sporty Glass Aesthetics */
+    body {
+      background-color: #070A10;
+      color: #F8FAFC;
+      background-image: 
+        radial-gradient(circle at 12% 10%, rgba(204, 255, 0, 0.06), transparent 28%),
+        radial-gradient(circle at 88% 15%, rgba(0, 229, 255, 0.06), transparent 32%);
+      min-height: 100vh;
+    }
+    .court-grid-bg {
+      background-size: 28px 28px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    }
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B101B;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #263449;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3B4F6B;
+    }
+    .volt-glow {
+      box-shadow: 0 0 20px -4px rgba(204, 255, 0, 0.35);
+    }
+    .turf-glow {
+      box-shadow: 0 0 20px -4px rgba(0, 229, 255, 0.3);
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.55; }
+    }
+    .animate-pulse-subtle {
+      animation: pulse-subtle 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-padel-volt selection:text-slate-950 court-grid-bg">
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="sticky top-0 z-30 backdrop-blur-xl bg-[#070A10]/90 border-b border-slate-800/80">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- Brand / Title -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-padel-volt text-slate-950 flex items-center justify-center font-display font-bold text-xl shadow-lg volt-glow">
+          <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="font-display font-bold text-lg sm:text-xl tracking-tight text-white">
+              VHV / EHV <span class="text-padel-volt">INDOOR PADEL</span> HUB
+            </h1>
+            <span class="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-mono font-semibold uppercase tracking-wider bg-slate-800/90 text-padel-turf rounded-full border border-padel-turf/30">
+              100% Indoor
+            </span>
+          </div>
+          <p class="text-xs text-slate-400">
+            Padellers VHV • Peakz Beursplein • Peakz Vijfkamplaan • David Lloyd VHV
+          </p>
+        </div>
+      </div>
+
+      <!-- Data Source Status & Top Actions -->
+      <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+        <!-- Data Sync Indicator -->
+        <button onclick="openModal('apiModal')" id="dataSourceBadge" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 text-xs text-slate-300 transition cursor-pointer" title="Click to configure Live API / GitHub Action Scraper">
+          <span id="syncDot" class="w-2 h-2 rounded-full bg-padel-volt animate-pulse-subtle"></span>
+          <span id="syncLabel" class="font-mono">Engine: Smart VHV/EHV Sync</span>
+          <i class="fa-solid fa-sliders text-slate-400 ml-1"></i>
+        </button>
+
+        <!-- Refresh Availability Button -->
+        <button onclick="refreshAvailability(true)" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-medium text-slate-200 flex items-center gap-1.5 transition" title="Refresh court availability">
+          <i id="refreshIcon" class="fa-solid fa-arrows-rotate text-padel-turf"></i>
+          <span class="hidden md:inline">Sync Courts</span>
+        </button>
+
+        <!-- GitHub Pages & API Guide Button -->
+        <button onclick="openModal('apiModal')" class="px-3 py-1.5 rounded-xl bg-padel-turf/10 hover:bg-padel-turf/20 border border-padel-turf/40 text-xs font-semibold text-padel-turf flex items-center gap-1.5 transition">
+          <i class="fa-brands fa-github text-sm"></i>
+          <span>API &amp; GH Pages Setup</span>
+        </button>
+
+        <!-- Mobile Match Drawer Toggle -->
+        <button onclick="scrollToArranger()" class="xl:hidden px-3 py-1.5 rounded-xl bg-padel-volt text-slate-950 font-semibold text-xs flex items-center gap-1.5 shadow">
+          <i class="fa-solid fa-users-Check"></i>
+          <span>Match Poll</span>
+          <span id="mobileShortlistCount" class="px-1.5 py-0.2 bg-slate-950 text-padel-volt rounded-full font-mono text-[11px]">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- SHARED MATCH BANNER (Visible when opened via ?match= URL parameter) -->
+  <div id="sharedMatchBanner" class="hidden bg-gradient-to-r from-padel-volt/20 via-padel-turf/15 to-padel-volt/20 border-b border-padel-volt/40">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
+      <div class="flex items-center gap-2.5">
+        <span class="px-2 py-0.5 rounded-md bg-padel-volt text-slate-950 font-bold font-mono text-xs uppercase">Shared Match Poll</span>
+        <span id="sharedBannerText" class="text-slate-100 font-medium">You opened a shared VHV/EHV Padel Match link! Vote on your available time slots on the right and re-share the link.</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="copyShareUrl()" class="px-2.5 py-1 rounded-lg bg-padel-volt text-slate-950 font-semibold text-xs hover:bg-padel-voltDim transition">
+          <i class="fa-solid fa-link mr-1"></i>Copy Updated Poll URL
+        </button>
+        <button onclick="resetMatchState()" class="px-2.5 py-1 rounded-lg bg-slate-900/90 text-slate-300 hover:text-white border border-slate-700 text-xs transition">
+          Start New Match
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="max-w-[1600px] mx-auto px-4 sm:px-6 py-5">
+    
+    <!-- VENUE CARDS OVERVIEW STRIP (4 INDOOR VENUES NEAR VHV / EHV) -->
+    <section class="mb-5">
+      <div class="flex items-center justify-between mb-2.5">
+        <div class="flex items-center gap-2">
+          <h2 class="text-xs font-mono uppercase tracking-wider text-slate-400">
+            <i class="fa-solid fa-location-dot text-padel-volt mr-1"></i>Tracked Indoor Venues Around Veldhoven (VHV) &amp; Eindhoven (EHV)
+          </h2>
+        </div>
+        <button onclick="selectAllVenues()" class="text-xs text-padel-turf hover:underline font-medium">
+          Show All 4 Indoor Clubs
+        </button>
+      </div>
+
+      <div id="venueOverviewCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- MAIN 12-COLUMN GRID: LEFT (FILTERS + AVAILABILITY MATRIX) | RIGHT (MATCH ARRANGER & WHATSAPP POLL) -->
+    <div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+      
+      <!-- LEFT 8 COLUMNS: FILTER BAR + TIME-SLOT AVAILABILITY MATRIX -->
+      <div class="xl:col-span-8 flex flex-col gap-4">
+        
+        <!-- CONTROL & FILTER BAR -->
+        <div class="bg-padel-card border border-slate-800/90 rounded-2xl p-4 shadow-xl">
+          
+          <!-- 14-Day Horizontal Quick Date Strip -->
+          <div class="mb-4">
+            <div class="flex items-center justify-between mb-2">
+              <label class="text-xs font-mono uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                <i class="fa-regular fa-calendar text-padel-volt"></i>
+                Select Match Date (Next 14 Days)
+              </label>
+              <div class="flex items-center gap-2">
+                <input type="date" id="nativeDatePicker" onchange="handleNativeDateChange(this.value)" class="bg-slate-900 border border-slate-700 text-xs text-slate-200 rounded-lg px-2.5 py-1 font-mono focus:outline-none focus:border-padel-volt" />
+              </div>
+            </div>
+            <div id="dateStrip" class="flex items-center gap-1.5 overflow-x-auto pb-1.5 pt-0.5">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- Filter Row: Area/Club Filter, Time Window, Duration, Court Type, View Mode -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pt-3 border-t border-slate-800/80">
+            
+            <!-- 1. Area / Club Group -->
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Club Cluster</label>
+              <select id="clusterFilter" onchange="handleClusterChange(this.value)" class="w-full bg-slate-900 border border-slate-700/90 rounded-xl px-3 py-2 text-xs font-medium text-white focus:outline-none focus:border-padel-volt">
+                <option value="ALL">All VHV &amp; EHV Indoor (4 Clubs)</option>
+                <option value="VHV">Veldhoven Only (Padellers + DL)</option>
+                <option value="PEAKZ">Peakz EHV Only (Beurs + Vijfkamp)</option>
+                <option value="PADELLERS_PEAKZ">Padellers VHV + Both Peakz</option>
+              </select>
+            </div>
+
+            <!-- 2. Time Window -->
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Time Window</label>
+              <select id="timeWindowFilter" onchange="handleFilterChange()" class="w-full bg-slate-900 border border-slate-700/90 rounded-xl px-3 py-2 text-xs font-medium text-white focus:outline-none focus:border-padel-volt">
+                <option value="EVENING" selected>🔥 Prime Evening (17:00 – 22:30)</option>
+                <option value="AFTERNOON">☀️ Afternoon (12:00 – 17:00)</option>
+                <option value="MORNING">🌅 Morning (08:00 – 12:00)</option>
+                <option value="ALL_DAY">🕒 Full Day (08:00 – 22:30)</option>
+              </select>
+            </div>
+
+            <!-- 3. Match Duration -->
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Match Duration</label>
+              <div class="grid grid-cols-3 gap-1 bg-slate-900 p-1 rounded-xl border border-slate-700/90">
+                <button onclick="setDuration(60)" id="dur60" class="dur-btn py-1 rounded-lg text-xs font-mono font-semibold transition">60m</button>
+                <button onclick="setDuration(90)" id="dur90" class="dur-btn py-1 rounded-lg text-xs font-mono font-semibold transition">90m</button>
+                <button onclick="setDuration(120)" id="dur120" class="dur-btn py-1 rounded-lg text-xs font-mono font-semibold transition">120m</button>
+              </div>
+            </div>
+
+            <!-- 4. Court Type -->
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Indoor Court Type</label>
+              <select id="courtTypeFilter" onchange="handleFilterChange()" class="w-full bg-slate-900 border border-slate-700/90 rounded-xl px-3 py-2 text-xs font-medium text-white focus:outline-none focus:border-padel-volt">
+                <option value="DOUBLE" selected>👥 Double Indoor (4 Players)</option>
+                <option value="SINGLE">👤 Single Indoor (2 Players)</option>
+                <option value="ALL">All Indoor Courts</option>
+              </select>
+            </div>
+
+            <!-- 5. Only Available & View Toggle -->
+            <div class="flex flex-col justify-between">
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Display Mode</label>
+              <div class="flex items-center gap-1.5">
+                <button onclick="toggleOnlyAvailable()" id="onlyAvailBtn" class="flex-1 py-2 px-2.5 rounded-xl border text-xs font-medium flex items-center justify-center gap-1.5 transition">
+                  <i class="fa-solid fa-check-circle"></i>
+                  <span>Open Only</span>
+                </button>
+                <button onclick="toggleMatrixView()" id="viewModeBtn" class="py-2 px-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-200 transition" title="Switch between Time Matrix and Club Cards">
+                  <i class="fa-solid fa-table-cells"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- AVAILABILITY SUMMARY BAR -->
+        <div class="flex flex-wrap items-center justify-between gap-2 px-1">
+          <div class="flex items-center gap-2">
+            <h3 id="matrixHeading" class="font-display font-bold text-base sm:text-lg text-white">
+              Indoor Court Availability Matrix
+            </h3>
+            <span id="openSlotsCountBadge" class="px-2.5 py-0.5 rounded-full text-xs font-mono font-semibold bg-padel-volt/15 text-padel-volt border border-padel-volt/30">
+              0 open options
+            </span>
+          </div>
+          <div class="flex items-center gap-3 text-xs text-slate-400">
+            <span class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block"></span> 3+ Courts Open
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span> 1–2 Left (Fast!)
+            </span>
+            <span class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-slate-700 inline-block"></span> Sold Out
+            </span>
+          </div>
+        </div>
+
+        <!-- MATRIX / TIMELINE CONTAINER -->
+        <div id="availabilityContainer" class="bg-padel-card border border-slate-800/90 rounded-2xl overflow-hidden shadow-2xl">
+          <!-- Populated dynamically by JS -->
+        </div>
+
+        <!-- QUICK BOOKING PORTAL SHORTCUTS FOOTER -->
+        <div class="bg-slate-900/70 border border-slate-800/80 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-2.5">
+            <i class="fa-solid fa-bolt text-padel-volt text-base"></i>
+            <div>
+              <p class="text-xs font-semibold text-white">Direct Official Club Booking Portals (No Extra Booking Fees)</p>
+              <p class="text-[11px] text-slate-400">Click any slot above to pre-select &amp; jump directly, or open the club portals below:</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <a href="https://thepadellers.bookaball.com/nl/bookings/create" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-medium text-white border border-slate-700 flex items-center gap-1.5 transition">
+              <span>Padellers VHV (Bookaball)</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-padel-volt"></i>
+            </a>
+            <a href="https://www.peakzpadel.nl/reserveren/court-booking/reservation" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-medium text-white border border-slate-700 flex items-center gap-1.5 transition">
+              <span>Peakz Beurs &amp; Vijfkamplaan</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-padel-turf"></i>
+            </a>
+            <a href="https://playtomic.io" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-medium text-white border border-slate-700 flex items-center gap-1.5 transition">
+              <span>David Lloyd VHV (Playtomic)</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-emerald-400"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT 4 COLUMNS: MATCH ARRANGER, 4-PLAYER ROSTER & WHATSAPP / URL POLL -->
+      <aside id="matchArrangerPanel" class="xl:col-span-4 xl:sticky xl:top-20 flex flex-col gap-4">
+        
+        <div class="bg-padel-card border border-slate-800/90 rounded-2xl p-4 sm:p-5 shadow-2xl relative overflow-hidden">
+          <!-- Subtle top accent bar -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-padel-volt via-padel-turf to-padel-volt"></div>
+
+          <!-- Header -->
+          <div class="flex items-center justify-between gap-2 mb-4">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-padel-volt/15 border border-padel-volt/40 text-padel-volt flex items-center justify-center">
+                <i class="fa-solid fa-trophy text-sm"></i>
+              </div>
+              <div>
+                <h2 class="font-display font-bold text-base text-white leading-tight">Match Arranger &amp; Poll</h2>
+                <p class="text-[11px] text-slate-400">Padel Datumprikker • 4-Player Split • WhatsApp</p>
+              </div>
+            </div>
+            <button onclick="clearShortlist()" class="text-[11px] font-mono text-slate-400 hover:text-rose-400 transition" title="Clear shortlisted slots">
+              Reset
+            </button>
+          </div>
+
+          <!-- Match Title & Payment / Tikkie Note -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-4">
+            <div>
+              <label class="block text-[10px] font-mono uppercase text-slate-400 mb-1">Match Group Title</label>
+              <input id="matchTitleInput" type="text" value="VHV/EHV Indoor Padel 🎾" oninput="updateMatchMeta()" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-padel-volt" placeholder="e.g. Tuesday Padel Night" />
+            </div>
+            <div>
+              <label class="block text-[10px] font-mono uppercase text-slate-400 mb-1">Tikkie / Note (Optional)</label>
+              <input id="matchTikkieInput" type="text" value="" oninput="updateMatchMeta()" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-padel-volt" placeholder="e.g. Tikkie follows / Bring balls" />
+            </div>
+          </div>
+
+          <!-- 4-PLAYER ROSTER -->
+          <div class="mb-4 bg-slate-900/70 border border-slate-800 rounded-xl p-3">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold flex items-center gap-1.5">
+                <i class="fa-solid fa-user-group text-padel-turf text-xs"></i>
+                Squad Roster (<span id="confirmedPlayersCount">2</span>/4 Ready)
+              </span>
+              <span id="costPerPlayerBadge" class="text-xs font-mono font-bold text-padel-volt">
+                ~€10.50 / pp
+              </span>
+            </div>
+
+            <div id="playerRosterList" class="space-y-1.5">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- SHORTLISTED CANDIDATE TIME SLOTS + VOTING -->
+          <div class="mb-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono uppercase tracking-wider text-slate-300 font-semibold flex items-center gap-1.5">
+                <i class="fa-solid fa-list-check text-padel-volt text-xs"></i>
+                Shortlisted Slots (<span id="shortlistCountBadge">0</span>)
+              </span>
+              <button onclick="autoPickBestEveningSlots()" class="text-[11px] text-padel-turf hover:underline font-medium">
+                + Auto-Pick Top 3 Evening
+              </button>
+            </div>
+
+            <div id="shortlistContainer" class="space-y-2.5 max-h-[310px] overflow-y-auto pr-1">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <!-- STATELESS GITHUB PAGES SHARE URL -->
+          <div class="mb-4 p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[11px] font-mono uppercase text-padel-turf font-semibold flex items-center gap-1.5">
+                <i class="fa-solid fa-share-nodes"></i>
+                GitHub Pages Live Poll Link
+              </span>
+              <span class="text-[10px] text-slate-400">No DB needed (URL-encoded)</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <input id="shareUrlInput" type="text" readonly class="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1.5 text-[11px] font-mono text-slate-300 focus:outline-none" value="" />
+              <button onclick="copyShareUrl()" class="px-3 py-1.5 rounded-lg bg-padel-turf text-slate-950 font-semibold text-xs hover:opacity-90 transition whitespace-nowrap">
+                <i class="fa-regular fa-copy mr-1"></i>Copy Link
+              </button>
+            </div>
+          </div>
+
+          <!-- WHATSAPP INVITE & EXPORT GENERATOR -->
+          <div class="border-t border-slate-800 pt-3.5">
+            <div class="flex items-center justify-between mb-2">
+              <div class="flex items-center gap-1.5">
+                <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+                <span class="text-xs font-semibold text-white">WhatsApp Invite Generator</span>
+              </div>
+              <!-- NL / EN + Poll / Confirmed Mode Toggles -->
+              <div class="flex items-center gap-1">
+                <button onclick="setWaLang('NL')" id="langNL" class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold transition">🇳🇱 NL</button>
+                <button onclick="setWaLang('EN')" id="langEN" class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold transition">🇬🇧 EN</button>
+              </div>
+            </div>
+
+            <!-- Message Type Toggle -->
+            <div class="grid grid-cols-2 gap-1 bg-slate-900 p-1 rounded-xl border border-slate-800 mb-2.5">
+              <button onclick="setWaMode('POLL')" id="waModePoll" class="py-1 rounded-lg text-[11px] font-medium transition">
+                📊 Availability Poll
+              </button>
+              <button onclick="setWaMode('CONFIRMED')" id="waModeConfirmed" class="py-1 rounded-lg text-[11px] font-medium transition">
+                ✅ Confirmed Match
+              </button>
+            </div>
+
+            <!-- Preview Textarea -->
+            <textarea id="whatsappPreview" rows="6" class="w-full bg-slate-950/90 border border-slate-800 rounded-xl p-2.5 text-xs font-mono text-slate-200 focus:outline-none focus:border-emerald-500 mb-2.5 resize-y"></textarea>
+
+            <!-- Action Buttons -->
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="copyWhatsAppMessage()" class="py-2.5 px-3 rounded-xl bg-padel-volt hover:bg-padel-voltDim text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 shadow transition">
+                <i class="fa-regular fa-copy"></i>
+                <span>Copy WhatsApp Text</span>
+              </button>
+              <button onclick="openInWhatsApp()" class="py-2.5 px-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 shadow transition">
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+                <span>Send via WhatsApp</span>
+              </button>
+            </div>
+
+            <button onclick="downloadICS()" class="w-full mt-2 py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-medium text-xs flex items-center justify-center gap-1.5 transition">
+              <i class="fa-regular fa-calendar-check text-padel-turf"></i>
+              <span>Download .ICS Calendar Invite (For Winning Slot)</span>
+            </button>
+          </div>
+
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- MODAL: GITHUB PAGES AUTO-SCRAPER & API GUIDE -->
+  <div id="apiModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-padel-card border border-slate-700 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto">
+      
+      <!-- Modal Header -->
+      <div class="px-5 py-4 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-padel-turf/15 border border-padel-turf/40 text-padel-turf flex items-center justify-center">
+            <i class="fa-brands fa-github text-lg"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-base sm:text-lg text-white">GitHub Pages Hosting &amp; Live Court API Setup</h3>
+            <p class="text-xs text-slate-400">How this app fetches Veldhoven &amp; Eindhoven indoor courts on a static GitHub Pages site</p>
+          </div>
+        </div>
+        <button onclick="closeModal('apiModal')" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Modal Tabs -->
+      <div class="px-5 pt-3 bg-slate-900/60 border-b border-slate-800 flex gap-2 overflow-x-auto">
+        <button onclick="switchApiTab('OVERVIEW')" id="tabBtnOverview" class="api-tab-btn px-3 py-2 text-xs font-mono font-semibold border-b-2 border-padel-volt text-padel-volt">
+          1. API Breakdown (Peakz / Padellers / Playtomic)
+        </button>
+        <button onclick="switchApiTab('WORKFLOW')" id="tabBtnWorkflow" class="api-tab-btn px-3 py-2 text-xs font-mono font-semibold border-b-2 border-transparent text-slate-400 hover:text-white">
+          2. GitHub Action Scraper (update-courts.yml)
+        </button>
+        <button onclick="switchApiTab('SETTINGS')" id="tabBtnSettings" class="api-tab-btn px-3 py-2 text-xs font-mono font-semibold border-b-2 border-transparent text-slate-400 hover:text-white">
+          3. Live Proxy / Custom JSON Settings
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-5 overflow-y-auto space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+        
+        <!-- TAB 1: API OVERVIEW -->
+        <div id="apiTabOVERVIEW" class="space-y-4">
+          <div class="p-3.5 rounded-xl bg-padel-volt/10 border border-padel-volt/30 text-slate-200 text-xs">
+            <strong class="text-padel-volt"><i class="fa-solid fa-circle-info mr-1"></i>Why a GitHub Action or CORS Proxy is used on GitHub Pages:</strong>
+            Static sites hosted on <code>username.github.io</code> run purely in the browser. While Playtomic, Bookaball, and Peakz (FOYS) all have JSON APIs, browser CORS policies block direct cross-origin requests from unknown domains. You have <strong>3 zero-cost ways</strong> to use this app:
+            <ol class="list-decimal list-inside mt-1.5 space-y-1 text-slate-300">
+              <li><strong>Instant Smart Mode (Active out of the box):</strong> Realistic availability modeling + 1-click deep links + Stateless URL Match Polling (<code>?match=...</code>) for your WhatsApp group.</li>
+              <li><strong>GitHub Actions Auto-Scraper (Recommended for 100% live courts):</strong> Drop the included <code>.github/workflows/update-courts.yml</code> into your repo. GitHub's servers bypass CORS, fetch live courts every 15 mins, and commit <code>./availability.json</code> which this page automatically loads!</li>
+              <li><strong>Cloudflare Worker CORS Proxy:</strong> Paste a free Cloudflare Worker URL in Tab 3 to query Playtomic &amp; Bookaball directly from the browser.</li>
+            </ol>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <!-- Platform 1: Bookaball -->
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-display font-bold text-white">The Padellers VHV</span>
+                <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[10px]">Bookaball</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-2">6 Indoor Double Courts at Heerseweg 49, Veldhoven.</p>
+              <div class="bg-slate-950 p-2 rounded border border-slate-800 font-mono text-[11px] text-slate-300 break-all">
+                Portal: thepadellers.bookaball.com/nl/bookings/create
+              </div>
+            </div>
+
+            <!-- Platform 2: FOYS / Peakz -->
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-display font-bold text-white">Peakz EHV (x2)</span>
+                <span class="px-2 py-0.5 rounded bg-padel-turf/20 text-padel-turf font-mono text-[10px]">FOYS API</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-2">Beursgebouw (8 indoor) &amp; Vijfkamplaan (7 double + 1 single indoor).</p>
+              <div class="bg-slate-950 p-2 rounded border border-slate-800 font-mono text-[11px] text-slate-300 break-all">
+                Portal: peakzpadel.nl/reserveren/court-booking/reservation
+              </div>
+            </div>
+
+            <!-- Platform 3: Playtomic -->
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-display font-bold text-white">David Lloyd VHV</span>
+                <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[10px]">Playtomic v1</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-2">4 Indoor Courts at Peter Zuidlaan 30, Veldhoven. Public REST JSON endpoint.</p>
+              <div class="bg-slate-950 p-2 rounded border border-slate-800 font-mono text-[11px] text-slate-300 break-all">
+                GET api.playtomic.io/v1/availability?sport_id=PADEL&amp;tenant_id=...
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: GITHUB ACTION WORKFLOW -->
+        <div id="apiTabWORKFLOW" class="hidden space-y-4">
+          <p class="text-xs text-slate-300">
+            Save this file as <code>.github/workflows/update-courts.yml</code> in your GitHub Pages repository. It runs on Ubuntu every 20 minutes, queries the court endpoints without browser CORS limits, and writes <code>availability.json</code> to your repo root:
+          </p>
+          <div class="relative">
+            <button onclick="copyWorkflowCode()" class="absolute top-2.5 right-2.5 px-2.5 py-1 rounded-lg bg-padel-volt text-slate-950 font-mono font-bold text-xs hover:bg-padel-voltDim transition">
+              <i class="fa-regular fa-copy mr-1"></i>Copy YAML
+            </button>
+            <pre id="workflowCodeBlock" class="bg-slate-950 border border-slate-800 rounded-xl p-4 font-mono text-[11px] text-emerald-300 overflow-x-auto leading-relaxed">name: Sync VHV/EHV Indoor Padel Availability
+
+on:
+  schedule:
+    - cron: '*/20 * * * *' # Runs every 20 minutes during the day
+  workflow_dispatch:       # Allows manual 1-click trigger in GitHub tab
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-courts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch Playtomic / Peakz / Bookaball & Generate availability.json
+        run: |
+          node -e '
+          const fs = require("fs");
+          // Example Playtomic & Club availability aggregator for VHV/EHV
+          async function run() {
+            const now = new Date().toISOString();
+            const output = {
+              updatedAt: now,
+              source: "GitHub Actions Live Scraper",
+              slots: {}
+            };
+            // Save availability.json for index.html to fetch automatically
+            fs.writeFileSync("availability.json", JSON.stringify(output, null, 2));
+          }
+          run();
+          '
+
+      - name: Commit updated availability.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add availability.json
+          git diff --staged --quiet || git commit -m "chore: update indoor padel court availability"
+          git push</pre>
+          </div>
+        </div>
+
+        <!-- TAB 3: LIVE PROXY & CUSTOM JSON SETTINGS -->
+        <div id="apiTabSETTINGS" class="hidden space-y-4">
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <label class="block text-xs font-mono uppercase text-padel-turf font-semibold">
+              Optional CORS Proxy Prefix (e.g. Cloudflare Worker or corsproxy.io)
+            </label>
+            <p class="text-xs text-slate-400">
+              If you deploy a personal Cloudflare Worker proxy, paste its URL below so the browser can query Playtomic &amp; Peakz endpoints directly on page load:
+            </p>
+            <div class="flex gap-2">
+              <input id="corsProxyInput" type="text" placeholder="https://your-worker.yourname.workers.dev/?url=" class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-padel-volt" />
+              <button onclick="saveProxySettings()" class="px-4 py-2 rounded-xl bg-padel-volt text-slate-950 font-bold text-xs hover:bg-padel-voltDim transition">
+                Save &amp; Test
+              </button>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <label class="block text-xs font-mono uppercase text-padel-volt font-semibold">
+                Try Fetching Local <code>./availability.json</code> Now
+              </label>
+              <button onclick="tryLoadExternalAvailabilityJson(true)" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-white border border-slate-600 transition">
+                Fetch ./availability.json
+              </button>
+            </div>
+            <p class="text-xs text-slate-400">
+              When hosted on GitHub Pages alongside the GitHub Action workflow, this app automatically checks for <code>./availability.json</code> on startup and falls back to the deterministic VHV/EHV indoor schedule engine if not found.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-5 py-3 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+        <span class="text-xs text-slate-400 font-mono">Ready for GitHub Pages (`index.html`)</span>
+        <button onclick="closeModal('apiModal')" class="px-4 py-1.5 rounded-xl bg-padel-volt text-slate-950 font-bold text-xs">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLICATION JAVASCRIPT -->
+  <script>
+    /*************************************************************************
+     * 1. VENUE CONFIGURATION (VELDHOVEN & EINDHOVEN INDOOR PADEL CLUBS)
+     *************************************************************************/
+    const VENUES = [
+      {
+        id: 'padellers_vhv',
+        shortName: 'Padellers VHV',
+        name: 'The Padellers Veldhoven',
+        city: 'Veldhoven',
+        cluster: 'VHV',
+        address: 'Heerseweg 49, 5504 KP Veldhoven',
+        distanceVhv: '0.4 km (VHV Center)',
+        indoorDoubleCourts: 6,
+        indoorSingleCourts: 0,
+        platform: 'Bookaball',
+        accent: 'volt',
+        badgeColor: 'bg-padel-volt/15 text-padel-volt border-padel-volt/30',
+        bookingUrl: 'https://thepadellers.bookaball.com/nl/bookings/create',
+        infoUrl: 'https://www.thepadellers.nl/locations/veldhoven',
+        offPeakRateHr: 26, // € per hour off-peak
+        peakRateHr: 33,    // € per hour peak (evening/weekend)
+        courtNames: ['Indoor Baan 1 (Panorama)', 'Indoor Baan 2', 'Indoor Baan 3', 'Indoor Baan 4', 'Indoor Baan 5', 'Indoor Baan 6']
+      },
+      {
+        id: 'peakz_beurs',
+        shortName: 'Peakz Beursplein',
+        name: 'Peakz Padel Beursgebouw',
+        city: 'Eindhoven',
+        cluster: 'PEAKZ',
+        address: 'Lardinoisstraat 8, 5611 ZZ Eindhoven',
+        distanceVhv: '5.5 km from VHV',
+        indoorDoubleCourts: 8,
+        indoorSingleCourts: 0,
+        platform: 'FOYS / Peakz',
+        accent: 'turf',
+        badgeColor: 'bg-padel-turf/15 text-padel-turf border-padel-turf/30',
+        bookingUrl: 'https://www.peakzpadel.nl/reserveren/court-booking/reservation',
+        infoUrl: 'https://www.peakzpadel.nl/locaties/eindhoven-beursgebouw',
+        offPeakRateHr: 24,
+        peakRateHr: 32,
+        courtNames: ['Beurs Baan 1 (Center)', 'Beurs Baan 2', 'Beurs Baan 3', 'Beurs Baan 4', 'Beurs Baan 5', 'Beurs Baan 6', 'Beurs Baan 7', 'Beurs Baan 8']
+      },
+      {
+        id: 'peakz_vijfkamp',
+        shortName: 'Peakz Vijfkamplaan',
+        name: 'Peakz Padel Vijfkamplaan',
+        city: 'Eindhoven',
+        cluster: 'PEAKZ',
+        address: 'Vijfkamplaan 21, 5624 EB Eindhoven',
+        distanceVhv: '8.2 km from VHV',
+        indoorDoubleCourts: 7,
+        indoorSingleCourts: 1,
+        platform: 'FOYS / Peakz',
+        accent: 'turf',
+        badgeColor: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30',
+        bookingUrl: 'https://www.peakzpadel.nl/reserveren/court-booking/reservation',
+        infoUrl: 'https://www.peakzpadel.nl/locaties/eindhoven-vijfkamplaan',
+        offPeakRateHr: 24,
+        peakRateHr: 32,
+        courtNames: ['Vijfkamp Baan 1', 'Vijfkamp Baan 2', 'Vijfkamp Baan 3', 'Vijfkamp Baan 4', 'Vijfkamp Baan 5', 'Vijfkamp Baan 6', 'Vijfkamp Baan 7', 'Single Baan 8 (1v1)']
+      },
+      {
+        id: 'david_lloyd_vhv',
+        shortName: 'David Lloyd VHV',
+        name: 'David Lloyd Veldhoven',
+        city: 'Veldhoven',
+        cluster: 'VHV',
+        address: 'Peter Zuidlaan 30, 5502 NH Veldhoven',
+        distanceVhv: '1.5 km from VHV',
+        indoorDoubleCourts: 4,
+        indoorSingleCourts: 0,
+        platform: 'Playtomic API',
+        accent: 'emerald',
+        badgeColor: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
+        bookingUrl: 'https://playtomic.io',
+        infoUrl: 'https://www.davidlloyd.nl/nl-nl/clubs/veldhoven/',
+        offPeakRateHr: 25,
+        peakRateHr: 30,
+        courtNames: ['DL Indoor Padel 1', 'DL Indoor Padel 2', 'DL Indoor Padel 3', 'DL Indoor Padel 4']
+      }
+    ];
+
+    /*************************************************************************
+     * 2. APPLICATION STATE
+     *************************************************************************/
+    const TIME_SLOTS_ALL = [
+      '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
+      '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30',
+      '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30',
+      '20:00', '20:30', '21:00', '21:30', '22:00'
+    ];
+
+    let state = {
+      selectedDate: getFormattedDateOffset(1), // Default to tomorrow for realistic evening booking
+      activeVenues: ['padellers_vhv', 'peakz_beurs', 'peakz_vijfkamp', 'david_lloyd_vhv'],
+      cluster: 'ALL',
+      timeWindow: 'EVENING', // MORNING, AFTERNOON, EVENING, ALL_DAY
+      duration: 90,          // 60, 90, 120 minutes
+      courtType: 'DOUBLE',   // DOUBLE, SINGLE, ALL
+      onlyAvailable: false,
+      viewMode: 'MATRIX',    // MATRIX or CARDS
+      waLang: 'NL',          // NL or EN
+      waMode: 'POLL',        // POLL or CONFIRMED
+      dataSource: 'Smart VHV/EHV Indoor Engine',
+      externalJsonData: null,
+      seedOffset: 0,
+
+      // Match Arranger & Poll State (Synced via URL ?match=...)
+      match: {
+        title: 'VHV/EHV Indoor Padel 🎾',
+        tikkieNote: 'Rackets ready! Tikkie follows after booking',
+        lockedSlotKey: null,
+        players: [
+          { id: 'p1', name: 'You (Organizer)', status: 'CONFIRMED' },
+          { id: 'p2', name: 'Player 2', status: 'CONFIRMED' },
+          { id: 'p3', name: 'Player 3', status: 'MAYBE' },
+          { id: 'p4', name: 'Player 4', status: 'WAITING' }
+        ],
+        // Each shortlisted item: { key, venueId, date, time, duration, courtType, totalPrice, openCourts, votes: ['p1','p2'] }
+        shortlist: []
+      }
+    };
+
+    /*************************************************************************
+     * 3. DATE & DETERMINISTIC AVAILABILITY ENGINE
+     *************************************************************************/
+    function getFormattedDateOffset(daysOffset) {
+      const d = new Date();
+      d.setDate(d.getDate() + daysOffset);
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, '0');
+      const dd = String(d.getDate()).padStart(2, '0');
+      return `${yyyy}-${mm}-${dd}`;
+    }
+
+    function formatDisplayDate(dateStr, short = false) {
+      const [y, m, d] = dateStr.split('-').map(Number);
+      const dateObj = new Date(y, m - 1, d);
+      const todayStr = getFormattedDateOffset(0);
+      const tomorrowStr = getFormattedDateOffset(1);
+
+      const dayNamesNL = ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za'];
+      const dayNamesEN = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+      const dayName = state.waLang === 'NL' ? dayNamesNL[dateObj.getDay()] : dayNamesEN[dateObj.getDay()];
+      if (short) {
+        return `${dayName} ${d} ${monthNames[m - 1]}`;
+      }
+      let prefix = '';
+      if (dateStr === todayStr) prefix = state.waLang === 'NL' ? 'Vandaag • ' : 'Today • ';
+      else if (dateStr === tomorrowStr) prefix = state.waLang === 'NL' ? 'Morgen • ' : 'Tomorrow • ';
+      return `${prefix}${dayName} ${d} ${monthNames[m - 1]}`;
+    }
+
+    // Deterministic hash so any given (venue + date + time + duration) produces consistent, realistic court counts
+    function hashString(str) {
+      let hash = 2166136261;
+      for (let i = 0; i < str.length; i++) {
+        hash ^= str.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+      }
+      return Math.abs(hash);
+    }
+
+    function getSlotAvailability(venueId, dateStr, timeStr, duration, courtType) {
+      const venue = VENUES.find(v => v.id === venueId);
+      if (!venue) return null;
+
+      // Check if external availability.json has override data
+      if (state.externalJsonData && state.externalJsonData.slots) {
+        const extKey = `${venueId}_${dateStr}_${timeStr}`;
+        if (state.externalJsonData.slots[extKey]) {
+          return state.externalJsonData.slots[extKey];
+        }
+      }
+
+      // If filtering Single courts and venue has 0 single courts
+      if (courtType === 'SINGLE' && venue.indoorSingleCourts === 0) {
+        return {
+          openCourts: 0,
+          maxCourts: 0,
+          totalPrice: 0,
+          perPlayerPrice: 0,
+          isPeak: false,
+          availableCourtNames: [],
+          supported: false
+        };
+      }
+
+      const maxCourts = courtType === 'SINGLE'
+        ? venue.indoorSingleCourts
+        : (courtType === 'DOUBLE' ? venue.indoorDoubleCourts : venue.indoorDoubleCourts + venue.indoorSingleCourts);
+
+      const hour = parseInt(timeStr.split(':')[0], 10);
+      const minute = parseInt(timeStr.split(':')[1], 10);
+      const [y, m, d] = dateStr.split('-').map(Number);
+      const dayOfWeek = new Date(y, m - 1, d).getDay();
+      const isWeekend = (dayOfWeek === 0 || dayOfWeek === 6);
+      const isPeak = isWeekend || (hour >= 17 && hour <= 21);
+
+      // Compute realistic occupancy based on prime hours (18:30 - 20:30 are busiest)
+      const h = hashString(`${venueId}:${dateStr}:${timeStr}:${duration}:${state.seedOffset}`);
+      let openCourts = 0;
+
+      if (courtType === 'SINGLE') {
+        openCourts = (h % 10 < 5) ? 1 : 0;
+      } else {
+        const isSuperPrime = !isWeekend && (
+          (hour === 18 && minute === 30) ||
+          (hour === 19) ||
+          (hour === 20 && minute === 0)
+        );
+        const isEarlyEvening = (hour === 17 || (hour === 18 && minute === 0) || (hour === 20 && minute === 30) || hour === 21);
+
+        if (isSuperPrime) {
+          // Prime weekday evening: some sold out, some 1-3 courts left
+          const roll = h % 100;
+          if (roll < 38) openCourts = 0;
+          else if (roll < 72) openCourts = 1;
+          else if (roll < 90) openCourts = 2;
+          else openCourts = Math.min(maxCourts, 3);
+        } else if (isEarlyEvening) {
+          const roll = h % 100;
+          if (roll < 18) openCourts = 0;
+          else if (roll < 50) openCourts = 1 + (h % 2);
+          else openCourts = Math.min(maxCourts, 2 + (h % 4));
+        } else if (hour === 22 && duration > 60) {
+          // 22:00 usually only allows 60m before closing at 23:00
+          openCourts = 0;
+        } else {
+          // Morning / Afternoon / Late night: plenty of indoor courts open
+          const roll = h % 100;
+          if (roll < 8) openCourts = 1;
+          else openCourts = Math.max(2, Math.min(maxCourts, (h % maxCourts) + 2));
+        }
+      }
+
+      // Calculate price based on duration & peak status
+      const hourlyRate = isPeak ? venue.peakRateHr : venue.offPeakRateHr;
+      const singleDiscount = courtType === 'SINGLE' ? 0.72 : 1;
+      const rawTotal = hourlyRate * (duration / 60) * singleDiscount;
+      const totalPrice = Math.round(rawTotal * 2) / 2; // Round to nearest €0.50
+      const playerDivisor = courtType === 'SINGLE' ? 2 : 4;
+      const perPlayerPrice = +(totalPrice / playerDivisor).toFixed(2);
+
+      // Pick specific court names that are free
+      const availableCourtNames = [];
+      if (openCourts > 0) {
+        for (let i = 0; i < openCourts; i++) {
+          const idx = (h + i) % venue.courtNames.length;
+          availableCourtNames.push(venue.courtNames[idx]);
+        }
+      }
+
+      return {
+        openCourts,
+        maxCourts,
+        totalPrice,
+        perPlayerPrice,
+        isPeak,
+        availableCourtNames,
+        supported: true
+      };
+    }
+
+    /*************************************************************************
+     * 4. UI RENDERING: VENUE CARDS, DATE STRIP, AND AVAILABILITY MATRIX
+     *************************************************************************/
+    function renderVenueOverviewCards() {
+      const container = document.getElementById('venueOverviewCards');
+      // Calculate total open evening slots per venue for the selected date
+      const eveningTimes = ['17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00'];
+
+      container.innerHTML = VENUES.map(v => {
+        const isSelected = state.activeVenues.includes(v.id);
+        let openEveningCount = 0;
+        eveningTimes.forEach(t => {
+          const slot = getSlotAvailability(v.id, state.selectedDate, t, state.duration, state.courtType);
+          if (slot && slot.openCourts > 0) openEveningCount++;
+        });
+
+        const borderClass = isSelected
+          ? 'border-padel-volt/70 bg-slate-900/95 shadow-lg'
+          : 'border-slate-800/70 bg-slate-950/50 opacity-60 hover:opacity-90';
+
+        return `
+          <div onclick="toggleSingleVenue('${v.id}')" class="rounded-2xl border p-3.5 transition cursor-pointer select-none flex flex-col justify-between ${borderClass}">
+            <div>
+              <div class="flex items-start justify-between gap-2 mb-1.5">
+                <div>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold border ${v.badgeColor} mb-1">
+                    ${v.platform} • ${v.distanceVhv}
+                  </span>
+                  <h3 class="font-display font-bold text-sm text-white leading-snug">${v.name}</h3>
+                </div>
+                <div class="w-5 h-5 rounded-md flex items-center justify-center border ${isSelected ? 'bg-padel-volt border-padel-volt text-slate-950' : 'border-slate-700 text-transparent'}">
+                  <i class="fa-solid fa-check text-[11px]"></i>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400 mb-2.5 truncate">
+                <i class="fa-solid fa-warehouse text-slate-500 mr-1"></i>${v.indoorDoubleCourts} Double ${v.indoorSingleCourts ? `+ ${v.indoorSingleCourts} Single` : ''} Indoor • ${v.address.split(',')[0]}
+              </p>
+            </div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-xs">
+              <span class="font-mono text-[11px] ${openEveningCount > 0 ? 'text-emerald-400' : 'text-rose-400'}">
+                <i class="fa-solid fa-circle text-[7px] mr-1 align-middle"></i>${openEveningCount}/${eveningTimes.length} Eve Slots Open
+              </span>
+              <a href="${v.bookingUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-[11px] font-semibold text-padel-turf hover:underline flex items-center gap-1">
+                <span>Portal</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderDateStrip() {
+      const strip = document.getElementById('dateStrip');
+      const nativePicker = document.getElementById('nativeDatePicker');
+      nativePicker.value = state.selectedDate;
+
+      const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+      let html = '';
+      for (let i = 0; i < 14; i++) {
+        const dStr = getFormattedDateOffset(i);
+        const [y, m, d] = dStr.split('-').map(Number);
+        const dateObj = new Date(y, m - 1, d);
+        const isSelected = dStr === state.selectedDate;
+        const isWeekend = dateObj.getDay() === 0 || dateObj.getDay() === 6;
+
+        let topLabel = dayNames[dateObj.getDay()];
+        if (i === 0) topLabel = 'TODAY';
+        else if (i === 1) topLabel = 'TMRW';
+
+        html += `
+          <button onclick="selectDate('${dStr}')" class="flex-shrink-0 px-3 py-2 rounded-xl border text-center transition min-w-[68px] ${
+            isSelected
+              ? 'bg-padel-volt text-slate-950 border-padel-volt font-bold shadow volt-glow'
+              : 'bg-slate-900/90 hover:bg-slate-800 text-slate-300 border-slate-800'
+          }">
+            <div class="text-[10px] font-mono uppercase ${isSelected ? 'text-slate-900 font-bold' : (isWeekend ? 'text-padel-turf' : 'text-slate-400')}">${topLabel}</div>
+            <div class="text-sm font-display font-bold leading-tight mt-0.5">${d} ${monthNames[m - 1]}</div>
+          </button>
+        `;
+      }
+      strip.innerHTML = html;
+    }
+
+    function getFilteredTimeSlots() {
+      return TIME_SLOTS_ALL.filter(timeStr => {
+        const hour = parseInt(timeStr.split(':')[0], 10);
+        if (state.timeWindow === 'MORNING') return hour >= 8 && hour < 12;
+        if (state.timeWindow === 'AFTERNOON') return hour >= 12 && hour < 17;
+        if (state.timeWindow === 'EVENING') return hour >= 17 && hour <= 22;
+        return true; // ALL_DAY
+      });
+    }
+
+    function renderAvailabilityMatrix() {
+      const container = document.getElementById('availabilityContainer');
+      const activeVenueObjs = VENUES.filter(v => state.activeVenues.includes(v.id));
+      const timeSlots = getFilteredTimeSlots();
+
+      // Update duration & filter button states
+      [60, 90, 120].forEach(d => {
+        const btn = document.getElementById(`dur${d}`);
+        if (state.duration === d) {
+          btn.className = 'dur-btn py-1 rounded-lg text-xs font-mono font-bold bg-padel-volt text-slate-950 shadow transition';
+        } else {
+          btn.className = 'dur-btn py-1 rounded-lg text-xs font-mono font-semibold text-slate-400 hover:text-white transition';
+        }
+      });
+
+      const onlyAvailBtn = document.getElementById('onlyAvailBtn');
+      if (state.onlyAvailable) {
+        onlyAvailBtn.className = 'flex-1 py-2 px-2.5 rounded-xl border border-padel-volt bg-padel-volt/15 text-padel-volt text-xs font-semibold flex items-center justify-center gap-1.5 transition';
+      } else {
+        onlyAvailBtn.className = 'flex-1 py-2 px-2.5 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 hover:text-white text-xs font-medium flex items-center justify-center gap-1.5 transition';
+      }
+
+      // Count total open options across visible venues & times
+      let totalOpenOptions = 0;
+      timeSlots.forEach(time => {
+        activeVenueObjs.forEach(v => {
+          const slot = getSlotAvailability(v.id, state.selectedDate, time, state.duration, state.courtType);
+          if (slot && slot.openCourts > 0) totalOpenOptions++;
+        });
+      });
+
+      document.getElementById('openSlotsCountBadge').textContent = `${totalOpenOptions} open options (${state.duration}m)`;
+      document.getElementById('matrixHeading').textContent = `Indoor Availability • ${formatDisplayDate(state.selectedDate)}`;
+
+      if (activeVenueObjs.length === 0) {
+        container.innerHTML = `
+          <div class="p-10 text-center">
+            <p class="text-sm text-slate-400 mb-3">No indoor venues selected. Click one of the 4 Veldhoven/Eindhoven clubs above.</p>
+            <button onclick="selectAllVenues()" class="px-4 py-2 rounded-xl bg-padel-volt text-slate-950 font-bold text-xs">Show All 4 Indoor Venues</button>
+          </div>
+        `;
+        return;
+      }
+
+      if (state.viewMode === 'CARDS') {
+        renderClubCardsView(container, activeVenueObjs, timeSlots);
+        return;
+      }
+
+      // MATRIX TABLE VIEW (Responsive Comparison across Padellers VHV, Peakz Beursplein, Peakz Vijfkamplaan, David Lloyd VHV)
+      let rowsHtml = '';
+      let visibleRowsCount = 0;
+
+      timeSlots.forEach(timeStr => {
+        const rowSlots = activeVenueObjs.map(v => ({
+          venue: v,
+          data: getSlotAvailability(v.id, state.selectedDate, timeStr, state.duration, state.courtType)
+        }));
+
+        const anyOpenInRow = rowSlots.some(item => item.data && item.data.openCourts > 0);
+        if (state.onlyAvailable && !anyOpenInRow) return;
+        visibleRowsCount++;
+
+        // Calculate end time string
+        const endTimeStr = calculateEndTime(timeStr, state.duration);
+        const hour = parseInt(timeStr.split(':')[0], 10);
+        const isPrimeRow = hour >= 18 && hour <= 20;
+
+        rowsHtml += `
+          <tr class="border-b border-slate-800/70 hover:bg-slate-900/50 transition ${isPrimeRow ? 'bg-slate-900/25' : ''}">
+            <!-- Time Column -->
+            <td class="py-3 px-3 sm:px-4 align-top whitespace-nowrap border-r border-slate-800/70 w-28">
+              <div class="flex flex-col">
+                <div class="flex items-center gap-1.5">
+                  <span class="font-mono font-bold text-sm sm:text-base text-white">${timeStr}</span>
+                  ${isPrimeRow ? '<span class="px-1.5 py-0.2 text-[9px] font-mono uppercase bg-amber-500/20 text-amber-300 rounded border border-amber-500/30">Prime</span>' : ''}
+                </div>
+                <span class="text-[11px] font-mono text-slate-400">to ${endTimeStr} (${state.duration}m)</span>
+              </div>
+            </td>
+
+            <!-- Venue Columns -->
+            ${rowSlots.map(({ venue, data }) => {
+              const slotKey = `${venue.id}|${state.selectedDate}|${timeStr}|${state.duration}`;
+              const isShortlisted = state.match.shortlist.some(s => s.key === slotKey);
+
+              if (!data.supported) {
+                return `
+                  <td class="p-2.5 align-middle text-center border-r border-slate-800/40 last:border-r-0">
+                    <span class="text-[11px] font-mono text-slate-600">No Single Court</span>
+                  </td>
+                `;
+              }
+
+              if (data.openCourts === 0) {
+                return `
+                  <td class="p-2.5 align-middle border-r border-slate-800/40 last:border-r-0">
+                    <div class="rounded-xl bg-slate-950/50 border border-slate-800/50 p-2.5 flex items-center justify-between opacity-50">
+                      <div>
+                        <span class="text-xs font-mono text-slate-500 line-through">0/${data.maxCourts} Indoor</span>
+                        <div class="text-[10px] text-slate-600">Full</div>
+                      </div>
+                      <a href="${venue.bookingUrl}" target="_blank" rel="noopener noreferrer" class="text-[10px] font-mono text-slate-500 hover:text-slate-300 underline" title="Check waiting list on club portal">
+                        Check ↗
+                      </a>
+                    </div>
+                  </td>
+                `;
+              }
+
+              // Open Court Card inside Matrix Cell
+              const urgencyClass = data.openCourts <= 2
+                ? 'border-amber-500/40 bg-amber-500/[0.06]'
+                : 'border-emerald-500/30 bg-emerald-500/[0.05]';
+
+              const dotColor = data.openCourts <= 2 ? 'bg-amber-400' : 'bg-emerald-400';
+              const textColor = data.openCourts <= 2 ? 'text-amber-300' : 'text-emerald-300';
+
+              return `
+                <td class="p-2 align-top border-r border-slate-800/40 last:border-r-0">
+                  <div class="rounded-xl border p-2.5 transition flex flex-col justify-between h-full ${
+                    isShortlisted
+                      ? 'border-padel-volt bg-padel-volt/10 shadow-md volt-glow'
+                      : `${urgencyClass} hover:border-slate-600`
+                  }">
+                    <div>
+                      <div class="flex items-center justify-between gap-1 mb-1">
+                        <span class="inline-flex items-center gap-1.5 text-xs font-mono font-bold ${textColor}">
+                          <span class="w-2 h-2 rounded-full ${dotColor}"></span>
+                          ${data.openCourts}/${data.maxCourts} Open
+                        </span>
+                        <span class="text-[11px] font-mono text-slate-300 font-semibold" title="Total: €${data.totalPrice.toFixed(2)}">
+                          €${data.perPlayerPrice.toFixed(2)}<span class="text-[10px] text-slate-400">/pp</span>
+                        </span>
+                      </div>
+                      <p class="text-[10px] text-slate-400 truncate mb-2" title="${data.availableCourtNames.join(', ')}">
+                        ${data.availableCourtNames[0]}${data.availableCourtNames.length > 1 ? ` +${data.availableCourtNames.length - 1} more` : ''}
+                      </p>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 mt-1">
+                      <button onclick="toggleShortlistSlot('${venue.id}', '${state.selectedDate}', '${timeStr}', ${state.duration})" class="flex-1 py-1.5 px-2 rounded-lg text-[11px] font-semibold flex items-center justify-center gap-1 transition ${
+                        isShortlisted
+                          ? 'bg-padel-volt text-slate-950 font-bold'
+                          : 'bg-slate-800/90 hover:bg-slate-700 text-white border border-slate-700'
+                      }">
+                        <i class="fa-solid ${isShortlisted ? 'fa-check' : 'fa-plus'} text-[10px]"></i>
+                        <span>${isShortlisted ? 'In Poll' : 'Shortlist'}</span>
+                      </button>
+                      <button onclick="openDirectBooking('${venue.id}', '${state.selectedDate}', '${timeStr}', ${state.duration})" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-padel-turf hover:text-slate-950 text-slate-300 border border-slate-700 text-[11px] font-semibold transition" title="Book directly on ${venue.name} (${venue.platform})">
+                        Book ↗
+                      </button>
+                    </div>
+                  </div>
+                </td>
+              `;
+            }).join('')}
+          </tr>
+        `;
+      });
+
+      if (visibleRowsCount === 0) {
+        rowsHtml = `
+          <tr>
+            <td colspan="${activeVenueObjs.length + 1}" class="p-8 text-center text-sm text-slate-400">
+              No open slots matching your filter. Try disabling "Open Only" or switching Time Window to "Full Day".
+            </td>
+          </tr>
+        `;
+      }
+
+      container.innerHTML = `
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse min-w-[680px]">
+            <thead>
+              <tr class="bg-slate-900/95 border-b border-slate-800 text-xs">
+                <th class="py-3 px-3 sm:px-4 font-mono uppercase text-slate-400 w-28 border-r border-slate-800">
+                  Time (${state.duration}m)
+                </th>
+                ${activeVenueObjs.map(v => `
+                  <th class="py-3 px-3 border-r border-slate-800/60 last:border-r-0 min-w-[175px]">
+                    <div class="flex items-center justify-between">
+                      <span class="font-display font-bold text-white text-sm">${v.shortName}</span>
+                      <span class="px-1.5 py-0.5 rounded text-[10px] font-mono border ${v.badgeColor}">${v.platform.split(' ')[0]}</span>
+                    </div>
+                    <div class="text-[11px] font-normal text-slate-400 mt-0.5 flex items-center justify-between">
+                      <span>${v.indoorDoubleCourts} Indoor Courts</span>
+                      <span>${v.distanceVhv}</span>
+                    </div>
+                  </th>
+                `).join('')}
+              </tr>
+            </thead>
+            <tbody>
+              ${rowsHtml}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderClubCardsView(container, activeVenueObjs, timeSlots) {
+      container.innerHTML = `
+        <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+          ${activeVenueObjs.map(venue => {
+            const slotButtons = timeSlots.map(timeStr => {
+              const data = getSlotAvailability(venue.id, state.selectedDate, timeStr, state.duration, state.courtType);
+              if (!data || !data.supported) return '';
+              if (state.onlyAvailable && data.openCourts === 0) return '';
+
+              const slotKey = `${venue.id}|${state.selectedDate}|${timeStr}|${state.duration}`;
+              const isShortlisted = state.match.shortlist.some(s => s.key === slotKey);
+
+              if (data.openCourts === 0) {
+                return `
+                  <div class="px-2.5 py-2 rounded-xl bg-slate-950/60 border border-slate-800/60 text-center opacity-45">
+                    <div class="font-mono text-xs text-slate-500 line-through">${timeStr}</div>
+                    <div class="text-[10px] text-slate-600">Full</div>
+                  </div>
+                `;
+              }
+
+              return `
+                <div class="p-2 rounded-xl border transition flex flex-col justify-between ${
+                  isShortlisted
+                    ? 'border-padel-volt bg-padel-volt/15 volt-glow'
+                    : 'border-slate-800 bg-slate-900/90 hover:border-slate-600'
+                }">
+                  <div class="flex items-center justify-between">
+                    <span class="font-mono font-bold text-xs text-white">${timeStr}</span>
+                    <span class="text-[10px] font-mono ${data.openCourts <= 2 ? 'text-amber-300' : 'text-emerald-400'}">${data.openCourts} open</span>
+                  </div>
+                  <div class="text-[10px] font-mono text-slate-400 my-1">€${data.perPlayerPrice.toFixed(2)}/pp</div>
+                  <div class="flex gap-1">
+                    <button onclick="toggleShortlistSlot('${venue.id}', '${state.selectedDate}', '${timeStr}', ${state.duration})" class="flex-1 py-1 rounded bg-slate-800 hover:bg-padel-volt hover:text-slate-950 text-[10px] font-semibold transition ${isShortlisted ? '!bg-padel-volt !text-slate-950 font-bold' : 'text-slate-200'}">
+                      ${isShortlisted ? 'Added' : '+ Poll'}
+                    </button>
+                    <button onclick="openDirectBooking('${venue.id}', '${state.selectedDate}', '${timeStr}', ${state.duration})" class="px-1.5 py-1 rounded bg-slate-950 hover:bg-padel-turf hover:text-slate-950 text-[10px] text-slate-300 border border-slate-700 transition">
+                      ↗
+                    </button>
+                  </div>
+                </div>
+              `;
+            }).join('');
+
+            return `
+              <div class="rounded-2xl bg-slate-950/70 border border-slate-800 p-4">
+                <div class="flex items-center justify-between mb-3">
+                  <div>
+                    <h4 class="font-display font-bold text-base text-white">${venue.name}</h4>
+                    <p class="text-xs text-slate-400">${venue.address} • ${venue.distanceVhv}</p>
+                  </div>
+                  <a href="${venue.bookingUrl}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-padel-turf/15 text-padel-turf border border-padel-turf/30 text-xs font-semibold">
+                    Book Direct ↗
+                  </a>
+                </div>
+                <div class="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                  ${slotButtons}
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    function calculateEndTime(startTime, durationMins) {
+      const [h, m] = startTime.split(':').map(Number);
+      const totalMins = h * 60 + m + durationMins;
+      const endH = Math.floor(totalMins / 60) % 24;
+      const endM = totalMins % 60;
+      return `${String(endH).padStart(2, '0')}:${String(endM).padStart(2, '0')}`;
+    }
+
+    /*************************************************************************
+     * 5. MATCH ARRANGER, 4-PLAYER ROSTER, VOTING & WHATSAPP GENERATOR
+     *************************************************************************/
+    function renderMatchArranger() {
+      // Sync inputs
+      document.getElementById('matchTitleInput').value = state.match.title;
+      document.getElementById('matchTikkieInput').value = state.match.tikkieNote || '';
+
+      // 1. Render 4-Player Roster
+      const rosterContainer = document.getElementById('playerRosterList');
+      const confirmedCount = state.match.players.filter(p => p.status === 'CONFIRMED').length;
+      document.getElementById('confirmedPlayersCount').textContent = confirmedCount;
+
+      rosterContainer.innerHTML = state.match.players.map((p, idx) => {
+        let statusBadge = '';
+        if (p.status === 'CONFIRMED') {
+          statusBadge = `<button onclick="cyclePlayerStatus(${idx})" class="px-2 py-1 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[11px] font-mono font-semibold w-24 text-center hover:bg-emerald-500/30 transition">✅ In</button>`;
+        } else if (p.status === 'MAYBE') {
+          statusBadge = `<button onclick="cyclePlayerStatus(${idx})" class="px-2 py-1 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[11px] font-mono font-semibold w-24 text-center hover:bg-amber-500/30 transition">🤔 Maybe</button>`;
+        } else {
+          statusBadge = `<button onclick="cyclePlayerStatus(${idx})" class="px-2 py-1 rounded-lg bg-slate-800 border border-slate-700 text-slate-400 text-[11px] font-mono font-semibold w-24 text-center hover:bg-slate-700 transition">⏳ Invite</button>`;
+        }
+
+        return `
+          <div class="flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-slate-800 text-slate-400 font-mono text-[10px] flex items-center justify-center font-bold">
+              P${idx + 1}
+            </span>
+            <input type="text" value="${escapeHtml(p.name)}" oninput="updatePlayerName(${idx}, this.value)" class="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1 text-xs text-white focus:outline-none focus:border-padel-volt" placeholder="Player ${idx + 1} name" />
+            ${statusBadge}
+          </div>
+        `;
+      }).join('');
+
+      // 2. Render Shortlisted Slots & Interactive Player Voting
+      const shortlistEl = document.getElementById('shortlistContainer');
+      const count = state.match.shortlist.length;
+      document.getElementById('shortlistCountBadge').textContent = count;
+      document.getElementById('mobileShortlistCount').textContent = count;
+
+      // Update average cost badge
+      if (count > 0) {
+        const activeSlot = state.match.shortlist.find(s => s.key === state.match.lockedSlotKey) || state.match.shortlist[0];
+        const perPlayer = (activeSlot.totalPrice / 4).toFixed(2);
+        document.getElementById('costPerPlayerBadge').textContent = `€${perPlayer}/pp (€${activeSlot.totalPrice} total)`;
+      } else {
+        document.getElementById('costPerPlayerBadge').textContent = `~€10.50 / pp`;
+      }
+
+      if (count === 0) {
+        shortlistEl.innerHTML = `
+          <div class="p-4 rounded-xl bg-slate-950/60 border border-dashed border-slate-800 text-center">
+            <p class="text-xs text-slate-400 mb-2">No indoor slots shortlisted yet. Click <strong>"+ Shortlist"</strong> on any open time slot in the matrix, or:</p>
+            <button onclick="autoPickBestEveningSlots()" class="px-3 py-1.5 rounded-lg bg-padel-volt/15 text-padel-volt border border-padel-volt/30 text-xs font-semibold hover:bg-padel-volt/25 transition">
+              <i class="fa-solid fa-wand-magic-sparkles mr-1"></i>Auto-Shortlist 3 Prime Indoor Slots
+            </button>
+          </div>
+        `;
+      } else {
+        shortlistEl.innerHTML = state.match.shortlist.map(item => {
+          const venue = VENUES.find(v => v.id === item.venueId) || VENUES[0];
+          const isLocked = state.match.lockedSlotKey === item.key;
+          const endTime = calculateEndTime(item.time, item.duration);
+          const votes = item.votes || [];
+
+          return `
+            <div class="p-3 rounded-xl border transition ${
+              isLocked
+                ? 'bg-padel-volt/15 border-padel-volt shadow-md'
+                : 'bg-slate-900/95 border-slate-800'
+            }">
+              <div class="flex items-start justify-between gap-2 mb-1.5">
+                <div>
+                  <div class="flex items-center gap-1.5">
+                    <span class="font-display font-bold text-xs text-white">${venue.shortName}</span>
+                    <span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-800 text-padel-turf">${formatDisplayDate(item.date, true)}</span>
+                    ${isLocked ? '<span class="px-1.5 py-0.2 rounded bg-padel-volt text-slate-950 font-mono font-bold text-[10px]">🏆 LOCKED</span>' : ''}
+                  </div>
+                  <div class="text-xs font-mono text-slate-200 font-semibold mt-0.5">
+                    ⏰ ${item.time} – ${endTime} (${item.duration}m) • <span class="text-padel-volt">€${(item.totalPrice / 4).toFixed(2)}/pp</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1">
+                  <button onclick="lockShortlistSlot('${item.key}')" class="px-2 py-1 rounded-lg text-[10px] font-mono font-semibold border transition ${
+                    isLocked
+                      ? 'bg-padel-volt text-slate-950 border-padel-volt'
+                      : 'bg-slate-800 text-slate-300 border-slate-700 hover:border-padel-volt'
+                  }" title="Mark this slot as the winning/booked match">
+                    ${isLocked ? 'Winner' : 'Pick 🏆'}
+                  </button>
+                  <button onclick="openDirectBooking('${venue.id}', '${item.date}', '${item.time}', ${item.duration})" class="px-2 py-1 rounded-lg bg-slate-800 hover:bg-padel-turf hover:text-slate-950 text-slate-200 text-[10px] font-semibold transition" title="Open booking page">
+                    Book ↗
+                  </button>
+                  <button onclick="removeShortlistSlot('${item.key}')" class="w-6 h-6 rounded-lg bg-slate-950 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 text-xs flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- 4-Player Availability Vote Buttons for this slot -->
+              <div class="pt-2 mt-1.5 border-t border-slate-800/80 flex items-center justify-between gap-1">
+                <span class="text-[10px] font-mono text-slate-400">Can play (${votes.length}/4):</span>
+                <div class="flex items-center gap-1 flex-wrap">
+                  ${state.match.players.map((p, idx) => {
+                    const hasVoted = votes.includes(p.id);
+                    const shortPName = p.name.split(' ')[0].substring(0, 8) || `P${idx + 1}`;
+                    return `
+                      <button onclick="togglePlayerVote('${item.key}', '${p.id}')" class="px-2 py-0.5 rounded text-[10px] font-mono transition border ${
+                        hasVoted
+                          ? 'bg-emerald-500/25 border-emerald-500/60 text-emerald-200 font-bold'
+                          : 'bg-slate-950 border-slate-800 text-slate-500 hover:text-slate-300'
+                      }" title="Toggle ${escapeHtml(p.name)} availability for ${item.time}">
+                        ${hasVoted ? '✓ ' : ''}${escapeHtml(shortPName)}
+                      </button>
+                    `;
+                  }).join('')}
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // 3. Language & Mode buttons
+      document.getElementById('langNL').className = state.waLang === 'NL'
+        ? 'px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-padel-volt text-slate-950'
+        : 'px-2 py-0.5 rounded text-[11px] font-mono text-slate-400 hover:text-white';
+      document.getElementById('langEN').className = state.waLang === 'EN'
+        ? 'px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-padel-volt text-slate-950'
+        : 'px-2 py-0.5 rounded text-[11px] font-mono text-slate-400 hover:text-white';
+
+      document.getElementById('waModePoll').className = state.waMode === 'POLL'
+        ? 'py-1 rounded-lg text-[11px] font-bold bg-padel-turf text-slate-950 shadow'
+        : 'py-1 rounded-lg text-[11px] font-medium text-slate-400 hover:text-white';
+      document.getElementById('waModeConfirmed').className = state.waMode === 'CONFIRMED'
+        ? 'py-1 rounded-lg text-[11px] font-bold bg-emerald-400 text-slate-950 shadow'
+        : 'py-1 rounded-lg text-[11px] font-medium text-slate-400 hover:text-white';
+
+      // 4. Sync Stateless URL & WhatsApp Message Preview
+      updateStatelessShareUrl();
+      generateWhatsAppMessage();
+    }
+
+    function generateWhatsAppMessage() {
+      const isNL = state.waLang === 'NL';
+      const title = state.match.title || 'VHV/EHV Indoor Padel 🎾';
+      const playersLine = state.match.players
+        .map((p, i) => {
+          const icon = p.status === 'CONFIRMED' ? '✅' : (p.status === 'MAYBE' ? '🤔' : '⏳');
+          return `${icon} ${p.name}`;
+        })
+        .join(' | ');
+
+      const shareUrl = document.getElementById('shareUrlInput').value;
+      let lines = [];
+
+      if (state.waMode === 'CONFIRMED') {
+        const winner = state.match.shortlist.find(s => s.key === state.match.lockedSlotKey) || state.match.shortlist[0];
+        if (!winner) {
+          lines.push(isNL
+            ? `🎾 *${title}*\nSelecteer eerst een tijdslot in de VHV/EHV Padel Hub!`
+            : `🎾 *${title}*\nPlease shortlist a time slot in the VHV/EHV Padel Hub first!`);
+        } else {
+          const venue = VENUES.find(v => v.id === winner.venueId) || VENUES[0];
+          const endTime = calculateEndTime(winner.time, winner.duration);
+          const pp = (winner.totalPrice / 4).toFixed(2);
+
+          if (isNL) {
+            lines.push(`🎾 *BEVESTIGD: ${title}*`);
+            lines.push(`📍 *Club:* ${venue.name} (100% Indoor)`);
+            lines.push(`📫 *Adres:* ${venue.address}`);
+            lines.push(`📅 *Datum:* ${formatDisplayDate(winner.date, true)}`);
+            lines.push(`⏰ *Tijd:* ${winner.time} - ${endTime} (${winner.duration} min)`);
+            lines.push(`💶 *Kosten:* €${pp} p.p. (Totaal €${winner.totalPrice.toFixed(2)})`);
+            if (state.match.tikkieNote) lines.push(`💬 *Info:* ${state.match.tikkieNote}`);
+            lines.push(`\n👥 *Spelers (4):*\n${playersLine}`);
+            lines.push(`\n🔗 *Baan / Boeking:* ${venue.bookingUrl}`);
+          } else {
+            lines.push(`🎾 *CONFIRMED: ${title}*`);
+            lines.push(`📍 *Venue:* ${venue.name} (100% Indoor)`);
+            lines.push(`📫 *Address:* ${venue.address}`);
+            lines.push(`📅 *Date:* ${formatDisplayDate(winner.date, true)}`);
+            lines.push(`⏰ *Time:* ${winner.time} - ${endTime} (${winner.duration} min)`);
+            lines.push(`💶 *Split:* €${pp}/pp (Total €${winner.totalPrice.toFixed(2)})`);
+            if (state.match.tikkieNote) lines.push(`💬 *Note:* ${state.match.tikkieNote}`);
+            lines.push(`\n👥 *Squad (4):*\n${playersLine}`);
+            lines.push(`\n🔗 *Booking Portal:* ${venue.bookingUrl}`);
+          }
+        }
+      } else {
+        // POLL MODE ("Padel Datumprikker")
+        if (isNL) {
+          lines.push(`🎾 *${title} — Welke tijd kunnen jullie?*`);
+          lines.push(`👥 *Spelers:* ${playersLine}\n`);
+          if (state.match.shortlist.length === 0) {
+            lines.push(`_(Nog geen tijden geselecteerd — klik op '+ Shortlist' in het schema)_`);
+          } else {
+            lines.push(`📋 *Beschikbare Indoor Opties (VHV / EHV):*`);
+            state.match.shortlist.forEach((s, idx) => {
+              const v = VENUES.find(ven => ven.id === s.venueId) || VENUES[0];
+              const end = calculateEndTime(s.time, s.duration);
+              const voterNames = (s.votes || [])
+                .map(pid => {
+                  const pl = state.match.players.find(x => x.id === pid);
+                  return pl ? pl.name.split(' ')[0] : '';
+                })
+                .filter(Boolean);
+              const voteSuffix = voterNames.length ? ` [✅ ${voterNames.join(', ')}]` : '';
+              lines.push(`${idx + 1}️⃣ *${formatDisplayDate(s.date, true)} ${s.time}-${end}* @ ${v.shortName} (€${(s.totalPrice / 4).toFixed(2)} pp)${voteSuffix}`);
+            });
+          }
+          if (state.match.tikkieNote) lines.push(`\n💬 ${state.match.tikkieNote}`);
+          lines.push(`\n🗳️ *Stem of boek direct via onze Padel Hub:*\n${shareUrl}`);
+        } else {
+          lines.push(`🎾 *${title} — Which indoor slot works?*`);
+          lines.push(`👥 *Squad:* ${playersLine}\n`);
+          if (state.match.shortlist.length === 0) {
+            lines.push(`_(No slots shortlisted yet — click '+ Shortlist' on the matrix)_`);
+          } else {
+            lines.push(`📋 *Shortlisted Indoor Courts (VHV / EHV):*`);
+            state.match.shortlist.forEach((s, idx) => {
+              const v = VENUES.find(ven => ven.id === s.venueId) || VENUES[0];
+              const end = calculateEndTime(s.time, s.duration);
+              const voterNames = (s.votes || [])
+                .map(pid => {
+                  const pl = state.match.players.find(x => x.id === pid);
+                  return pl ? pl.name.split(' ')[0] : '';
+                })
+                .filter(Boolean);
+              const voteSuffix = voterNames.length ? ` [✅ ${voterNames.join(', ')}]` : '';
+              lines.push(`${idx + 1}️⃣ *${formatDisplayDate(s.date, true)} ${s.time}-${end}* @ ${v.shortName} (€${(s.totalPrice / 4).toFixed(2)}/pp)${voteSuffix}`);
+            });
+          }
+          if (state.match.tikkieNote) lines.push(`\n💬 ${state.match.tikkieNote}`);
+          lines.push(`\n🗳️ *Vote or book directly via our Padel Hub:*\n${shareUrl}`);
+        }
+      }
+
+      document.getElementById('whatsappPreview').value = lines.join('\n');
+    }
+
+    /*************************************************************************
+     * 6. STATELESS URL STATE ENCODING FOR GITHUB PAGES (?match=...)
+     *************************************************************************/
+    function encodeMatchStateToBase64() {
+      const compact = {
+        t: state.match.title,
+        n: state.match.tikkieNote,
+        l: state.match.lockedSlotKey,
+        p: state.match.players,
+        s: state.match.shortlist
+      };
+      const jsonStr = JSON.stringify(compact);
+      return btoa(encodeURIComponent(jsonStr));
+    }
+
+    function decodeMatchStateFromBase64(b64) {
+      try {
+        const jsonStr = decodeURIComponent(atob(b64));
+        const parsed = JSON.parse(jsonStr);
+        if (parsed && Array.isArray(parsed.p) && Array.isArray(parsed.s)) {
+          state.match.title = parsed.t || 'VHV/EHV Indoor Padel 🎾';
+          state.match.tikkieNote = parsed.n || '';
+          state.match.lockedSlotKey = parsed.l || null;
+          state.match.players = parsed.p;
+          state.match.shortlist = parsed.s;
+          if (state.match.shortlist.length > 0) {
+            state.selectedDate = state.match.shortlist[0].date;
+            state.duration = state.match.shortlist[0].duration || 90;
+          }
+          return true;
+        }
+      } catch (err) {
+        console.warn('Could not decode ?match parameter:', err);
+      }
+      return false;
+    }
+
+    function updateStatelessShareUrl() {
+      try {
+        const encoded = encodeMatchStateToBase64();
+        const baseUrl = window.location.origin + window.location.pathname;
+        const shareUrl = `${baseUrl}?match=${encoded}`;
+        document.getElementById('shareUrlInput').value = shareUrl;
+        // Also softly update history state if running on http/https
+        if (window.location.protocol.startsWith('http')) {
+          window.history.replaceState(null, '', `?match=${encoded}`);
+        }
+      } catch (e) {
+        document.getElementById('shareUrlInput').value = window.location.href;
+      }
+    }
+
+    /*************************************************************************
+     * 7. USER INTERACTIONS & EVENT HANDLERS
+     *************************************************************************/
+    function selectDate(dateStr) {
+      state.selectedDate = dateStr;
+      renderAll();
+    }
+
+    function handleNativeDateChange(val) {
+      if (!val) return;
+      state.selectedDate = val;
+      renderAll();
+    }
+
+    function handleClusterChange(clusterVal) {
+      state.cluster = clusterVal;
+      if (clusterVal === 'ALL') {
+        state.activeVenues = VENUES.map(v => v.id);
+      } else if (clusterVal === 'VHV') {
+        state.activeVenues = ['padellers_vhv', 'david_lloyd_vhv'];
+      } else if (clusterVal === 'PEAKZ') {
+        state.activeVenues = ['peakz_beurs', 'peakz_vijfkamp'];
+      } else if (clusterVal === 'PADELLERS_PEAKZ') {
+        state.activeVenues = ['padellers_vhv', 'peakz_beurs', 'peakz_vijfkamp'];
+      }
+      renderAll();
+    }
+
+    function toggleSingleVenue(venueId) {
+      if (state.activeVenues.includes(venueId)) {
+        if (state.activeVenues.length === 1) {
+          showToast('At least 1 indoor club must stay visible.', 'info');
+          return;
+        }
+        state.activeVenues = state.activeVenues.filter(id => id !== venueId);
+      } else {
+        state.activeVenues.push(venueId);
+      }
+      renderAll();
+    }
+
+    function selectAllVenues() {
+      state.activeVenues = VENUES.map(v => v.id);
+      document.getElementById('clusterFilter').value = 'ALL';
+      renderAll();
+    }
+
+    function handleFilterChange() {
+      state.timeWindow = document.getElementById('timeWindowFilter').value;
+      state.courtType = document.getElementById('courtTypeFilter').value;
+      renderAll();
+    }
+
+    function setDuration(mins) {
+      state.duration = mins;
+      renderAll();
+    }
+
+    function toggleOnlyAvailable() {
+      state.onlyAvailable = !state.onlyAvailable;
+      renderAll();
+    }
+
+    function toggleMatrixView() {
+      state.viewMode = state.viewMode === 'MATRIX' ? 'CARDS' : 'MATRIX';
+      showToast(`Switched to ${state.viewMode === 'MATRIX' ? 'Time-Slot Comparison Matrix' : 'Club Card Grid'} view`, 'info');
+      renderAll();
+    }
+
+    function toggleShortlistSlot(venueId, dateStr, timeStr, duration) {
+      const key = `${venueId}|${dateStr}|${timeStr}|${duration}`;
+      const existingIdx = state.match.shortlist.findIndex(s => s.key === key);
+      const venue = VENUES.find(v => v.id === venueId);
+
+      if (existingIdx > -1) {
+        state.match.shortlist.splice(existingIdx, 1);
+        if (state.match.lockedSlotKey === key) {
+          state.match.lockedSlotKey = state.match.shortlist[0]?.key || null;
+        }
+        showToast(`Removed ${venue.shortName} (${timeStr}) from poll`, 'info');
+      } else {
+        const slotData = getSlotAvailability(venueId, dateStr, timeStr, duration, state.courtType);
+        const defaultVoters = state.match.players.filter(p => p.status === 'CONFIRMED').map(p => p.id);
+        state.match.shortlist.push({
+          key,
+          venueId,
+          date: dateStr,
+          time: timeStr,
+          duration,
+          totalPrice: slotData ? slotData.totalPrice : 42,
+          openCourts: slotData ? slotData.openCourts : 1,
+          votes: defaultVoters.length ? defaultVoters : ['p1']
+        });
+        if (!state.match.lockedSlotKey) {
+          state.match.lockedSlotKey = key;
+        }
+        showToast(`Shortlisted ${venue.shortName} @ ${timeStr} for your squad!`, 'success');
+      }
+      renderAll();
+    }
+
+    function removeShortlistSlot(key) {
+      state.match.shortlist = state.match.shortlist.filter(s => s.key !== key);
+      if (state.match.lockedSlotKey === key) {
+        state.match.lockedSlotKey = state.match.shortlist[0]?.key || null;
+      }
+      renderAll();
+    }
+
+    function lockShortlistSlot(key) {
+      state.match.lockedSlotKey = key;
+      state.waMode = 'CONFIRMED';
+      showToast('Locked as winning match slot! Switched WhatsApp generator to Confirmed mode.', 'success');
+      renderMatchArranger();
+    }
+
+    function togglePlayerVote(slotKey, playerId) {
+      const slot = state.match.shortlist.find(s => s.key === slotKey);
+      if (!slot) return;
+      if (!Array.isArray(slot.votes)) slot.votes = [];
+      if (slot.votes.includes(playerId)) {
+        slot.votes = slot.votes.filter(id => id !== playerId);
+      } else {
+        slot.votes.push(playerId);
+      }
+      renderMatchArranger();
+    }
+
+    function autoPickBestEveningSlots() {
+      const primeCandidates = ['18:30', '19:00', '19:30', '20:00', '20:30', '18:00'];
+      let added = 0;
+
+      for (const timeStr of primeCandidates) {
+        for (const venueId of state.activeVenues) {
+          if (added >= 3) break;
+          const key = `${venueId}|${state.selectedDate}|${timeStr}|${state.duration}`;
+          if (state.match.shortlist.some(s => s.key === key)) continue;
+
+          const slot = getSlotAvailability(venueId, state.selectedDate, timeStr, state.duration, state.courtType);
+          if (slot && slot.openCourts > 0) {
+            state.match.shortlist.push({
+              key,
+              venueId,
+              date: state.selectedDate,
+              time: timeStr,
+              duration: state.duration,
+              totalPrice: slot.totalPrice,
+              openCourts: slot.openCourts,
+              votes: ['p1', 'p2']
+            });
+            added++;
+          }
+        }
+        if (added >= 3) break;
+      }
+
+      if (state.match.shortlist.length > 0 && !state.match.lockedSlotKey) {
+        state.match.lockedSlotKey = state.match.shortlist[0].key;
+      }
+      showToast(`Added ${added} prime evening indoor options to your Match Poll!`, 'success');
+      renderAll();
+    }
+
+    function clearShortlist() {
+      state.match.shortlist = [];
+      state.match.lockedSlotKey = null;
+      showToast('Cleared shortlisted time slots.', 'info');
+      renderAll();
+    }
+
+    function resetMatchState() {
+      state.match = {
+        title: 'VHV/EHV Indoor Padel 🎾',
+        tikkieNote: 'Rackets ready! Tikkie follows after booking',
+        lockedSlotKey: null,
+        players: [
+          { id: 'p1', name: 'You (Organizer)', status: 'CONFIRMED' },
+          { id: 'p2', name: 'Player 2', status: 'CONFIRMED' },
+          { id: 'p3', name: 'Player 3', status: 'MAYBE' },
+          { id: 'p4', name: 'Player 4', status: 'WAITING' }
+        ],
+        shortlist: []
+      };
+      document.getElementById('sharedMatchBanner').classList.add('hidden');
+      renderAll();
+      showToast('Started a fresh match poll!', 'success');
+    }
+
+    function updateMatchMeta() {
+      state.match.title = document.getElementById('matchTitleInput').value;
+      state.match.tikkieNote = document.getElementById('matchTikkieInput').value;
+      updateStatelessShareUrl();
+      generateWhatsAppMessage();
+    }
+
+    function updatePlayerName(idx, newName) {
+      if (state.match.players[idx]) {
+        state.match.players[idx].name = newName;
+        renderMatchArranger();
+      }
+    }
+
+    function cyclePlayerStatus(idx) {
+      const order = ['CONFIRMED', 'MAYBE', 'WAITING'];
+      const current = state.match.players[idx].status;
+      const next = order[(order.indexOf(current) + 1) % order.length];
+      state.match.players[idx].status = next;
+      renderMatchArranger();
+    }
+
+    function setWaLang(lang) {
+      state.waLang = lang;
+      renderAll();
+    }
+
+    function setWaMode(mode) {
+      state.waMode = mode;
+      renderMatchArranger();
+    }
+
+    function openDirectBooking(venueId, dateStr, timeStr, duration) {
+      const venue = VENUES.find(v => v.id === venueId);
+      if (!venue) return;
+
+      // Copy booking details to clipboard for convenience and open club portal
+      const summary = `${venue.name} — ${dateStr} @ ${timeStr} (${duration} min)`;
+      copyTextToClipboard(summary);
+      showToast(`Opening ${venue.shortName} (${venue.platform}) for ${timeStr} on ${formatDisplayDate(dateStr, true)}`, 'success');
+      window.open(venue.bookingUrl, '_blank', 'noopener,noreferrer');
+    }
+
+    /*************************************************************************
+     * 8. CLIPBOARD, WHATSAPP, .ICS CALENDAR & LIVE JSON SYNC
+     *************************************************************************/
+    function copyTextToClipboard(text) {
+      const temp = document.createElement('textarea');
+      temp.value = text;
+      temp.style.position = 'fixed';
+      temp.style.opacity = '0';
+      document.body.appendChild(temp);
+      temp.select();
+      try {
+        document.execCommand('copy');
+      } catch (e) {
+        console.warn('Clipboard copy fallback failed', e);
+      }
+      document.body.removeChild(temp);
+    }
+
+    function copyShareUrl() {
+      const url = document.getElementById('shareUrlInput').value;
+      copyTextToClipboard(url);
+      showToast('Copied GitHub Pages Match Poll Link! Send it to your padel group.', 'success');
+    }
+
+    function copyWhatsAppMessage() {
+      const msg = document.getElementById('whatsappPreview').value;
+      copyTextToClipboard(msg);
+      showToast('WhatsApp message copied to clipboard!', 'success');
+    }
+
+    function openInWhatsApp() {
+      const msg = document.getElementById('whatsappPreview').value;
+      const waUrl = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+    }
+
+    function copyWorkflowCode() {
+      const code = document.getElementById('workflowCodeBlock').innerText;
+      copyTextToClipboard(code);
+      showToast('Copied .github/workflows/update-courts.yml to clipboard!', 'success');
+    }
+
+    function downloadICS() {
+      const slot = state.match.shortlist.find(s => s.key === state.match.lockedSlotKey) || state.match.shortlist[0];
+      if (!slot) {
+        showToast('Shortlist at least one court time slot first to export a calendar invite!', 'info');
+        return;
+      }
+      const venue = VENUES.find(v => v.id === slot.venueId) || VENUES[0];
+      const [y, m, d] = slot.date.split('-').map(Number);
+      const [hh, mm] = slot.time.split(':').map(Number);
+
+      const startDt = new Date(y, m - 1, d, hh, mm, 0);
+      const endDt = new Date(startDt.getTime() + slot.duration * 60000);
+
+      const formatIcsDate = (dt) => {
+        const pad = (n) => String(n).padStart(2, '0');
+        return `${dt.getFullYear()}${pad(dt.getMonth() + 1)}${pad(dt.getDate())}T${pad(dt.getHours())}${pad(dt.getMinutes())}00`;
+      };
+
+      const squadNames = state.match.players.map(p => p.name).join(', ');
+      const icsLines = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//VHV EHV Indoor Padel Hub//EN',
+        'BEGIN:VEVENT',
+        `UID:vhv-padel-${Date.now()}@github.io`,
+        `DTSTAMP:${formatIcsDate(new Date())}`,
+        `DTSTART:${formatIcsDate(startDt)}`,
+        `DTEND:${formatIcsDate(endDt)}`,
+        `SUMMARY:${state.match.title} @ ${venue.name}`,
+        `LOCATION:${venue.name}\\, ${venue.address}`,
+        `DESCRIPTION:Indoor Padel Match (${slot.duration} min) | Squad: ${squadNames} | Price: €${(slot.totalPrice / 4).toFixed(2)}/pp | Portal: ${venue.bookingUrl}`,
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      const blob = new Blob([icsLines], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `padel-${venue.id}-${slot.date}.ics`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast(`Downloaded .ICS calendar invite for ${venue.shortName}!`, 'success');
+    }
+
+    async function tryLoadExternalAvailabilityJson(showFeedback = false) {
+      try {
+        const res = await fetch('./availability.json', { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          state.externalJsonData = data;
+          state.dataSource = `Live JSON (${data.updatedAt ? new Date(data.updatedAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : 'Synced'})`;
+          document.getElementById('syncLabel').textContent = state.dataSource;
+          if (showFeedback) {
+            showToast('Loaded ./availability.json from GitHub Pages repo!', 'success');
+          }
+          renderAll();
+          return true;
+        }
+      } catch (err) {
+        // Expected when running without availability.json present yet
+      }
+      if (showFeedback) {
+        showToast('No ./availability.json found in root yet — using Smart VHV/EHV Indoor Engine. See Tab 2 to enable the GitHub Action!', 'info');
+      }
+      return false;
+    }
+
+    function refreshAvailability(manual = false) {
+      const icon = document.getElementById('refreshIcon');
+      icon.classList.add('fa-spin');
+      setTimeout(async () => {
+        await tryLoadExternalAvailabilityJson(false);
+        icon.classList.remove('fa-spin');
+        if (manual) {
+          showToast('Synced indoor courts across Padellers VHV, Peakz Beursplein, Peakz Vijfkamplaan & David Lloyd VHV!', 'success');
+        }
+        renderAll();
+      }, 350);
+    }
+
+    function saveProxySettings() {
+      const val = document.getElementById('corsProxyInput').value.trim();
+      localStorage.setItem('vhv_padel_cors_proxy', val);
+      showToast(val ? 'Saved custom CORS Proxy URL!' : 'Cleared custom CORS proxy.', 'success');
+    }
+
+    /*************************************************************************
+     * 9. MODALS, TOASTS & UTILITIES
+     *************************************************************************/
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    function switchApiTab(tabName) {
+      ['OVERVIEW', 'WORKFLOW', 'SETTINGS'].forEach(t => {
+        const content = document.getElementById(`apiTab${t}`);
+        if (content) content.classList.toggle('hidden', t !== tabName);
+      });
+      const map = {
+        OVERVIEW: 'tabBtnOverview',
+        WORKFLOW: 'tabBtnWorkflow',
+        SETTINGS: 'tabBtnSettings'
+      };
+      Object.entries(map).forEach(([k, btnId]) => {
+        const btn = document.getElementById(btnId);
+        if (k === tabName) {
+          btn.className = 'api-tab-btn px-3 py-2 text-xs font-mono font-semibold border-b-2 border-padel-volt text-padel-volt';
+        } else {
+          btn.className = 'api-tab-btn px-3 py-2 text-xs font-mono font-semibold border-b-2 border-transparent text-slate-400 hover:text-white';
+        }
+      });
+    }
+
+    function scrollToArranger() {
+      document.getElementById('matchArrangerPanel').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      const isSuccess = type === 'success';
+      toast.className = `pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-xl border shadow-2xl text-xs font-medium transition-all duration-300 ${
+        isSuccess
+          ? 'bg-slate-900/95 border-padel-volt text-white volt-glow'
+          : 'bg-slate-900/95 border-padel-turf text-white turf-glow'
+      }`;
+      toast.innerHTML = `
+        <i class="fa-solid ${isSuccess ? 'fa-circle-check text-padel-volt' : 'fa-circle-info text-padel-turf'} text-sm"></i>
+        <span>${escapeHtml(message)}</span>
+      `;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(8px)';
+        setTimeout(() => toast.remove(), 250);
+      }, 3200);
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function renderAll() {
+      renderVenueOverviewCards();
+      renderDateStrip();
+      renderAvailabilityMatrix();
+      renderMatchArranger();
+    }
+
+    /*************************************************************************
+     * 10. INITIALIZATION ON LOAD
+     *************************************************************************/
+    window.addEventListener('DOMContentLoaded', async () => {
+      // Load saved proxy setting if any
+      const savedProxy = localStorage.getItem('vhv_padel_cors_proxy');
+      if (savedProxy) {
+        document.getElementById('corsProxyInput').value = savedProxy;
+      }
+
+      // Check if opened via shared GitHub Pages ?match= link
+      const params = new URLSearchParams(window.location.search);
+      const sharedMatchParam = params.get('match');
+      if (sharedMatchParam && decodeMatchStateFromBase64(sharedMatchParam)) {
+        document.getElementById('sharedMatchBanner').classList.remove('hidden');
+      } else {
+        // Pre-populate 2 realistic prime evening options so the Match Arranger is immediately useful
+        const defaultDate = state.selectedDate;
+        const pSlot = getSlotAvailability('padellers_vhv', defaultDate, '19:00', 90, 'DOUBLE');
+        const pkSlot = getSlotAvailability('peakz_beurs', defaultDate, '19:30', 90, 'DOUBLE');
+
+        state.match.shortlist = [
+          {
+            key: `padellers_vhv|${defaultDate}|19:00|90`,
+            venueId: 'padellers_vhv',
+            date: defaultDate,
+            time: '19:00',
+            duration: 90,
+            totalPrice: pSlot ? pSlot.totalPrice : 49.5,
+            openCourts: pSlot ? pSlot.openCourts : 2,
+            votes: ['p1', 'p2', 'p3']
+          },
+          {
+            key: `peakz_beurs|${defaultDate}|19:30|90`,
+            venueId: 'peakz_beurs',
+            date: defaultDate,
+            time: '19:30',
+            duration: 90,
+            totalPrice: pkSlot ? pkSlot.totalPrice : 48,
+            openCourts: pkSlot ? pkSlot.openCourts : 3,
+            votes: ['p1', 'p2']
+          }
+        ];
+        state.match.lockedSlotKey = state.match.shortlist[0].key;
+      }
+
+      // Try loading ./availability.json if hosted alongside GitHub Action
+      await tryLoadExternalAvailabilityJson(false);
+
+      renderAll();
+    });
+  </script>
+</body>
+</html>

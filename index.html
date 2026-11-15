@@ -821,15 +821,45 @@ jobs:
     }
 
     function getSlotAvailability(venueId, dateStr, timeStr, duration, courtType) {
-      const venue = VENUES.find(v => v.id === venueId);
-      if (!venue) return null;
+          const venue = VENUES.find(v => v.id === venueId);
+          if (!venue) return null;
+    
+          // When Live availability.json is loaded, NEVER fall back to fake simulated slots
+          if (state.externalJsonData && state.externalJsonData.slots) {
+            const extKeyDur = `${venueId}_${dateStr}_${timeStr}_${duration}`;
+            const extKeyBase = `${venueId}_${dateStr}_${timeStr}`;
+            const liveSlot = state.externalJsonData.slots[extKeyDur] || state.externalJsonData.slots[extKeyBase];
+    
+            if (liveSlot) {
+              return liveSlot;
+            }
+    
+            const status = state.externalJsonData.clubStatus?.[venueId];
+            const maxCourts = courtType === 'SINGLE' ? venue.indoorSingleCourts : venue.indoorDoubleCourts;
+    
+            // If this club's live feed succeeded, an absent slot means it is genuinely sold out (0 open)
+            if (status === 'live') {
+              return {
+                openCourts: 0,
+                maxCourts,
+                totalPrice: 0,
+                perPlayerPrice: 0,
+                isPeak: false,
+                availableCourtNames: [],
+                supported: true
+              };
+            }
 
-      // Check if external availability.json has override data
-      if (state.externalJsonData && state.externalJsonData.slots) {
-        const extKey = `${venueId}_${dateStr}_${timeStr}`;
-        if (state.externalJsonData.slots[extKey]) {
-          return state.externalJsonData.slots[extKey];
-        }
+        // If the club's widget couldn't be scraped headlessly, show 0/Portal link rather than fake courts
+        return {
+          openCourts: 0,
+          maxCourts,
+          totalPrice: 0,
+          perPlayerPrice: 0,
+          isPeak: false,
+          availableCourtNames: [],
+          supported: true
+        };
       }
 
       // If filtering Single courts and venue has 0 single courts

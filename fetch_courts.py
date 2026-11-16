@@ -87,34 +87,48 @@ def scrape_peakz_location(context, venue_id, location_label, expected_courts):
             "button:has-text('Utrecht')",
             "[data-testid*='location']",
         ]:
-            el = page.locator(selector).first
-            if el.count() > 0 and el.is_visible():
-                el.click(timeout=2000)
-                page.wait_for_timeout(1000)
-                target_opt = page.locator(f"text=/{location_label}/i").last
-                if target_opt.count() > 0 and target_opt.is_visible():
-                    target_opt.click(timeout=2000)
-                    loc_clicked = True
-                    captured.clear()  # Discard initial Utrecht payloads!
-                    page.wait_for_timeout(2500)
-                    break
+            try:
+                el = page.locator(selector).first
+                if el.count() > 0 and el.is_visible():
+                    el.click(timeout=2000)
+                    page.wait_for_timeout(1000)
+                    target_opt = page.locator(f"text=/{location_label}/i").last
+                    if target_opt.count() > 0 and target_opt.is_visible():
+                        target_opt.click(timeout=2000)
+                        loc_clicked = True
+                        captured.clear()  # Discard initial Utrecht payloads!
+                        page.wait_for_timeout(2500)
+                        break
+            except Exception:
+                continue
 
         print(f"[Peakz] {venue_id} location selected={loc_clicked}, payloads={len(captured)}")
 
-# Robust day picker loop
+        # Robust day picker loop (keep CSS and XPath selectors separate)
         for day_offset in range(1, DAYS_AHEAD):
             target_dt = now_nl + timedelta(days=day_offset)
             date_iso = target_dt.strftime("%Y-%m-%d")
             day_num = str(target_dt.day)
-            
-            # Try multiple selectors that booking widgets use for date cells
-            day_el = page.locator(f"[data-date='{date_iso}'], [aria-label*='{day_num}'], .calendar-day:has-text('{day_num}'), xpath=//*[normalize-space(text())='{day_num}']").first
-            if day_el.count() > 0:
+
+            day_selectors = [
+                f"[data-date='{date_iso}']",
+                f"[aria-label*='{date_iso}']",
+                f"button:text-is('{day_num}')",
+                f"[role='gridcell']:text-is('{day_num}')",
+                f"[role='button']:text-is('{day_num}')",
+                f".calendar-day:text-is('{day_num}')",
+                f"xpath=//button[normalize-space(.)='{day_num}']",
+                f"xpath=//*[self::button or self::a or self::td][normalize-space(text())='{day_num}']",
+            ]
+            for sel in day_selectors:
                 try:
-                    day_el.click(timeout=2000)
-                    page.wait_for_timeout(1800) # Wait for XHR availability request to fire
+                    day_el = page.locator(sel).first
+                    if day_el.count() > 0 and day_el.is_visible():
+                        day_el.click(timeout=2000)
+                        page.wait_for_timeout(1800)  # Wait for XHR availability request to fire
+                        break
                 except Exception:
-                    pass
+                    continue
 
         # Parse FOYS availability payloads (rejecting Utrecht 'Pon Centre Court')
         def walk_foys(node, court_name="Indoor Baan", date_str=now_nl.strftime("%Y-%m-%d")):
@@ -190,10 +204,19 @@ def scrape_padellers_veldhoven(context):
             date_str = target_dt.strftime("%Y-%m-%d")
             if day_offset > 0:
                 day_num = str(target_dt.day)
-                btn = page.locator(f"xpath=//*[normalize-space(text())='{day_num}']").first
-                if btn.count() > 0 and btn.is_visible():
-                    btn.click(timeout=1500)
-                    page.wait_for_timeout(1500)
+                for sel in [
+                    f"[data-date='{date_str}']",
+                    f"button:text-is('{day_num}')",
+                    f"xpath=//*[normalize-space(text())='{day_num}']",
+                ]:
+                    try:
+                        btn = page.locator(sel).first
+                        if btn.count() > 0 and btn.is_visible():
+                            btn.click(timeout=1500)
+                            page.wait_for_timeout(1500)
+                            break
+                    except Exception:
+                        continue
 
             # Read clickable free time-slot buttons from the rendered Bookaball grid
             free_slots = page.evaluate("""() => {

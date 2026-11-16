@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T03:53:19.370235+00:00",
+  "updatedAt": "2026-11-16T12:17:47.086708+00:00",
   "source": "GitHub Actions Live Sync",
   "clubStatus": {
     "padellers_vhv": "live",
@@ -151,50 +151,8 @@
       ],
       "supported": true
     },
-    "peakz_beurs_2026-11-16_09:30_120": {
-      "openCourts": 4,
-      "maxCourts": 8,
-      "totalPrice": 59.0,
-      "perPlayerPrice": 14.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2",
-        "Baan 3",
-        "Baan 4",
-        "Pon Centre Court"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-16_10:30_120": {
-      "openCourts": 4,
-      "maxCourts": 8,
-      "totalPrice": 56.0,
-      "perPlayerPrice": 14.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2",
-        "Baan 3",
-        "Baan 4",
-        "Pon Centre Court"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-16_11:00_120": {
-      "openCourts": 4,
-      "maxCourts": 8,
-      "totalPrice": 53.0,
-      "perPlayerPrice": 13.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2",
-        "Baan 3",
-        "Baan 4",
-        "Pon Centre Court"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-16_11:30_120": {
-      "openCourts": 4,
+    "peakz_beurs_2026-11-16_08:00_120": {
+      "openCourts": 3,
       "maxCourts": 8,
       "totalPrice": 50.0,
       "perPlayerPrice": 12.5,
@@ -202,8 +160,95 @@
       "availableCourtNames": [
         "Baan 2",
         "Baan 3",
-        "Baan 4",
+        "Baan 4"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-16_08:30_120": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 53.0,
+      "perPlayerPrice": 13.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-16_09:00_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2",
+        "Baan 3",
+        "Baan 4"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-16_09:30_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 59.0,
+      "perPlayerPrice": 14.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2",
+        "Baan 3",
         "Pon Centre Court"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-16_10:00_120": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 59.0,
+      "perPlayerPrice": 14.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-16_10:30_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2",
+        "Baan 3",
+        "Pon Centre Court"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-16_11:00_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 53.0,
+      "perPlayerPrice": 13.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2",
+        "Baan 3",
+        "Pon Centre Court"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-16_11:30_120": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 50.0,
+      "perPlayerPrice": 12.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2",
+        "Baan 3"
       ],
       "supported": true
     },
@@ -222,21 +267,19 @@
       "supported": true
     },
     "peakz_beurs_2026-11-16_12:30_120": {
-      "openCourts": 4,
+      "openCourts": 2,
       "maxCourts": 8,
       "totalPrice": 50.0,
       "perPlayerPrice": 12.5,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 2",
-        "Baan 3",
-        "Baan 4",
-        "Pon Centre Court"
+        "Baan 3"
       ],
       "supported": true
     },
     "peakz_beurs_2026-11-16_13:00_120": {
-      "openCourts": 4,
+      "openCourts": 3,
       "maxCourts": 8,
       "totalPrice": 50.0,
       "perPlayerPrice": 12.5,
@@ -244,47 +287,43 @@
       "availableCourtNames": [
         "Baan 2",
         "Baan 3",
-        "Baan 4",
-        "Pon Centre Court"
+        "Baan 4"
       ],
       "supported": true
     },
     "peakz_beurs_2026-11-16_13:30_120": {
-      "openCourts": 3,
+      "openCourts": 2,
       "maxCourts": 8,
       "totalPrice": 50.0,
       "perPlayerPrice": 12.5,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 2",
-        "Baan 3",
-        "Pon Centre Court"
+        "Baan 3"
       ],
       "supported": true
     },
     "peakz_beurs_2026-11-16_14:00_90": {
-      "openCourts": 3,
+      "openCourts": 2,
       "maxCourts": 8,
       "totalPrice": 37.5,
       "perPlayerPrice": 9.38,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 2",
-        "Baan 3",
-        "Pon Centre Court"
+        "Baan 3"
       ],
       "supported": true
     },
     "peakz_beurs_2026-11-16_14:30_120": {
-      "openCourts": 3,
+      "openCourts": 2,
       "maxCourts": 8,
       "totalPrice": 54.0,
       "perPlayerPrice": 13.5,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 2",
-        "Baan 3",
-        "Pon Centre Court"
+        "Baan 3"
       ],
       "supported": true
     },
@@ -302,15 +341,14 @@
       "supported": true
     },
     "peakz_beurs_2026-11-16_15:30_60": {
-      "openCourts": 3,
+      "openCourts": 2,
       "maxCourts": 8,
       "totalPrice": 29.0,
       "perPlayerPrice": 7.25,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 2",
-        "Baan 3",
-        "Pon Centre Court"
+        "Baan 3"
       ],
       "supported": true
     },
@@ -327,50 +365,35 @@
       ],
       "supported": true
     },
-    "peakz_beurs_2026-11-16_08:00_120": {
-      "openCourts": 2,
+    "peakz_beurs_2026-11-16_08:30_90": {
+      "openCourts": 1,
       "maxCourts": 8,
-      "totalPrice": 50.0,
-      "perPlayerPrice": 12.5,
+      "totalPrice": 37.5,
+      "perPlayerPrice": 9.38,
       "isPeak": false,
       "availableCourtNames": [
-        "Baan 3",
         "Baan 4"
       ],
       "supported": true
     },
-    "peakz_beurs_2026-11-16_08:30_120": {
-      "openCourts": 2,
+    "peakz_beurs_2026-11-16_09:30_90": {
+      "openCourts": 1,
       "maxCourts": 8,
-      "totalPrice": 53.0,
-      "perPlayerPrice": 13.25,
+      "totalPrice": 43.5,
+      "perPlayerPrice": 10.88,
       "isPeak": false,
       "availableCourtNames": [
-        "Baan 3",
         "Baan 4"
       ],
       "supported": true
     },
-    "peakz_beurs_2026-11-16_09:00_120": {
-      "openCourts": 2,
+    "peakz_beurs_2026-11-16_10:00_60": {
+      "openCourts": 1,
       "maxCourts": 8,
-      "totalPrice": 56.0,
-      "perPlayerPrice": 14.0,
+      "totalPrice": 31.0,
+      "perPlayerPrice": 7.75,
       "isPeak": false,
       "availableCourtNames": [
-        "Baan 3",
-        "Baan 4"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-16_10:00_120": {
-      "openCourts": 2,
-      "maxCourts": 8,
-      "totalPrice": 59.0,
-      "perPlayerPrice": 14.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
         "Baan 4"
       ],
       "supported": true
@@ -416,6 +439,39 @@
       "isPeak": false,
       "availableCourtNames": [
         "Baan 4"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-16_11:30_90": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 37.5,
+      "perPlayerPrice": 9.38,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Pon Centre Court"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-16_12:30_90": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 37.5,
+      "perPlayerPrice": 9.38,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Pon Centre Court"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-16_13:00_60": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 25.0,
+      "perPlayerPrice": 6.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Pon Centre Court"
       ],
       "supported": true
     }

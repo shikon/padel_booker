@@ -136,7 +136,7 @@
 
         <!-- Mobile Match Drawer Toggle -->
         <button onclick="scrollToArranger()" class="xl:hidden px-3 py-1.5 rounded-xl bg-padel-volt text-slate-950 font-semibold text-xs flex items-center gap-1.5 shadow">
-          <i class="fa-solid fa-users-Check"></i>
+          <i class="fa-solid fa-users-check"></i>
           <span>Match Poll</span>
           <span id="mobileShortlistCount" class="px-1.5 py-0.2 bg-slate-950 text-padel-volt rounded-full font-mono text-[11px]">0</span>
         </button>
@@ -506,8 +506,8 @@
             Static sites hosted on <code>username.github.io</code> run purely in the browser. While Playtomic, Bookaball, and Peakz (FOYS) all have JSON APIs, browser CORS policies block direct cross-origin requests from unknown domains. You have <strong>3 zero-cost ways</strong> to use this app:
             <ol class="list-decimal list-inside mt-1.5 space-y-1 text-slate-300">
               <li><strong>Instant Smart Mode (Active out of the box):</strong> Realistic availability modeling + 1-click deep links + Stateless URL Match Polling (<code>?match=...</code>) for your WhatsApp group.</li>
-              <li><strong>GitHub Actions Auto-Scraper (Recommended for 100% live courts):</strong> Drop the included <code>.github/workflows/update-courts.yml</code> into your repo. GitHub's servers bypass CORS, fetch live courts every 15 mins, and commit <code>./availability.json</code> which this page automatically loads!</li>
-              <li><strong>Cloudflare Worker CORS Proxy:</strong> Paste a free Cloudflare Worker URL in Tab 3 to query Playtomic &amp; Bookaball directly from the browser.</li>
+              <li><strong>GitHub Actions Auto-Scraper (Recommended for 100% live courts):</strong> Drop the included <code>.github/workflows/update-courts.yml</code> and <code>fetch_courts.py</code> into your repo. GitHub's servers bypass CORS, fetch live courts every 30 mins, and commit <code>./availability.json</code> which this page automatically loads!</li>
+              <li><strong>Cloudflare Worker CORS Proxy:</strong> Paste a free Cloudflare Worker URL in Tab 3 to query Playtomic directly from the browser.</li>
             </ol>
           </div>
 
@@ -553,58 +553,48 @@
         <!-- TAB 2: GITHUB ACTION WORKFLOW -->
         <div id="apiTabWORKFLOW" class="hidden space-y-4">
           <p class="text-xs text-slate-300">
-            Save this file as <code>.github/workflows/update-courts.yml</code> in your GitHub Pages repository. It runs on Ubuntu every 20 minutes, queries the court endpoints without browser CORS limits, and writes <code>availability.json</code> to your repo root:
+            Save this file as <code>.github/workflows/update-courts.yml</code> in your GitHub Pages repository alongside <code>fetch_courts.py</code>:
           </p>
           <div class="relative">
             <button onclick="copyWorkflowCode()" class="absolute top-2.5 right-2.5 px-2.5 py-1 rounded-lg bg-padel-volt text-slate-950 font-mono font-bold text-xs hover:bg-padel-voltDim transition">
               <i class="fa-regular fa-copy mr-1"></i>Copy YAML
             </button>
-            <pre id="workflowCodeBlock" class="bg-slate-950 border border-slate-800 rounded-xl p-4 font-mono text-[11px] text-emerald-300 overflow-x-auto leading-relaxed">name: Sync VHV/EHV Indoor Padel Availability
+            <pre id="workflowCodeBlock" class="bg-slate-950 border border-slate-800 rounded-xl p-4 font-mono text-[11px] text-emerald-300 overflow-x-auto leading-relaxed">name: Update Padel Availability
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '*/20 * * * *' # Runs every 20 minutes during the day
-  workflow_dispatch:       # Allows manual 1-click trigger in GitHub tab
+    - cron: '*/30 * * * *'
 
 permissions:
   contents: write
 
 jobs:
-  scrape-courts:
-    runs-on: ubuntu-latest
+  fetch-courts:
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          node-version: '20'
+          python-version: '3.11'
 
-      - name: Fetch Playtomic / Peakz / Bookaball & Generate availability.json
+      - name: Install dependencies
         run: |
-          node -e '
-          const fs = require("fs");
-          // Example Playtomic & Club availability aggregator for VHV/EHV
-          async function run() {
-            const now = new Date().toISOString();
-            const output = {
-              updatedAt: now,
-              source: "GitHub Actions Live Scraper",
-              slots: {}
-            };
-            // Save availability.json for index.html to fetch automatically
-            fs.writeFileSync("availability.json", JSON.stringify(output, null, 2));
-          }
-          run();
-          '
+          pip install requests playwright
+          playwright install --with-deps chromium
+
+      - name: Fetch live VHV &amp; EHV indoor courts
+        run: python fetch_courts.py
 
       - name: Commit updated availability.json
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add availability.json
-          git diff --staged --quiet || git commit -m "chore: update indoor padel court availability"
+          git diff --quiet &amp;&amp; git diff --staged --quiet || git commit -m "chore: update indoor padel slots"
           git push</pre>
           </div>
         </div>
@@ -674,8 +664,8 @@ jobs:
         badgeColor: 'bg-padel-volt/15 text-padel-volt border-padel-volt/30',
         bookingUrl: 'https://thepadellers.bookaball.com/nl/bookings/create',
         infoUrl: 'https://www.thepadellers.nl/locations/veldhoven',
-        offPeakRateHr: 26, // € per hour off-peak
-        peakRateHr: 33,    // € per hour peak (evening/weekend)
+        offPeakRateHr: 26,
+        peakRateHr: 33,
         courtNames: ['Indoor Baan 1 (Panorama)', 'Indoor Baan 2', 'Indoor Baan 3', 'Indoor Baan 4', 'Indoor Baan 5', 'Indoor Baan 6']
       },
       {
@@ -748,7 +738,7 @@ jobs:
     ];
 
     let state = {
-      selectedDate: getFormattedDateOffset(1), // Default to tomorrow for realistic evening booking
+      selectedDate: getFormattedDateOffset(0), // Default to Today
       activeVenues: ['padellers_vhv', 'peakz_beurs', 'peakz_vijfkamp', 'david_lloyd_vhv'],
       cluster: 'ALL',
       timeWindow: 'EVENING', // MORNING, AFTERNOON, EVENING, ALL_DAY
@@ -773,13 +763,12 @@ jobs:
           { id: 'p3', name: 'Player 3', status: 'MAYBE' },
           { id: 'p4', name: 'Player 4', status: 'WAITING' }
         ],
-        // Each shortlisted item: { key, venueId, date, time, duration, courtType, totalPrice, openCourts, votes: ['p1','p2'] }
         shortlist: []
       }
     };
 
     /*************************************************************************
-     * 3. DATE & DETERMINISTIC AVAILABILITY ENGINE
+     * 3. DATE & AVAILABILITY ENGINE (LIVE JSON + SMART FALLBACK)
      *************************************************************************/
     function getFormattedDateOffset(daysOffset) {
       const d = new Date();
@@ -810,7 +799,6 @@ jobs:
       return `${prefix}${dayName} ${d} ${monthNames[m - 1]}`;
     }
 
-    // Deterministic hash so any given (venue + date + time + duration) produces consistent, realistic court counts
     function hashString(str) {
       let hash = 2166136261;
       for (let i = 0; i < str.length; i++) {
@@ -824,15 +812,6 @@ jobs:
       const venue = VENUES.find(v => v.id === venueId);
       if (!venue) return null;
 
-      // Check if external availability.json has override data
-      if (state.externalJsonData && state.externalJsonData.slots) {
-        const extKey = `${venueId}_${dateStr}_${timeStr}`;
-        if (state.externalJsonData.slots[extKey]) {
-          return state.externalJsonData.slots[extKey];
-        }
-      }
-
-      // If filtering Single courts and venue has 0 single courts
       if (courtType === 'SINGLE' && venue.indoorSingleCourts === 0) {
         return {
           openCourts: 0,
@@ -849,6 +828,51 @@ jobs:
         ? venue.indoorSingleCourts
         : (courtType === 'DOUBLE' ? venue.indoorDoubleCourts : venue.indoorDoubleCourts + venue.indoorSingleCourts);
 
+      // 1. LIVE JSON MODE: When availability.json is loaded, NEVER fall back to fake simulated slots
+      if (state.externalJsonData && state.externalJsonData.slots) {
+        const clubStatus = state.externalJsonData.clubStatus?.[venueId];
+        if (clubStatus === 'portal_only') {
+          return {
+            openCourts: 0,
+            maxCourts,
+            totalPrice: 0,
+            perPlayerPrice: 0,
+            isPeak: false,
+            availableCourtNames: [],
+            supported: true,
+            portalOnly: true
+          };
+        }
+
+        // Check exact duration first, then larger contiguous windows (e.g. 120m slot satisfies 90m or 60m)
+        const durationsToCheck = duration === 60 ? [60, 90, 120] : duration === 90 ? [90, 120] : [120];
+        for (const d of durationsToCheck) {
+          const liveSlot = state.externalJsonData.slots[`${venueId}_${dateStr}_${timeStr}_${d}`];
+          if (liveSlot) {
+            if (d === duration) return liveSlot;
+            const scaledTotal = Math.round((liveSlot.totalPrice * (duration / d)) * 2) / 2;
+            const divisor = courtType === 'SINGLE' ? 2 : 4;
+            return {
+              ...liveSlot,
+              totalPrice: scaledTotal,
+              perPlayerPrice: +(scaledTotal / divisor).toFixed(2)
+            };
+          }
+        }
+
+        // Absent in live feed = genuinely booked/unavailable
+        return {
+          openCourts: 0,
+          maxCourts,
+          totalPrice: 0,
+          perPlayerPrice: 0,
+          isPeak: false,
+          availableCourtNames: [],
+          supported: true
+        };
+      }
+
+      // 2. OFFLINE / PREVIEW DETERMINISTIC FALLBACK (Only used if ./availability.json does not exist yet)
       const hour = parseInt(timeStr.split(':')[0], 10);
       const minute = parseInt(timeStr.split(':')[1], 10);
       const [y, m, d] = dateStr.split('-').map(Number);
@@ -856,7 +880,6 @@ jobs:
       const isWeekend = (dayOfWeek === 0 || dayOfWeek === 6);
       const isPeak = isWeekend || (hour >= 17 && hour <= 21);
 
-      // Compute realistic occupancy based on prime hours (18:30 - 20:30 are busiest)
       const h = hashString(`${venueId}:${dateStr}:${timeStr}:${duration}:${state.seedOffset}`);
       let openCourts = 0;
 
@@ -871,7 +894,6 @@ jobs:
         const isEarlyEvening = (hour === 17 || (hour === 18 && minute === 0) || (hour === 20 && minute === 30) || hour === 21);
 
         if (isSuperPrime) {
-          // Prime weekday evening: some sold out, some 1-3 courts left
           const roll = h % 100;
           if (roll < 38) openCourts = 0;
           else if (roll < 72) openCourts = 1;
@@ -883,25 +905,21 @@ jobs:
           else if (roll < 50) openCourts = 1 + (h % 2);
           else openCourts = Math.min(maxCourts, 2 + (h % 4));
         } else if (hour === 22 && duration > 60) {
-          // 22:00 usually only allows 60m before closing at 23:00
           openCourts = 0;
         } else {
-          // Morning / Afternoon / Late night: plenty of indoor courts open
           const roll = h % 100;
           if (roll < 8) openCourts = 1;
           else openCourts = Math.max(2, Math.min(maxCourts, (h % maxCourts) + 2));
         }
       }
 
-      // Calculate price based on duration & peak status
       const hourlyRate = isPeak ? venue.peakRateHr : venue.offPeakRateHr;
       const singleDiscount = courtType === 'SINGLE' ? 0.72 : 1;
       const rawTotal = hourlyRate * (duration / 60) * singleDiscount;
-      const totalPrice = Math.round(rawTotal * 2) / 2; // Round to nearest €0.50
+      const totalPrice = Math.round(rawTotal * 2) / 2;
       const playerDivisor = courtType === 'SINGLE' ? 2 : 4;
       const perPlayerPrice = +(totalPrice / playerDivisor).toFixed(2);
 
-      // Pick specific court names that are free
       const availableCourtNames = [];
       if (openCourts > 0) {
         for (let i = 0; i < openCourts; i++) {
@@ -926,20 +944,29 @@ jobs:
      *************************************************************************/
     function renderVenueOverviewCards() {
       const container = document.getElementById('venueOverviewCards');
-      // Calculate total open evening slots per venue for the selected date
       const eveningTimes = ['17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00'];
 
       container.innerHTML = VENUES.map(v => {
         const isSelected = state.activeVenues.includes(v.id);
+        const isPortalOnly = state.externalJsonData?.clubStatus?.[v.id] === 'portal_only';
         let openEveningCount = 0;
-        eveningTimes.forEach(t => {
-          const slot = getSlotAvailability(v.id, state.selectedDate, t, state.duration, state.courtType);
-          if (slot && slot.openCourts > 0) openEveningCount++;
-        });
+
+        if (!isPortalOnly) {
+          eveningTimes.forEach(t => {
+            const slot = getSlotAvailability(v.id, state.selectedDate, t, state.duration, state.courtType);
+            if (slot && slot.openCourts > 0) openEveningCount++;
+          });
+        }
 
         const borderClass = isSelected
           ? 'border-padel-volt/70 bg-slate-900/95 shadow-lg'
           : 'border-slate-800/70 bg-slate-950/50 opacity-60 hover:opacity-90';
+
+        const statusHtml = isPortalOnly
+          ? `<span class="font-mono text-[11px] text-slate-400"><i class="fa-solid fa-arrow-up-right-from-square text-[9px] mr-1"></i>Book via Portal</span>`
+          : `<span class="font-mono text-[11px] ${openEveningCount > 0 ? 'text-emerald-400' : 'text-rose-400'}">
+               <i class="fa-solid fa-circle text-[7px] mr-1 align-middle"></i>${openEveningCount}/${eveningTimes.length} Eve Slots Open
+             </span>`;
 
         return `
           <div onclick="toggleSingleVenue('${v.id}')" class="rounded-2xl border p-3.5 transition cursor-pointer select-none flex flex-col justify-between ${borderClass}">
@@ -961,9 +988,7 @@ jobs:
             </div>
 
             <div class="flex items-center justify-between pt-2 border-t border-slate-800/80 text-xs">
-              <span class="font-mono text-[11px] ${openEveningCount > 0 ? 'text-emerald-400' : 'text-rose-400'}">
-                <i class="fa-solid fa-circle text-[7px] mr-1 align-middle"></i>${openEveningCount}/${eveningTimes.length} Eve Slots Open
-              </span>
+              ${statusHtml}
               <a href="${v.bookingUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-[11px] font-semibold text-padel-turf hover:underline flex items-center gap-1">
                 <span>Portal</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
@@ -1023,7 +1048,6 @@ jobs:
       const activeVenueObjs = VENUES.filter(v => state.activeVenues.includes(v.id));
       const timeSlots = getFilteredTimeSlots();
 
-      // Update duration & filter button states
       [60, 90, 120].forEach(d => {
         const btn = document.getElementById(`dur${d}`);
         if (state.duration === d) {
@@ -1040,7 +1064,6 @@ jobs:
         onlyAvailBtn.className = 'flex-1 py-2 px-2.5 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 hover:text-white text-xs font-medium flex items-center justify-center gap-1.5 transition';
       }
 
-      // Count total open options across visible venues & times
       let totalOpenOptions = 0;
       timeSlots.forEach(time => {
         activeVenueObjs.forEach(v => {
@@ -1067,7 +1090,6 @@ jobs:
         return;
       }
 
-      // MATRIX TABLE VIEW (Responsive Comparison across Padellers VHV, Peakz Beursplein, Peakz Vijfkamplaan, David Lloyd VHV)
       let rowsHtml = '';
       let visibleRowsCount = 0;
 
@@ -1081,14 +1103,12 @@ jobs:
         if (state.onlyAvailable && !anyOpenInRow) return;
         visibleRowsCount++;
 
-        // Calculate end time string
         const endTimeStr = calculateEndTime(timeStr, state.duration);
         const hour = parseInt(timeStr.split(':')[0], 10);
         const isPrimeRow = hour >= 18 && hour <= 20;
 
         rowsHtml += `
           <tr class="border-b border-slate-800/70 hover:bg-slate-900/50 transition ${isPrimeRow ? 'bg-slate-900/25' : ''}">
-            <!-- Time Column -->
             <td class="py-3 px-3 sm:px-4 align-top whitespace-nowrap border-r border-slate-800/70 w-28">
               <div class="flex flex-col">
                 <div class="flex items-center gap-1.5">
@@ -1099,7 +1119,6 @@ jobs:
               </div>
             </td>
 
-            <!-- Venue Columns -->
             ${rowSlots.map(({ venue, data }) => {
               const slotKey = `${venue.id}|${state.selectedDate}|${timeStr}|${state.duration}`;
               const isShortlisted = state.match.shortlist.some(s => s.key === slotKey);
@@ -1108,6 +1127,22 @@ jobs:
                 return `
                   <td class="p-2.5 align-middle text-center border-r border-slate-800/40 last:border-r-0">
                     <span class="text-[11px] font-mono text-slate-600">No Single Court</span>
+                  </td>
+                `;
+              }
+
+              if (data.portalOnly) {
+                return `
+                  <td class="p-2.5 align-middle border-r border-slate-800/40 last:border-r-0">
+                    <div class="rounded-xl bg-slate-950/60 border border-slate-800/70 p-2.5 flex items-center justify-between">
+                      <div>
+                        <span class="text-[11px] font-mono text-slate-400">Live via Portal</span>
+                        <div class="text-[10px] text-slate-500">${venue.platform.split(' ')[0]}</div>
+                      </div>
+                      <a href="${venue.bookingUrl}" target="_blank" rel="noopener noreferrer" class="px-2 py-1 rounded-lg bg-slate-800 hover:bg-padel-turf hover:text-slate-950 text-[10px] font-mono text-padel-turf transition">
+                        Open ↗
+                      </a>
+                    </div>
                   </td>
                 `;
               }
@@ -1128,7 +1163,6 @@ jobs:
                 `;
               }
 
-              // Open Court Card inside Matrix Cell
               const urgencyClass = data.openCourts <= 2
                 ? 'border-amber-500/40 bg-amber-500/[0.06]'
                 : 'border-emerald-500/30 bg-emerald-500/[0.05]';
@@ -1235,7 +1269,7 @@ jobs:
                 return `
                   <div class="px-2.5 py-2 rounded-xl bg-slate-950/60 border border-slate-800/60 text-center opacity-45">
                     <div class="font-mono text-xs text-slate-500 line-through">${timeStr}</div>
-                    <div class="text-[10px] text-slate-600">Full</div>
+                    <div class="text-[10px] text-slate-600">${data.portalOnly ? 'Portal' : 'Full'}</div>
                   </div>
                 `;
               }
@@ -1296,11 +1330,9 @@ jobs:
      * 5. MATCH ARRANGER, 4-PLAYER ROSTER, VOTING & WHATSAPP GENERATOR
      *************************************************************************/
     function renderMatchArranger() {
-      // Sync inputs
       document.getElementById('matchTitleInput').value = state.match.title;
       document.getElementById('matchTikkieInput').value = state.match.tikkieNote || '';
 
-      // 1. Render 4-Player Roster
       const rosterContainer = document.getElementById('playerRosterList');
       const confirmedCount = state.match.players.filter(p => p.status === 'CONFIRMED').length;
       document.getElementById('confirmedPlayersCount').textContent = confirmedCount;
@@ -1326,13 +1358,11 @@ jobs:
         `;
       }).join('');
 
-      // 2. Render Shortlisted Slots & Interactive Player Voting
       const shortlistEl = document.getElementById('shortlistContainer');
       const count = state.match.shortlist.length;
       document.getElementById('shortlistCountBadge').textContent = count;
       document.getElementById('mobileShortlistCount').textContent = count;
 
-      // Update average cost badge
       if (count > 0) {
         const activeSlot = state.match.shortlist.find(s => s.key === state.match.lockedSlotKey) || state.match.shortlist[0];
         const perPlayer = (activeSlot.totalPrice / 4).toFixed(2);
@@ -1391,7 +1421,6 @@ jobs:
                 </div>
               </div>
 
-              <!-- 4-Player Availability Vote Buttons for this slot -->
               <div class="pt-2 mt-1.5 border-t border-slate-800/80 flex items-center justify-between gap-1">
                 <span class="text-[10px] font-mono text-slate-400">Can play (${votes.length}/4):</span>
                 <div class="flex items-center gap-1 flex-wrap">
@@ -1415,7 +1444,6 @@ jobs:
         }).join('');
       }
 
-      // 3. Language & Mode buttons
       document.getElementById('langNL').className = state.waLang === 'NL'
         ? 'px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-padel-volt text-slate-950'
         : 'px-2 py-0.5 rounded text-[11px] font-mono text-slate-400 hover:text-white';
@@ -1430,7 +1458,6 @@ jobs:
         ? 'py-1 rounded-lg text-[11px] font-bold bg-emerald-400 text-slate-950 shadow'
         : 'py-1 rounded-lg text-[11px] font-medium text-slate-400 hover:text-white';
 
-      // 4. Sync Stateless URL & WhatsApp Message Preview
       updateStatelessShareUrl();
       generateWhatsAppMessage();
     }
@@ -1439,7 +1466,7 @@ jobs:
       const isNL = state.waLang === 'NL';
       const title = state.match.title || 'VHV/EHV Indoor Padel 🎾';
       const playersLine = state.match.players
-        .map((p, i) => {
+        .map(p => {
           const icon = p.status === 'CONFIRMED' ? '✅' : (p.status === 'MAYBE' ? '🤔' : '⏳');
           return `${icon} ${p.name}`;
         })
@@ -1482,7 +1509,6 @@ jobs:
           }
         }
       } else {
-        // POLL MODE ("Padel Datumprikker")
         if (isNL) {
           lines.push(`🎾 *${title} — Welke tijd kunnen jullie?*`);
           lines.push(`👥 *Spelers:* ${playersLine}\n`);
@@ -1576,7 +1602,6 @@ jobs:
         const baseUrl = window.location.origin + window.location.pathname;
         const shareUrl = `${baseUrl}?match=${encoded}`;
         document.getElementById('shareUrlInput').value = shareUrl;
-        // Also softly update history state if running on http/https
         if (window.location.protocol.startsWith('http')) {
           window.history.replaceState(null, '', `?match=${encoded}`);
         }
@@ -1809,7 +1834,6 @@ jobs:
       const venue = VENUES.find(v => v.id === venueId);
       if (!venue) return;
 
-      // Copy booking details to clipboard for convenience and open club portal
       const summary = `${venue.name} — ${dateStr} @ ${timeStr} (${duration} min)`;
       copyTextToClipboard(summary);
       showToast(`Opening ${venue.shortName} (${venue.platform}) for ${timeStr} on ${formatDisplayDate(dateStr, true)}`, 'success');
@@ -2022,19 +2046,18 @@ jobs:
      * 10. INITIALIZATION ON LOAD
      *************************************************************************/
     window.addEventListener('DOMContentLoaded', async () => {
-      // Load saved proxy setting if any
       const savedProxy = localStorage.getItem('vhv_padel_cors_proxy');
       if (savedProxy) {
         document.getElementById('corsProxyInput').value = savedProxy;
       }
 
-      // Check if opened via shared GitHub Pages ?match= link
+      await tryLoadExternalAvailabilityJson(false);
+
       const params = new URLSearchParams(window.location.search);
       const sharedMatchParam = params.get('match');
       if (sharedMatchParam && decodeMatchStateFromBase64(sharedMatchParam)) {
         document.getElementById('sharedMatchBanner').classList.remove('hidden');
       } else {
-        // Pre-populate 2 realistic prime evening options so the Match Arranger is immediately useful
         const defaultDate = state.selectedDate;
         const pSlot = getSlotAvailability('padellers_vhv', defaultDate, '19:00', 90, 'DOUBLE');
         const pkSlot = getSlotAvailability('peakz_beurs', defaultDate, '19:30', 90, 'DOUBLE');
@@ -2046,8 +2069,8 @@ jobs:
             date: defaultDate,
             time: '19:00',
             duration: 90,
-            totalPrice: pSlot ? pSlot.totalPrice : 49.5,
-            openCourts: pSlot ? pSlot.openCourts : 2,
+            totalPrice: pSlot && pSlot.totalPrice > 0 ? pSlot.totalPrice : 49.5,
+            openCourts: pSlot ? pSlot.openCourts : 0,
             votes: ['p1', 'p2', 'p3']
           },
           {
@@ -2056,16 +2079,13 @@ jobs:
             date: defaultDate,
             time: '19:30',
             duration: 90,
-            totalPrice: pkSlot ? pkSlot.totalPrice : 48,
-            openCourts: pkSlot ? pkSlot.openCourts : 3,
+            totalPrice: pkSlot && pkSlot.totalPrice > 0 ? pkSlot.totalPrice : 48,
+            openCourts: pkSlot ? pkSlot.openCourts : 0,
             votes: ['p1', 'p2']
           }
         ];
         state.match.lockedSlotKey = state.match.shortlist[0].key;
       }
-
-      // Try loading ./availability.json if hosted alongside GitHub Action
-      await tryLoadExternalAvailabilityJson(false);
 
       renderAll();
     });

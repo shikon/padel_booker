@@ -1,16 +1,29 @@
 {
-  "updatedAt": "2026-11-16T21:00:46.488141+00:00",
+  "updatedAt": "2026-11-16T21:08:30.400494+00:00",
   "source": "GitHub Actions Live Sync",
   "clubStatus": {
     "padellers_vhv": "portal_only",
     "peakz_beurs": "live",
     "peakz_vijfkamp": "live",
-    "peakz_beurs": "live",
-    "peakz_vijfkamp": "live",
     "david_lloyd_vhv": "portal_only"
   },
   "slots": {
-    "peakz_beurs_2026-11-16_13:30_60": {
+    "peakz_beurs_2026-11-18_10:30_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 34.3,
+      "perPlayerPrice": 8.57,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_13:00_60": {
       "openCourts": 8,
       "maxCourts": 8,
       "totalPrice": 28.0,
@@ -28,38 +41,178 @@
       ],
       "supported": true
     },
-    "peakz_beurs_2026-11-16_09:00_60": {
-      "openCourts": 5,
+    "peakz_beurs_2026-11-18_13:00_90": {
+      "openCourts": 7,
       "maxCourts": 8,
-      "totalPrice": 30.33,
-      "perPlayerPrice": 7.58,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
       "isPeak": false,
       "availableCourtNames": [
+        "Baan 1 | 🎥",
         "Baan 2 Mollie",
         "Baan 3",
         "Baan 4",
-        "Baan 7",
+        "Baan 5 | 🎥",
+        "Baan 6",
         "Baan 8"
       ],
       "supported": true
     },
-    "peakz_beurs_2026-11-16_09:00_90": {
-      "openCourts": 5,
+    "peakz_beurs_2026-11-18_13:00_120": {
+      "openCourts": 7,
       "maxCourts": 8,
-      "totalPrice": 45.5,
-      "perPlayerPrice": 11.38,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
       "isPeak": false,
       "availableCourtNames": [
+        "Baan 1 | 🎥",
         "Baan 2 Mollie",
         "Baan 3",
         "Baan 4",
-        "Baan 7",
+        "Baan 5 | 🎥",
+        "Baan 6",
         "Baan 8"
       ],
       "supported": true
     },
-    "peakz_beurs_2026-11-16_11:30_60": {
-      "openCourts": 6,
+    "peakz_beurs_2026-11-18_14:00_60": {
+      "openCourts": 7,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_14:00_90": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_14:30_60": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 29.67,
+      "perPlayerPrice": 7.42,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_14:30_90": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 44.5,
+      "perPlayerPrice": 11.12,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_14:30_120": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 61.0,
+      "perPlayerPrice": 15.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_15:00_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 30.91,
+      "perPlayerPrice": 7.73,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_15:00_90": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 47.83,
+      "perPlayerPrice": 11.96,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_15:30_60": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 33.56,
+      "perPlayerPrice": 8.39,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_22:30_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_22:30_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_08:00_60": {
+      "openCourts": 7,
       "maxCourts": 8,
       "totalPrice": 28.0,
       "perPlayerPrice": 7.0,
@@ -69,18 +222,988 @@
         "Baan 3",
         "Baan 4",
         "Baan 5 | 🎥",
+        "Baan 6",
         "Baan 7",
         "Baan 8"
       ],
       "supported": true
     },
-    "peakz_beurs_2026-11-16_15:30_60": {
-      "openCourts": 5,
+    "peakz_beurs_2026-11-18_23:00_60": {
+      "openCourts": 4,
       "maxCourts": 8,
-      "totalPrice": 33.33,
-      "perPlayerPrice": 8.33,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
       "isPeak": false,
       "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_14:00_120": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_15:00_120": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 66.0,
+      "perPlayerPrice": 16.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_15:30_90": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 52.0,
+      "perPlayerPrice": 13.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_16:00_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 38.46,
+      "perPlayerPrice": 9.62,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_20:00_60": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 43.5,
+      "perPlayerPrice": 10.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_08:00_90": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_08:30_60": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_10:30_90": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 47.25,
+      "perPlayerPrice": 11.81,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_10:30_120": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 63.0,
+      "perPlayerPrice": 15.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_11:30_60": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_11:30_90": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_11:30_120": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_12:00_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_12:00_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_12:00_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_12:30_60": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_12:30_90": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_13:30_60": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_13:30_90": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-18_16:00_90": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 59.75,
+      "perPlayerPrice": 14.94,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_08:00_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_11:00_60": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 30.14,
+      "perPlayerPrice": 7.54,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_11:00_90": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 45.21,
+      "perPlayerPrice": 11.3,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_12:00_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_12:00_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_12:30_60": {
+      "openCourts": 7,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_23:00_60": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_08:00_90": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_08:00_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_08:30_60": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 28.58,
+      "perPlayerPrice": 7.14,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_08:30_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 43.05,
+      "perPlayerPrice": 10.76,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_08:30_120": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 59.5,
+      "perPlayerPrice": 14.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_09:00_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 29.4,
+      "perPlayerPrice": 7.35,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_09:00_90": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 47.25,
+      "perPlayerPrice": 11.81,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_09:00_120": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 63.0,
+      "perPlayerPrice": 15.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_09:30_60": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 33.25,
+      "perPlayerPrice": 8.31,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_09:30_90": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 49.88,
+      "perPlayerPrice": 12.47,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_09:30_120": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 66.5,
+      "perPlayerPrice": 16.62,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_10:00_60": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 33.25,
+      "perPlayerPrice": 8.31,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_10:00_90": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 49.88,
+      "perPlayerPrice": 12.47,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_10:00_120": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 66.5,
+      "perPlayerPrice": 16.62,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_10:30_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 32.38,
+      "perPlayerPrice": 8.1,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_10:30_90": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 47.25,
+      "perPlayerPrice": 11.81,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_10:30_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 63.0,
+      "perPlayerPrice": 15.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_11:30_60": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_11:30_90": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_11:30_120": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_22:30_60": {
+      "openCourts": 7,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_22:30_90": {
+      "openCourts": 7,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_11:00_120": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 59.5,
+      "perPlayerPrice": 14.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_12:30_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_12:30_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_13:00_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_13:00_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_13:30_60": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_13:30_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_14:30_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_14:30_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_15:00_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_13:00_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_14:00_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_14:00_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_14:00_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-19_12:00_120": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_13:00_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_13:00_90": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_14:00_60": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_14:00_90": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_14:30_60": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_17:00_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 43.5,
+      "perPlayerPrice": 10.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_22:30_60": {
+      "openCourts": 7,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
         "Baan 3",
         "Baan 4",
         "Baan 6",
@@ -89,31 +1212,2935 @@
       ],
       "supported": true
     },
-    "peakz_beurs_2026-11-16_22:00_60": {
+    "peakz_beurs_2026-11-20_22:30_90": {
+      "openCourts": 7,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_08:30_60": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_08:30_90": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_11:30_60": {
+      "openCourts": 7,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_11:30_90": {
+      "openCourts": 7,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_11:30_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_12:30_60": {
+      "openCourts": 7,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_12:30_90": {
+      "openCourts": 7,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_12:30_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_13:30_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_13:30_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_13:30_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_10:00_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 33.25,
+      "perPlayerPrice": 8.31,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_10:00_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 49.88,
+      "perPlayerPrice": 12.47,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_10:00_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 66.5,
+      "perPlayerPrice": 16.62,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_11:00_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 29.75,
+      "perPlayerPrice": 7.44,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_11:00_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 44.62,
+      "perPlayerPrice": 11.15,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_11:00_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 59.5,
+      "perPlayerPrice": 14.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_12:00_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_12:00_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_12:00_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_15:00_60": {
       "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 31.33,
+      "perPlayerPrice": 7.83,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_23:00_60": {
+      "openCourts": 1,
       "maxCourts": 8,
       "totalPrice": 35.0,
       "perPlayerPrice": 8.75,
       "isPeak": false,
       "availableCourtNames": [
+        "Baan 5 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_13:00_120": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_14:00_120": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_14:30_90": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_15:00_90": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 49.5,
+      "perPlayerPrice": 12.38,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_15:00_120": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 66.0,
+      "perPlayerPrice": 16.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_15:30_60": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 34.67,
+      "perPlayerPrice": 8.67,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_15:30_90": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 52.0,
+      "perPlayerPrice": 13.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_16:00_60": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-20_18:00_60": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 43.5,
+      "perPlayerPrice": 10.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_08:00_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_12:00_60": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 3",
+        "Baan 4"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_12:00_90": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 3",
+        "Baan 4"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_12:00_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 3",
+        "Baan 4"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_13:00_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_13:00_90": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_13:00_120": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_13:30_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_13:30_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_13:30_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_14:00_60": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_14:00_90": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_14:00_120": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_14:30_60": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_14:30_90": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_14:30_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_15:00_60": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_15:00_90": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_15:00_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_15:30_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 37.44,
+      "perPlayerPrice": 9.36,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_15:30_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 56.16,
+      "perPlayerPrice": 14.04,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_16:00_60": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 36.5,
+      "perPlayerPrice": 9.12,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_16:00_90": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 54.75,
+      "perPlayerPrice": 13.69,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_16:00_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 73.0,
+      "perPlayerPrice": 18.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_16:30_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 35.85,
+      "perPlayerPrice": 8.96,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_16:30_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 53.77,
+      "perPlayerPrice": 13.44,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_17:00_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_19:00_60": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_19:00_90": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_19:00_120": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_20:00_60": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_22:00_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_11:30_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_11:30_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_12:30_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_12:30_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_18:00_60": {
+      "openCourts": 7,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_18:00_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_18:00_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_19:30_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_19:30_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_19:30_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_20:00_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_20:00_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_20:30_60": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_20:30_90": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_21:00_60": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_21:00_90": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_21:00_120": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_21:30_60": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_21:30_90": {
+      "openCourts": 6,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_10:30_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3",
+        "Baan 4",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_10:30_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3",
+        "Baan 4",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_10:30_120": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3",
+        "Baan 4"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_17:30_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_17:30_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_15:30_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 74.5,
+      "perPlayerPrice": 18.62,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_16:30_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 71.5,
+      "perPlayerPrice": 17.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_17:00_90": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_17:00_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_17:30_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_18:30_60": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_18:30_90": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-21_18:30_120": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_08:00_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 35.19,
+      "perPlayerPrice": 8.8,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_10:30_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_10:30_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_10:30_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_11:30_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
         "Baan 3",
         "Baan 4",
         "Baan 6"
       ],
       "supported": true
     },
-    "peakz_beurs_2026-11-16_15:30_90": {
+    "peakz_beurs_2026-11-22_11:30_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_11:30_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_12:00_60": {
+      "openCourts": 7,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_12:00_90": {
+      "openCourts": 7,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_12:00_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_12:30_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_12:30_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_12:30_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_13:00_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_13:00_90": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_13:00_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_13:30_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_13:30_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_13:30_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_14:00_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_14:00_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_14:00_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_14:30_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_14:30_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_14:30_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_15:00_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_15:00_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_15:00_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 76.0,
+      "perPlayerPrice": 19.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_15:30_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 37.25,
+      "perPlayerPrice": 9.31,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_15:30_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 55.88,
+      "perPlayerPrice": 13.97,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_15:30_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 74.5,
+      "perPlayerPrice": 18.62,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_16:00_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 36.5,
+      "perPlayerPrice": 9.12,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_16:00_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 54.75,
+      "perPlayerPrice": 13.69,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_16:00_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 73.0,
+      "perPlayerPrice": 18.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_16:30_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 35.75,
+      "perPlayerPrice": 8.94,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_16:30_90": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 53.62,
+      "perPlayerPrice": 13.4,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_16:30_120": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 71.5,
+      "perPlayerPrice": 17.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_17:00_60": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_17:00_90": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_17:00_120": {
+      "openCourts": 5,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_17:30_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_17:30_90": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_17:30_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_18:00_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_18:00_90": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_18:00_120": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_18:30_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_18:30_90": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_18:30_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_19:00_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_19:00_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_19:00_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_19:30_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_19:30_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_19:30_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_20:00_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_20:00_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_20:00_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_20:30_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_20:30_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_21:00_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_21:00_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_21:00_120": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_21:30_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_21:30_90": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 3",
+        "Baan 4",
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_22:00_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2 Mollie",
+        "Baan 5 | 🎥",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_08:00_90": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 53.06,
+      "perPlayerPrice": 13.27,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_08:30_60": {
+      "openCourts": 4,
+      "maxCourts": 8,
+      "totalPrice": 35.88,
+      "perPlayerPrice": 8.97,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5 | 🎥",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_08:00_120": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 71.5,
+      "perPlayerPrice": 17.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 6",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_08:30_90": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 54.25,
+      "perPlayerPrice": 13.56,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_09:00_60": {
+      "openCourts": 3,
+      "maxCourts": 8,
+      "totalPrice": 36.92,
+      "perPlayerPrice": 9.23,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_08:30_120": {
       "openCourts": 1,
       "maxCourts": 8,
-      "totalPrice": 52.0,
-      "perPlayerPrice": 13.0,
+      "totalPrice": 73.0,
+      "perPlayerPrice": 18.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_09:00_90": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 55.69,
+      "perPlayerPrice": 13.92,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_09:30_60": {
+      "openCourts": 2,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_09:00_120": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 74.5,
+      "perPlayerPrice": 18.62,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_beurs_2026-11-22_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 8,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-16_22:30_60": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 30.0,
+      "perPlayerPrice": 7.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_08:00_60": {
+      "openCourts": 6,
+      "maxCourts": 7,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_08:00_90": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 4 Mollie",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_08:00_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_08:30_60": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 28.88,
+      "perPlayerPrice": 7.22,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 4 Mollie",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_08:30_90": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 43.75,
+      "perPlayerPrice": 10.94,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_09:00_60": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 30.72,
+      "perPlayerPrice": 7.68,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_09:00_90": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 46.08,
+      "perPlayerPrice": 11.52,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_09:00_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 63.0,
+      "perPlayerPrice": 15.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_09:30_60": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 31.89,
+      "perPlayerPrice": 7.97,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 49.0,
+      "perPlayerPrice": 12.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_10:00_60": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 34.12,
+      "perPlayerPrice": 8.53,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_15:00_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_22:30_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 33.12,
+      "perPlayerPrice": 8.28,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_13:00_60": {
+      "openCourts": 5,
+      "maxCourts": 7,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_08:30_120": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 59.5,
+      "perPlayerPrice": 14.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_12:00_60": {
+      "openCourts": 5,
+      "maxCourts": 7,
+      "totalPrice": 27.2,
+      "perPlayerPrice": 6.8,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_12:00_90": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_12:00_120": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_16:30_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 40.75,
+      "perPlayerPrice": 10.19,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 6"
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-16_08:00_60": {
+    "peakz_vijfkamp_2026-11-18_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 49.88,
+      "perPlayerPrice": 12.47,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_10:00_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 66.5,
+      "perPlayerPrice": 16.62,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_11:00_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 29.75,
+      "perPlayerPrice": 7.44,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_11:00_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 44.62,
+      "perPlayerPrice": 11.15,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_11:00_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 59.5,
+      "perPlayerPrice": 14.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_11:30_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_11:30_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_12:30_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_12:30_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_14:00_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 24.0,
+      "perPlayerPrice": 6.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_16:00_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_16:00_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_21:30_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 23.0,
+      "perPlayerPrice": 5.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_21:30_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 34.5,
+      "perPlayerPrice": 8.62,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-18_21:30_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 46.0,
+      "perPlayerPrice": 11.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_08:00_60": {
       "openCourts": 8,
       "maxCourts": 8,
       "totalPrice": 27.17,
@@ -131,300 +4158,532 @@
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-16_08:00_90": {
-      "openCourts": 8,
-      "maxCourts": 8,
-      "totalPrice": 40.75,
-      "perPlayerPrice": 10.19,
+    "peakz_vijfkamp_2026-11-19_12:00_60": {
+      "openCourts": 5,
+      "maxCourts": 7,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 1 | 🎥",
         "Baan 2",
         "Baan 3 | 🎥",
         "Baan 4 Mollie",
-        "Baan 5",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
+        "Baan 7"
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-16_08:30_60": {
-      "openCourts": 8,
-      "maxCourts": 8,
-      "totalPrice": 27.91,
-      "perPlayerPrice": 6.98,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 2",
-        "Baan 3 | 🎥",
-        "Baan 4 Mollie",
-        "Baan 5",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_08:30_90": {
+    "peakz_vijfkamp_2026-11-19_12:00_90": {
       "openCourts": 5,
-      "maxCourts": 7,
-      "totalPrice": 43.57,
-      "perPlayerPrice": 10.89,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2",
-        "Baan 3 | 🎥",
-        "Baan 5",
-        "Baan 6",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_08:30_120": {
-      "openCourts": 3,
-      "maxCourts": 7,
-      "totalPrice": 59.5,
-      "perPlayerPrice": 14.88,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2",
-        "Baan 3 | 🎥",
-        "Baan 5"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_09:00_60": {
-      "openCourts": 5,
-      "maxCourts": 7,
-      "totalPrice": 30.1,
-      "perPlayerPrice": 7.53,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2",
-        "Baan 3 | 🎥",
-        "Baan 5",
-        "Baan 6",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_09:00_90": {
-      "openCourts": 4,
-      "maxCourts": 7,
-      "totalPrice": 45.94,
-      "perPlayerPrice": 11.48,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2",
-        "Baan 3 | 🎥",
-        "Baan 5",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_09:30_60": {
-      "openCourts": 4,
-      "maxCourts": 7,
-      "totalPrice": 31.79,
-      "perPlayerPrice": 7.95,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2",
-        "Baan 3 | 🎥",
-        "Baan 5",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_16:00_60": {
-      "openCourts": 3,
-      "maxCourts": 7,
-      "totalPrice": 40.14,
-      "perPlayerPrice": 10.04,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2",
-        "Baan 5",
-        "Baan 6"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_16:00_90": {
-      "openCourts": 3,
-      "maxCourts": 7,
-      "totalPrice": 60.21,
-      "perPlayerPrice": 15.05,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2",
-        "Baan 5",
-        "Baan 6"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_12:00_60": {
-      "openCourts": 3,
-      "maxCourts": 7,
-      "totalPrice": 28.0,
-      "perPlayerPrice": 7.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3 | 🎥",
-        "Baan 4 Mollie",
-        "Baan 5"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_10:30_60": {
-      "openCourts": 2,
-      "maxCourts": 7,
-      "totalPrice": 28.34,
-      "perPlayerPrice": 7.08,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 4 Mollie",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_10:30_90": {
-      "openCourts": 1,
-      "maxCourts": 7,
-      "totalPrice": 49.0,
-      "perPlayerPrice": 12.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 4 Mollie"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_11:30_60": {
-      "openCourts": 1,
-      "maxCourts": 7,
-      "totalPrice": 28.0,
-      "perPlayerPrice": 7.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 4 Mollie"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_11:30_90": {
-      "openCourts": 1,
       "maxCourts": 7,
       "totalPrice": 42.0,
       "perPlayerPrice": 10.5,
       "isPeak": false,
       "availableCourtNames": [
-        "Baan 4 Mollie"
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 7"
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-16_16:00_120": {
-      "openCourts": 1,
-      "maxCourts": 7,
-      "totalPrice": 81.5,
-      "perPlayerPrice": 20.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 5"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_17:00_60": {
-      "openCourts": 1,
-      "maxCourts": 7,
-      "totalPrice": 43.5,
-      "perPlayerPrice": 10.88,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 5"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_22:30_60": {
-      "openCourts": 3,
-      "maxCourts": 7,
-      "totalPrice": 30.0,
-      "perPlayerPrice": 7.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 5",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_08:00_120": {
-      "openCourts": 2,
+    "peakz_vijfkamp_2026-11-19_12:00_120": {
+      "openCourts": 5,
       "maxCourts": 7,
       "totalPrice": 56.0,
       "perPlayerPrice": 14.0,
       "isPeak": false,
       "availableCourtNames": [
-        "Baan 6",
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
         "Baan 7"
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-16_09:00_120": {
+    "peakz_vijfkamp_2026-11-19_13:00_60": {
+      "openCourts": 6,
+      "maxCourts": 7,
+      "totalPrice": 27.33,
+      "perPlayerPrice": 6.83,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_13:00_90": {
+      "openCourts": 6,
+      "maxCourts": 7,
+      "totalPrice": 41.0,
+      "perPlayerPrice": 10.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_13:00_120": {
+      "openCourts": 6,
+      "maxCourts": 7,
+      "totalPrice": 54.67,
+      "perPlayerPrice": 13.67,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_13:30_60": {
+      "openCourts": 6,
+      "maxCourts": 7,
+      "totalPrice": 27.33,
+      "perPlayerPrice": 6.83,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_13:30_90": {
+      "openCourts": 6,
+      "maxCourts": 7,
+      "totalPrice": 41.0,
+      "perPlayerPrice": 10.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_14:00_60": {
+      "openCourts": 8,
+      "maxCourts": 8,
+      "totalPrice": 27.5,
+      "perPlayerPrice": 6.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_17:30_60": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 43.5,
+      "perPlayerPrice": 10.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_22:30_60": {
+      "openCourts": 5,
+      "maxCourts": 7,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 39.25,
+      "perPlayerPrice": 9.81,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 3 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 58.88,
+      "perPlayerPrice": 14.72,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 3 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_21:00_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 78.5,
+      "perPlayerPrice": 19.62,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 3 | 🎥"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_22:00_60": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 28.5,
+      "perPlayerPrice": 7.12,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3 | 🎥",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_22:00_90": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 42.75,
+      "perPlayerPrice": 10.69,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 3 | 🎥",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_13:30_120": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 53.33,
+      "perPlayerPrice": 13.33,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_14:00_90": {
+      "openCourts": 5,
+      "maxCourts": 7,
+      "totalPrice": 40.8,
+      "perPlayerPrice": 10.2,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_14:00_120": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 54.0,
+      "perPlayerPrice": 13.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_14:30_60": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 27.67,
+      "perPlayerPrice": 6.92,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_14:30_90": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 41.5,
+      "perPlayerPrice": 10.38,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_15:00_60": {
+      "openCourts": 5,
+      "maxCourts": 7,
+      "totalPrice": 30.0,
+      "perPlayerPrice": 7.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_15:00_90": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 45.75,
+      "perPlayerPrice": 11.44,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_15:00_120": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 66.0,
+      "perPlayerPrice": 16.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_15:30_60": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 31.96,
+      "perPlayerPrice": 7.99,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_15:30_90": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 47.42,
+      "perPlayerPrice": 11.86,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 6",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_16:00_60": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 34.0,
+      "perPlayerPrice": 8.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 6",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_11:30_60": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 26.67,
+      "perPlayerPrice": 6.67,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_10:30_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 31.5,
+      "perPlayerPrice": 7.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_10:30_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 47.25,
+      "perPlayerPrice": 11.81,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_10:30_120": {
       "openCourts": 1,
       "maxCourts": 7,
       "totalPrice": 63.0,
       "perPlayerPrice": 15.75,
       "isPeak": false,
       "availableCourtNames": [
-        "Baan 7"
+        "Baan 6"
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-16_09:30_90": {
+    "peakz_vijfkamp_2026-11-19_11:00_60": {
       "openCourts": 1,
       "maxCourts": 7,
-      "totalPrice": 49.0,
-      "perPlayerPrice": 12.25,
+      "totalPrice": 29.75,
+      "perPlayerPrice": 7.44,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 7"
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-16_10:00_60": {
+    "peakz_vijfkamp_2026-11-19_11:00_90": {
       "openCourts": 1,
       "maxCourts": 7,
-      "totalPrice": 35.0,
-      "perPlayerPrice": 8.75,
+      "totalPrice": 44.62,
+      "perPlayerPrice": 11.15,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 7"
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-16_16:30_60": {
+    "peakz_vijfkamp_2026-11-19_11:00_120": {
       "openCourts": 1,
       "maxCourts": 7,
-      "totalPrice": 40.75,
-      "perPlayerPrice": 10.19,
+      "totalPrice": 59.5,
+      "perPlayerPrice": 14.88,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 7"
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-16_12:30_60": {
+    "peakz_vijfkamp_2026-11-19_12:30_60": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_12:30_90": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_12:30_120": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 52.0,
+      "perPlayerPrice": 13.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_14:30_120": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 55.0,
+      "perPlayerPrice": 13.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_08:00_90": {
       "openCourts": 1,
       "maxCourts": 7,
-      "totalPrice": 24.0,
-      "perPlayerPrice": 6.0,
+      "totalPrice": 32.0,
+      "perPlayerPrice": 8.0,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 8"
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-16_12:30_90": {
+    "peakz_vijfkamp_2026-11-19_08:30_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 22.0,
+      "perPlayerPrice": 5.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_11:30_90": {
       "openCourts": 1,
       "maxCourts": 7,
       "totalPrice": 36.0,
@@ -435,7 +4694,7 @@
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-16_12:30_120": {
+    "peakz_vijfkamp_2026-11-19_11:30_120": {
       "openCourts": 1,
       "maxCourts": 7,
       "totalPrice": 48.0,
@@ -446,11 +4705,993 @@
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-16_13:30_60": {
+    "peakz_vijfkamp_2026-11-19_15:30_120": {
       "openCourts": 1,
       "maxCourts": 7,
-      "totalPrice": 24.0,
-      "perPlayerPrice": 6.0,
+      "totalPrice": 51.0,
+      "perPlayerPrice": 12.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_16:00_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_16:30_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-19_20:00_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_08:00_60": {
+      "openCourts": 6,
+      "maxCourts": 7,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_10:30_60": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 32.38,
+      "perPlayerPrice": 8.1,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_10:30_90": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 48.56,
+      "perPlayerPrice": 12.14,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_15:00_60": {
+      "openCourts": 5,
+      "maxCourts": 7,
+      "totalPrice": 31.6,
+      "perPlayerPrice": 7.9,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_15:00_90": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 49.5,
+      "perPlayerPrice": 12.38,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_15:00_120": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 66.0,
+      "perPlayerPrice": 16.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_16:00_60": {
+      "openCourts": 6,
+      "maxCourts": 7,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_13:30_60": {
+      "openCourts": 6,
+      "maxCourts": 7,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_13:30_90": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_13:30_120": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_14:30_60": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 2",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_08:00_90": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_08:30_60": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 28.44,
+      "perPlayerPrice": 7.11,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_11:00_60": {
+      "openCourts": 5,
+      "maxCourts": 7,
+      "totalPrice": 29.35,
+      "perPlayerPrice": 7.34,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_08:00_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_08:30_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 44.62,
+      "perPlayerPrice": 11.15,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_08:30_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 59.5,
+      "perPlayerPrice": 14.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 31.5,
+      "perPlayerPrice": 7.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 47.25,
+      "perPlayerPrice": 11.81,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_09:00_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 63.0,
+      "perPlayerPrice": 15.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 33.25,
+      "perPlayerPrice": 8.31,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 49.88,
+      "perPlayerPrice": 12.47,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_09:30_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 66.5,
+      "perPlayerPrice": 16.62,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_10:00_60": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 29.62,
+      "perPlayerPrice": 7.41,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_10:00_90": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 44.44,
+      "perPlayerPrice": 11.11,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_10:00_120": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 59.25,
+      "perPlayerPrice": 14.81,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_10:30_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 63.0,
+      "perPlayerPrice": 15.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_11:00_90": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 43.21,
+      "perPlayerPrice": 10.8,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_11:00_120": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 57.62,
+      "perPlayerPrice": 14.4,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_11:30_60": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 27.0,
+      "perPlayerPrice": 6.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_11:30_90": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 40.5,
+      "perPlayerPrice": 10.12,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_11:30_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_12:00_60": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 27.5,
+      "perPlayerPrice": 6.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_12:00_90": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 41.25,
+      "perPlayerPrice": 10.31,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_12:00_120": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 55.0,
+      "perPlayerPrice": 13.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_12:30_60": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 27.5,
+      "perPlayerPrice": 6.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_12:30_90": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 41.25,
+      "perPlayerPrice": 10.31,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_12:30_120": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_13:00_60": {
+      "openCourts": 4,
+      "maxCourts": 7,
+      "totalPrice": 27.5,
+      "perPlayerPrice": 6.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_13:00_90": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_13:00_120": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_14:00_60": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 28.0,
+      "perPlayerPrice": 7.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_14:00_90": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_14:00_120": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 56.0,
+      "perPlayerPrice": 14.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_14:30_90": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 42.0,
+      "perPlayerPrice": 10.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_15:30_60": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 34.67,
+      "perPlayerPrice": 8.67,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_15:30_90": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 52.0,
+      "perPlayerPrice": 13.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 5",
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-20_22:30_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-21_08:00_60": {
+      "openCourts": 5,
+      "maxCourts": 7,
+      "totalPrice": 32.6,
+      "perPlayerPrice": 8.15,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-21_08:00_90": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 46.5,
+      "perPlayerPrice": 11.62,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-21_08:30_60": {
+      "openCourts": 3,
+      "maxCourts": 7,
+      "totalPrice": 31.33,
+      "perPlayerPrice": 7.83,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 2",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-21_09:30_60": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 38.0,
+      "perPlayerPrice": 9.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-21_09:30_90": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 57.0,
+      "perPlayerPrice": 14.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 6",
+        "Baan 7"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-21_08:00_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 46.0,
+      "perPlayerPrice": 11.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-21_08:30_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 36.0,
+      "perPlayerPrice": 9.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-21_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-21_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 22.0,
+      "perPlayerPrice": 5.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-21_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 33.0,
+      "perPlayerPrice": 8.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_08:00_60": {
+      "openCourts": 6,
+      "maxCourts": 7,
+      "totalPrice": 33.0,
+      "perPlayerPrice": 8.25,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 1 | 🎥",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 6",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_21:00_60": {
+      "openCourts": 6,
+      "maxCourts": 7,
+      "totalPrice": 32.83,
+      "perPlayerPrice": 8.21,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_21:00_90": {
+      "openCourts": 6,
+      "maxCourts": 7,
+      "totalPrice": 49.25,
+      "perPlayerPrice": 12.31,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 2",
+        "Baan 3 | 🎥",
+        "Baan 4 Mollie",
+        "Baan 5",
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_20:30_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_20:30_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 52.5,
+      "perPlayerPrice": 13.12,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_20:30_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 70.0,
+      "perPlayerPrice": 17.5,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_21:30_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 35.0,
+      "perPlayerPrice": 8.75,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Baan 6"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_08:00_90": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 43.5,
+      "perPlayerPrice": 10.88,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_08:30_60": {
+      "openCourts": 2,
+      "maxCourts": 7,
+      "totalPrice": 29.5,
+      "perPlayerPrice": 7.38,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 7",
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_08:00_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 46.0,
+      "perPlayerPrice": 11.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_08:30_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 36.0,
+      "perPlayerPrice": 9.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_09:00_120": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 52.0,
+      "perPlayerPrice": 13.0,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Baan 8"
+      ],
+      "supported": true
+    },
+    "peakz_vijfkamp_2026-11-22_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 7,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 8"

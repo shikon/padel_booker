@@ -170,6 +170,8 @@ def scrape_peakz_location(context, venue_id, location_label, expected_courts):
                 f"[data-date='{date_iso}']",
                 f"[aria-label*='{date_iso}']",
                 f"button:text-is('{day_num}')",
+                f"td:text-is('{day_num}')",
+                f"span:text-is('{day_num}')",
                 f"[role='gridcell']:text-is('{day_num}')",
                 f"[role='button']:text-is('{day_num}')",
                 f".calendar-day:text-is('{day_num}')",
@@ -180,7 +182,7 @@ def scrape_peakz_location(context, venue_id, location_label, expected_courts):
                 try:
                     day_el = page.locator(sel).first
                     if day_el.count() > 0 and day_el.is_visible():
-                        day_el.click(timeout=2000)
+                        day_el.click(force=True, timeout=2000)
                         page.wait_for_timeout(1800)  # Wait for XHR availability request to fire
                         break
                 except Exception:
@@ -205,6 +207,12 @@ def scrape_peakz_location(context, venue_id, location_label, expected_courts):
                 iso_m = re.search(r"(\d{4}-\d{2}-\d{2})[T ](\d{2}:\d{2})", start_val)
                 if iso_m:
                     d_s, t_s = iso_m.group(1), iso_m.group(2)
+                    try:
+                        slot_dt = datetime.strptime(f"{d_s} {t_s}", "%Y-%m-%d %H:%M").replace(tzinfo=TZ_NL)
+                        if slot_dt <= now_nl:
+                            return
+                    except Exception:
+                        pass
                     dur = parse_duration(node.get("duration") or 60)
                     if 420 <= time_to_mins(t_s) <= 1380 and dur in (30, 60, 90, 120):
                         blocks.append({

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T21:08:30.400494+00:00",
+  "updatedAt": "2026-11-16T21:32:30.518883+00:00",
   "source": "GitHub Actions Live Sync",
   "clubStatus": {
     "padellers_vhv": "portal_only",
@@ -3707,19 +3707,6 @@
       "perPlayerPrice": 9.5,
       "isPeak": false,
       "availableCourtNames": [
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-16_22:30_60": {
-      "openCourts": 3,
-      "maxCourts": 7,
-      "totalPrice": 30.0,
-      "perPlayerPrice": 7.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 5",
-        "Baan 7",
         "Baan 8"
       ],
       "supported": true

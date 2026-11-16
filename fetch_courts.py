@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 from playwright.sync_api import sync_playwright
 
-DAYS_AHEAD = 7
+DAYS_AHEAD = 21
 TZ_NL = ZoneInfo("Europe/Amsterdam")
 
 VENUE_MAX_COURTS = {
@@ -170,8 +170,6 @@ def scrape_peakz_location(context, venue_id, location_label, expected_courts):
                 f"[data-date='{date_iso}']",
                 f"[aria-label*='{date_iso}']",
                 f"button:text-is('{day_num}')",
-                f"td:text-is('{day_num}')",
-                f"span:text-is('{day_num}')",
                 f"[role='gridcell']:text-is('{day_num}')",
                 f"[role='button']:text-is('{day_num}')",
                 f".calendar-day:text-is('{day_num}')",
@@ -182,7 +180,7 @@ def scrape_peakz_location(context, venue_id, location_label, expected_courts):
                 try:
                     day_el = page.locator(sel).first
                     if day_el.count() > 0 and day_el.is_visible():
-                        day_el.click(force=True, timeout=2000)
+                        day_el.dispatch_event("click")
                         page.wait_for_timeout(1800)  # Wait for XHR availability request to fire
                         break
                 except Exception:
@@ -258,10 +256,11 @@ def scrape_padellers_veldhoven(context):
         page.wait_for_timeout(2000)
 
         # Ensure Veldhoven is selected in club selector
-        vhv_opt = page.locator("text=/Veldhoven/i").first
-        if vhv_opt.count() > 0 and vhv_opt.is_visible():
-            vhv_opt.click(timeout=2000)
-            page.wait_for_timeout(2000)
+        vhv_opt = page.locator("text=/The Padellers Veldhoven|Veldhoven/i").first
+        if vhv_opt.count() > 0:
+            vhv_opt.scroll_into_view_if_needed(timeout=3000)
+            vhv_opt.click(force=True, timeout=3000)
+            page.wait_for_timeout(2500)
 
         for day_offset in range(DAYS_AHEAD):
             target_dt = now_nl + timedelta(days=day_offset)
@@ -276,7 +275,7 @@ def scrape_padellers_veldhoven(context):
                     try:
                         btn = page.locator(sel).first
                         if btn.count() > 0 and btn.is_visible():
-                            btn.click(timeout=1500)
+                            btn.click(force=True, timeout=1500)
                             page.wait_for_timeout(1500)
                             break
                     except Exception:
@@ -285,34 +284,52 @@ def scrape_padellers_veldhoven(context):
             # Read clickable free time-slot buttons from the rendered Bookaball grid
             free_slots = page.evaluate("""() => {
                 const results = [];
-                const candidates = document.querySelectorAll('button, [role="button"], .slot, [data-time]');
+                const candidates = document.querySelectorAll('button, [role="button"], .slot, [data-time], div');
                 for (const el of candidates) {
+                    if (el.tagName === 'DIV' && el.children.length > 3) continue;
                     if (el.disabled || el.getAttribute('aria-disabled') === 'true') continue;
                     const cls = (el.className || '').toString().toLowerCase();
-                    if (cls.includes('disabled') || cls.includes('booked') || cls.includes('occupied')) continue;
-                    const txt = (el.innerText || el.getAttribute('data-time') || '').trim();
-                    const m = txt.match(/^([01]\\d|2[0-3]):(00|30)$/);
-                    if (m) {
-                        results.push({ time: m[0], court: el.getAttribute('data-court') || 'Baan' });
+                    if (cls.includes('disabled') || cls.includes('booked') || cls.includes('occupied') || cls.includes('waitlist') || cls.includes('wachtlijst')) continue;
+                    // Skip waitlist slots that show a clock/waitlist badge or dashed border
+                    if (el.querySelector('svg, [class*="waitlist"], [class*="clock"]')) {
+                        const style = window.getComputedStyle(el);
+                        if (style.borderStyle === 'dashed' || cls.includes('wait')) continue;
                     }
+                    const txt = (el.innerText || el.getAttribute('data-time') || '').trim();
+                    const m = txt.match(/^([01]\\d|2[0-3]):(00|30)\\b/);
+                    if (!m) continue;
+                    const priceM = txt.match(/€\\s*(\\d+(?:[.,]\\d+)?)/);
+                    const price = priceM ? parseFloat(priceM[1].replace(',', '.')) : 0;
+                    if (price <= 0 && txt.includes('€')) continue; // Skip €0 unavailable slots
+                    results.push({ time: m[0], price, court: el.getAttribute('data-court') || 'Baan' });
                 }
                 return results;
             }""")
 
             # Count occurrences of each open start time across courts on the grid
-            counts_by_time = defaultdict(int)
+            by_time = {}
             for item in free_slots:
-                counts_by_time[item["time"]] += 1
+                t_str = item["time"]
+                try:
+                    slot_dt = datetime.strptime(f"{date_str} {t_str}", "%Y-%m-%d %H:%M").replace(tzinfo=TZ_NL)
+                    if slot_dt <= now_nl:
+                        continue
+                except Exception:
+                    pass
+                if t_str not in by_time:
+                    by_time[t_str] = {"count": 0, "price": item.get("price") or 0}
+                by_time[t_str]["count"] += 1
 
-            for t_str, count in counts_by_time.items():
-                for idx in range(min(count, 6)):
+            for t_str, info in by_time.items():
+                p_val = info["price"] if info["price"] > 0 else (32.0 if 17 <= int(t_str[:2]) <= 21 else 26.0)
+                for idx in range(min(info["count"], 6)):
                     blocks.append({
                         "venueId": "padellers_vhv",
                         "date": date_str,
                         "time": t_str,
                         "duration": 60,
                         "courtName": f"Indoor Baan {idx + 1}",
-                        "price": 32.0 if 17 <= int(t_str[:2]) <= 21 else 26.0,
+                        "price": p_val,
                     })
 
     except Exception as e:

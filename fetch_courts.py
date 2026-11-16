@@ -7,7 +7,6 @@ from playwright.sync_api import sync_playwright
 
 DAYS_AHEAD = 7
 TZ_NL = ZoneInfo("Europe/Amsterdam")
-VHV_COORDS = (51.4192, 5.4050)
 
 VENUE_MAX_COURTS = {
     "padellers_vhv": 6,
@@ -26,16 +25,14 @@ def time_to_mins(t_str):
 
 
 def mins_to_time(mins):
-    hh = (mins // 60) % 24
-    mm = mins % 60
-    return f"{hh:02d}:{mm:02d}"
+    return f"{(mins // 60) % 24:02d}:{mins % 60:02d}"
 
 
-def parse_price(price_val):
-    if isinstance(price_val, (int, float)):
-        return float(price_val)
-    if isinstance(price_val, str):
-        m = re.search(r"(\d+(?:[.,]\d+)?)", price_val)
+def parse_price(val):
+    if isinstance(val, (int, float)):
+        return float(val)
+    if isinstance(val, str):
+        m = re.search(r"(\d+(?:[.,]\d+)?)", val)
         if m:
             return float(m.group(1).replace(",", "."))
     return 0.0
@@ -44,11 +41,6 @@ def parse_price(price_val):
 def parse_duration(val):
     if isinstance(val, (int, float)):
         return int(val)
-    if isinstance(val, dict):
-        for k in ("minutes", "value", "duration"):
-            if k in val:
-                return parse_duration(val[k])
-        return 60
     if isinstance(val, str):
         hm = re.match(r"^(\d{1,2}):(\d{2})(?::\d{2})?$", val.strip())
         if hm:
@@ -59,221 +51,187 @@ def parse_duration(val):
     return 60
 
 
-def fetch_playtomic_via_browser(context):
+def scrape_peakz_location(context, venue_id, location_label, expected_courts):
+    """
+    Opens Peakz FOYS booking widget, explicitly selects the Eindhoven club
+    (Beursgebouw or Vijfkamplaan) so it never pulls Utrecht ('Pon Centre Court'),
+    and extracts open slots across DAYS_AHEAD.
+    """
     blocks = []
+    now_nl = datetime.now(TZ_NL)
     page = context.new_page()
+    captured = []
+
+    def on_res(res):
+        if res.status == 200 and "json" in res.headers.get("content-type", ""):
+            try:
+                captured.append((res.url, res.json()))
+            except Exception:
+                pass
+
+    page.on("response", on_res)
+
     try:
-        page.goto("https://playtomic.io/", wait_until="domcontentloaded", timeout=30000)
+        page.goto(
+            "https://www.peakzpadel.nl/reserveren/court-booking/reservation",
+            wait_until="networkidle",
+            timeout=35000,
+        )
         page.wait_for_timeout(2000)
 
-        tenants_url = (
-            "https://api.app.playtomic.io/v1/tenants"
-            f"?coordinate={VHV_COORDS[0]},{VHV_COORDS[1]}&radius=10000&sport_id=PADEL"
-        )
-        tenants = page.evaluate(
-            """async (url) => {
-                const res = await fetch(url, { headers: { Accept: 'application/json' } });
-                if (!res.ok) return { error: res.status };
-                return await res.json();
-            }""",
-            tenants_url,
-        )
+        # Open location selector if present and click the exact Eindhoven venue
+        loc_clicked = False
+        for selector in [
+            f"text=/{location_label}/i",
+            "button:has-text('Locatie')",
+            "button:has-text('Utrecht')",
+            "[data-testid*='location']",
+        ]:
+            el = page.locator(selector).first
+            if el.count() > 0 and el.is_visible():
+                el.click(timeout=2000)
+                page.wait_for_timeout(1000)
+                target_opt = page.locator(f"text=/{location_label}/i").last
+                if target_opt.count() > 0 and target_opt.is_visible():
+                    target_opt.click(timeout=2000)
+                    loc_clicked = True
+                    captured.clear()  # Discard initial Utrecht payloads!
+                    page.wait_for_timeout(2500)
+                    break
 
-        if not isinstance(tenants, list):
-            print(f"[Playtomic] Tenant lookup response: {tenants}")
-            return blocks
+        print(f"[Peakz] {venue_id} location selected={loc_clicked}, payloads={len(captured)}")
 
-        now_nl = datetime.now(TZ_NL)
-        for t in tenants:
-            name = t.get("tenant_name", "")
-            if "david lloyd" not in name.lower():
-                continue
+        # Step through upcoming days
+        for day_offset in range(1, DAYS_AHEAD):
+            target_dt = now_nl + timedelta(days=day_offset)
+            day_num = str(target_dt.day)
+            day_btn = page.locator(f"xpath=//*[normalize-space(text())='{day_num}']").first
+            if day_btn.count() > 0 and day_btn.is_visible():
+                try:
+                    day_btn.click(timeout=1500)
+                    page.wait_for_timeout(1500)
+                except Exception:
+                    pass
 
-            tid = t.get("tenant_id")
-            resources = {}
-            for res in t.get("resources", []):
-                if res.get("sport_id") == "PADEL":
-                    resources[res["resource_id"]] = res.get("name", "DL Indoor Padel")
+        # Parse FOYS availability payloads (rejecting Utrecht 'Pon Centre Court')
+        def walk_foys(node, court_name="Indoor Baan", date_str=now_nl.strftime("%Y-%m-%d")):
+            if isinstance(node, list):
+                for item in node:
+                    walk_foys(item, court_name, date_str)
+                return
+            if not isinstance(node, dict):
+                return
 
-            print(f"[Playtomic] Matched '{name}' ({tid}) with {len(resources)} courts")
+            c_name = node.get("name") or node.get("courtName") or node.get("resourceName") or court_name
+            if isinstance(c_name, str) and "pon centre" in c_name.lower():
+                return  # Skip Utrecht default location
 
-            for day_offset in range(DAYS_AHEAD):
-                target_date = (now_nl + timedelta(days=day_offset)).date()
-                avail_url = (
-                    "https://api.app.playtomic.io/v1/availability"
-                    f"?tenant_id={tid}&sport_id=PADEL"
-                    f"&local_start_min={target_date}T07:00:00"
-                    f"&local_start_max={target_date}T23:30:00"
-                )
-                avail = page.evaluate(
-                    """async (url) => {
-                        const res = await fetch(url, { headers: { Accept: 'application/json' } });
-                        if (!res.ok) return [];
-                        return await res.json();
-                    }""",
-                    avail_url,
-                )
-                if not isinstance(avail, list):
-                    continue
-
-                for court in avail:
-                    res_id = court.get("resource_id")
-                    if res_id not in resources:
-                        continue
-                    court_name = resources[res_id]
-                    for s in court.get("slots", []):
-                        raw_start = str(s.get("start_time", ""))[:8]
-                        if len(raw_start) == 5:
-                            raw_start += ":00"
-                        if len(raw_start) != 8:
-                            continue
-                        dur = parse_duration(s.get("duration"))
-                        if dur not in (30, 45, 60, 90, 120):
-                            continue
-                        utc_dt = datetime.strptime(
-                            f"{target_date} {raw_start}", "%Y-%m-%d %H:%M:%S"
-                        ).replace(tzinfo=timezone.utc)
-                        local_dt = utc_dt.astimezone(TZ_NL)
+            start_val = node.get("startTime") or node.get("start_time") or node.get("start")
+            is_avail = node.get("available", node.get("isAvailable", True))
+            if isinstance(start_val, str) and is_avail is True:
+                iso_m = re.search(r"(\d{4}-\d{2}-\d{2})[T ](\d{2}:\d{2})", start_val)
+                if iso_m:
+                    d_s, t_s = iso_m.group(1), iso_m.group(2)
+                    dur = parse_duration(node.get("duration") or 60)
+                    if 420 <= time_to_mins(t_s) <= 1380 and dur in (30, 60, 90, 120):
                         blocks.append({
-                            "venueId": "david_lloyd_vhv",
-                            "date": local_dt.strftime("%Y-%m-%d"),
-                            "time": local_dt.strftime("%H:%M"),
+                            "venueId": venue_id,
+                            "date": d_s,
+                            "time": t_s,
                             "duration": dur,
-                            "courtName": court_name,
-                            "price": parse_price(s.get("price")),
+                            "courtName": str(c_name),
+                            "price": parse_price(node.get("price") or node.get("amount")),
                         })
+
+            for v in node.values():
+                if isinstance(v, (dict, list)):
+                    walk_foys(v, c_name, date_str)
+
+        for _, payload in captured:
+            walk_foys(payload)
+
     except Exception as e:
-        print(f"[Playtomic] Browser fetch error: {e}")
+        print(f"[Peakz] Error for {venue_id}: {e}")
     finally:
         page.close()
 
-    print(f"[Playtomic] Extracted {len(blocks)} raw court blocks")
+    print(f"[Peakz] {venue_id}: extracted {len(blocks)} valid court blocks")
     return blocks
 
 
-def extract_widget_blocks(payload, default_venue_id, fallback_date, url_hint=""):
+def scrape_padellers_veldhoven(context):
+    """
+    Scrapes The Padellers Veldhoven on Bookaball by selecting Veldhoven
+    and reading actual open slots (never treating occupied bookings as free).
+    """
     blocks = []
-    skip_words = ("occupied", "busy", "my-bookings", "translations")
-    if any(w in url_hint.lower() for w in skip_words):
-        return blocks
-
-    def walk(node, venue=default_venue_id, court="Indoor Court", date=fallback_date):
-        if isinstance(node, list):
-            for item in node:
-                walk(item, venue, court, date)
-            return
-        if not isinstance(node, dict):
-            return
-
-        str_vals = [str(v).lower() for v in node.values() if isinstance(v, (str, int))]
-        blob = " ".join(str_vals)
-        if "beurs" in blob:
-            venue = "peakz_beurs"
-        elif "vijfkamp" in blob:
-            venue = "peakz_vijfkamp"
-        elif "veldhoven" in blob:
-            venue = "padellers_vhv"
-
-        for k in ("court_name", "courtName", "resource_name", "resourceName", "name", "title"):
-            val = node.get(k)
-            if isinstance(val, str) and any(w in val.lower() for w in ("baan", "court", "padel")):
-                court = val
-                break
-
-        status_str = str(node.get("status", "")).lower()
-        is_avail = node.get("available", node.get("is_available", node.get("isAvailable", True)))
-        is_booked = node.get("booked", node.get("is_booked", False))
-        start_val = (
-            node.get("start_time")
-            or node.get("startTime")
-            or node.get("start")
-            or node.get("from")
-        )
-
-        if (
-            isinstance(start_val, str)
-            and is_avail is not False
-            and is_booked is not True
-            and status_str not in ("booked", "occupied", "unavailable", "closed")
-        ):
-            iso_m = re.search(r"(\d{4}-\d{2}-\d{2})[T ](\d{2}:\d{2})", start_val)
-            time_m = re.match(r"^(\d{2}:\d{2})", start_val)
-            d_str = iso_m.group(1) if iso_m else date
-            t_str = iso_m.group(2) if iso_m else (time_m.group(1) if time_m else None)
-            dur = parse_duration(node.get("duration") or node.get("duration_minutes"))
-
-            if t_str and 420 <= time_to_mins(t_str) <= 1380 and dur in (30, 45, 60, 90, 120):
-                raw_price = node.get("price") or node.get("amount") or node.get("total_price")
-                blocks.append({
-                    "venueId": venue,
-                    "date": d_str,
-                    "time": t_str,
-                    "duration": dur,
-                    "courtName": court,
-                    "price": parse_price(raw_price),
-                })
-
-        for v in node.values():
-            if isinstance(v, (dict, list)):
-                walk(v, venue, court, date)
+    now_nl = datetime.now(TZ_NL)
+    page = context.new_page()
 
     try:
-        walk(payload)
-    except Exception as e:
-        print(f"[Widget] Parse warning ({default_venue_id}): {e}")
-    return blocks
+        page.goto(
+            "https://thepadellers.bookaball.com/nl/bookings/create",
+            wait_until="networkidle",
+            timeout=35000,
+        )
+        page.wait_for_timeout(2000)
 
+        # Ensure Veldhoven is selected in club selector
+        vhv_opt = page.locator("text=/Veldhoven/i").first
+        if vhv_opt.count() > 0 and vhv_opt.is_visible():
+            vhv_opt.click(timeout=2000)
+            page.wait_for_timeout(2000)
 
-def scrape_widget_venues(context):
-    all_blocks = []
-    now_nl = datetime.now(TZ_NL)
-    targets = [
-        ("padellers_vhv", "https://thepadellers.bookaball.com/nl/bookings/create"),
-        ("peakz_beurs", "https://www.peakzpadel.nl/reserveren/court-booking/reservation"),
-    ]
-
-    for default_venue, url in targets:
-        page = context.new_page()
-        captured = []
-
-        def make_handler(store):
-            def on_res(res):
-                if res.status == 200 and "json" in res.headers.get("content-type", ""):
-                    try:
-                        store.append((res.url, res.json()))
-                    except Exception:
-                        pass
-            return on_res
-
-        page.on("response", make_handler(captured))
-        try:
-            page.goto(url, wait_until="networkidle", timeout=35000)
-            page.wait_for_timeout(3000)
-            for day_offset in range(1, DAYS_AHEAD):
-                day_num = str((now_nl + timedelta(days=day_offset)).day)
-                btn = page.locator(f"button:has-text('{day_num}')").first
+        for day_offset in range(DAYS_AHEAD):
+            target_dt = now_nl + timedelta(days=day_offset)
+            date_str = target_dt.strftime("%Y-%m-%d")
+            if day_offset > 0:
+                day_num = str(target_dt.day)
+                btn = page.locator(f"xpath=//*[normalize-space(text())='{day_num}']").first
                 if btn.count() > 0 and btn.is_visible():
-                    try:
-                        btn.click(timeout=1500)
-                        page.wait_for_timeout(1200)
-                    except Exception:
-                        pass
-        except Exception as e:
-            print(f"[Widget] Navigation warning for {default_venue}: {e}")
+                    btn.click(timeout=1500)
+                    page.wait_for_timeout(1500)
 
-        print(f"[Widget] Captured {len(captured)} JSON responses for {default_venue}")
-        for resp_url, payload in captured:
-            if isinstance(payload, dict):
-                preview = list(payload.keys())[:6]
-            else:
-                preview = f"list[{len(payload)}]"
-            print(f"  -> {resp_url[:90]} | {preview}")
-            all_blocks.extend(
-                extract_widget_blocks(payload, default_venue, now_nl.strftime("%Y-%m-%d"), resp_url)
-            )
+            # Read clickable free time-slot buttons from the rendered Bookaball grid
+            free_slots = page.evaluate("""() => {
+                const results = [];
+                const candidates = document.querySelectorAll('button, [role="button"], .slot, [data-time]');
+                for (const el of candidates) {
+                    if (el.disabled || el.getAttribute('aria-disabled') === 'true') continue;
+                    const cls = (el.className || '').toString().toLowerCase();
+                    if (cls.includes('disabled') || cls.includes('booked') || cls.includes('occupied')) continue;
+                    const txt = (el.innerText || el.getAttribute('data-time') || '').trim();
+                    const m = txt.match(/^([01]\\d|2[0-3]):(00|30)$/);
+                    if (m) {
+                        results.push({ time: m[0], court: el.getAttribute('data-court') || 'Baan' });
+                    }
+                }
+                return results;
+            }""")
+
+            # Count occurrences of each open start time across courts on the grid
+            counts_by_time = defaultdict(int)
+            for item in free_slots:
+                counts_by_time[item["time"]] += 1
+
+            for t_str, count in counts_by_time.items():
+                for idx in range(min(count, 6)):
+                    blocks.append({
+                        "venueId": "padellers_vhv",
+                        "date": date_str,
+                        "time": t_str,
+                        "duration": 60,
+                        "courtName": f"Indoor Baan {idx + 1}",
+                        "price": 32.0 if 17 <= int(t_str[:2]) <= 21 else 26.0,
+                    })
+
+    except Exception as e:
+        print(f"[Padellers] Error: {e}")
+    finally:
         page.close()
 
-    return all_blocks
+    print(f"[Padellers] Extracted {len(blocks)} open court blocks")
+    return blocks
 
 
 def build_slot_map(raw_blocks):
@@ -285,30 +243,30 @@ def build_slot_map(raw_blocks):
     aggregated = defaultdict(lambda: {"courts": set(), "prices": []})
     for (venue_id, date_str, court_name), blocks in by_court.items():
         blocks.sort(key=lambda x: time_to_mins(x["time"]))
-        start_map = {}
-        for b in blocks:
-            sm = time_to_mins(b["time"])
-            dur = parse_duration(b.get("duration"))
-            pr = float(b.get("price") or 0)
-            start_map[sm] = (dur, pr)
+        start_map = {
+            time_to_mins(b["time"]): (parse_duration(b.get("duration")), float(b.get("price") or 0))
+            for b in blocks
+        }
 
         for start_m, (first_dur, first_price) in start_map.items():
-            for target_dur in (60, 90, 120):
-                if first_dur == target_dur:
-                    key = (venue_id, date_str, mins_to_time(start_m), target_dur)
-                    aggregated[key]["courts"].add(court_name)
-                    if first_price > 0:
-                        aggregated[key]["prices"].append(first_price)
-                elif first_dur == 30:
+            # If a platform gives a 90m or 120m contiguous block, shorter durations also fit
+            if first_dur in (60, 90, 120):
+                for target_dur in (60, 90, 120):
+                    if target_dur <= first_dur:
+                        key = (venue_id, date_str, mins_to_time(start_m), target_dur)
+                        aggregated[key]["courts"].add(court_name)
+                        if first_price > 0:
+                            aggregated[key]["prices"].append(round(first_price * (target_dur / first_dur), 2))
+            elif first_dur == 30:
+                for target_dur in (60, 90, 120):
                     steps = target_dur // 30
                     total_p = 0.0
                     ok = True
                     for s in range(steps):
-                        next_m = start_m + s * 30
-                        if next_m not in start_map:
+                        if (start_m + s * 30) not in start_map:
                             ok = False
                             break
-                        total_p += start_map[next_m][1]
+                        total_p += start_map[start_m + s * 30][1]
                     if ok:
                         key = (venue_id, date_str, mins_to_time(start_m), target_dur)
                         aggregated[key]["courts"].add(court_name)
@@ -322,12 +280,12 @@ def build_slot_map(raw_blocks):
         if open_count == 0:
             continue
         max_c = max(VENUE_MAX_COURTS.get(venue_id, open_count), open_count)
-        if info["prices"]:
-            avg_price = round(sum(info["prices"]) / len(info["prices"]), 2)
-        else:
-            avg_price = round(30.0 * (dur / 60), 2)
-        slot_key = f"{venue_id}_{date_str}_{time_str}_{dur}"
-        slots_out[slot_key] = {
+        avg_price = (
+            round(sum(info["prices"]) / len(info["prices"]), 2)
+            if info["prices"]
+            else round(30.0 * (dur / 60), 2)
+        )
+        slots_out[f"{venue_id}_{date_str}_{time_str}_{dur}"] = {
             "openCourts": open_count,
             "maxCourts": max_c,
             "totalPrice": avg_price,
@@ -351,16 +309,18 @@ def main():
             locale="nl-NL",
             timezone_id="Europe/Amsterdam",
         )
-        all_blocks.extend(fetch_playtomic_via_browser(context))
-        all_blocks.extend(scrape_widget_venues(context))
+        all_blocks.extend(scrape_padellers_veldhoven(context))
+        all_blocks.extend(scrape_peakz_location(context, "peakz_beurs", "Beursgebouw", 8))
+        all_blocks.extend(scrape_peakz_location(context, "peakz_vijfkamp", "Vijfkamplaan", 7))
         browser.close()
 
     slots_map = build_slot_map(all_blocks)
-    club_status = {}
-    for vid in VENUE_MAX_COURTS:
+    club_status = {
+        vid: ("live" if any(k.startswith(f"{vid}_") for k in slots_map) else "portal_only")
+        for vid in VENUE_MAX_COURTS
+    }
+    for vid, st in club_status.items():
         count = sum(1 for k in slots_map if k.startswith(f"{vid}_"))
-        st = "live" if count > 0 else "portal_only"
-        club_status[vid] = st
         print(f"[Summary] {vid}: {count} slots ({st})")
 
     output = {

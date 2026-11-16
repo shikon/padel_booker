@@ -79,30 +79,86 @@ def scrape_peakz_location(context, venue_id, location_label, expected_courts):
         )
         page.wait_for_timeout(2000)
 
+        # Dismiss Cookiebot banner if present
+        try:
+            cookie_btn = page.locator("#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll, button:has-text('Alles accepteren')").first
+            if cookie_btn.count() > 0 and cookie_btn.is_visible():
+                cookie_btn.click(timeout=2000)
+                page.wait_for_timeout(1000)
+        except Exception:
+            pass
+
+        # Wait for any loading modal overlay to disappear
+        try:
+            page.locator(".modal").first.wait_for(state="hidden", timeout=8000)
+        except Exception:
+            pass
+
         # Open location selector if present and click the exact Eindhoven venue
         loc_clicked = False
-        for selector in [
-            f"text=/{location_label}/i",
-            "button:has-text('Locatie')",
-            "button:has-text('Utrecht')",
-            "[data-testid*='location']",
-        ]:
+
+        # 1. Try vue-multiselect (Peakz FOYS widget uses .multiselect)
+        try:
+            ms = page.locator(".multiselect").first
+            if ms.count() > 0:
+                ms.click(force=True, timeout=3000)
+                page.wait_for_timeout(500)
+                opt = ms.locator(f".multiselect__option:has-text('{location_label}')").first
+                if opt.count() > 0:
+                    captured.clear()  # Discard initial default-club payloads!
+                    opt.dispatch_event("click")
+                    loc_clicked = True
+                    page.wait_for_timeout(2500)
+        except Exception as e:
+            print(f"[Peakz] multiselect err for {venue_id}: {e}")
+
+        # 2. Try native <select> dropdowns
+        if not loc_clicked:
             try:
-                el = page.locator(selector).first
-                if el.count() > 0 and el.is_visible():
-                    el.click(timeout=2000)
-                    page.wait_for_timeout(1000)
-                    target_opt = page.locator(f"text=/{location_label}/i").last
-                    if target_opt.count() > 0 and target_opt.is_visible():
-                        target_opt.click(timeout=2000)
+                selects = page.locator("select")
+                for i in range(selects.count()):
+                    sel_el = selects.nth(i)
+                    opts = sel_el.locator("option").all_inner_texts()
+                    match_opt = next((o for o in opts if location_label.lower() in o.lower()), None)
+                    if match_opt:
+                        captured.clear()
+                        sel_el.select_option(label=match_opt)
                         loc_clicked = True
-                        captured.clear()  # Discard initial Utrecht payloads!
                         page.wait_for_timeout(2500)
                         break
             except Exception:
-                continue
+                pass
+
+        # 2. Fallback to custom dropdown / combobox
+        if not loc_clicked:
+            for selector in [
+                "text=/Amersfoort -/i",
+                "text=/CUPRA Padel Dome/i",
+                "[role='combobox']",
+                "button:has-text('Locatie')",
+                "button:has-text('Utrecht')",
+                "[data-testid*='location']",
+                f"text=/{location_label}/i",
+            ]:
+                try:
+                    el = page.locator(selector).first
+                    if el.count() > 0 and el.is_visible():
+                        el.click(timeout=2000)
+                        page.wait_for_timeout(1000)
+                        target_opt = page.locator(f"text=/{location_label}/i").last
+                        if target_opt.count() > 0 and target_opt.is_visible():
+                            captured.clear()  # Discard initial Utrecht payloads!
+                            target_opt.click(timeout=2000)
+                            loc_clicked = True
+                            page.wait_for_timeout(2500)
+                            break
+                except Exception:
+                    continue
 
         print(f"[Peakz] {venue_id} location selected={loc_clicked}, payloads={len(captured)}")
+        if not loc_clicked:
+            print(f"[Peakz] Warning: could not select {location_label}, skipping to avoid wrong club data")
+            return []
 
         # Robust day picker loop (keep CSS and XPath selectors separate)
         for day_offset in range(1, DAYS_AHEAD):

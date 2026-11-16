@@ -101,15 +101,18 @@ def scrape_peakz_location(context, venue_id, location_label, expected_courts):
 
         print(f"[Peakz] {venue_id} location selected={loc_clicked}, payloads={len(captured)}")
 
-        # Step through upcoming days
+# Robust day picker loop
         for day_offset in range(1, DAYS_AHEAD):
             target_dt = now_nl + timedelta(days=day_offset)
+            date_iso = target_dt.strftime("%Y-%m-%d")
             day_num = str(target_dt.day)
-            day_btn = page.locator(f"xpath=//*[normalize-space(text())='{day_num}']").first
-            if day_btn.count() > 0 and day_btn.is_visible():
+            
+            # Try multiple selectors that booking widgets use for date cells
+            day_el = page.locator(f"[data-date='{date_iso}'], [aria-label*='{day_num}'], .calendar-day:has-text('{day_num}'), xpath=//*[normalize-space(text())='{day_num}']").first
+            if day_el.count() > 0:
                 try:
-                    day_btn.click(timeout=1500)
-                    page.wait_for_timeout(1500)
+                    day_el.click(timeout=2000)
+                    page.wait_for_timeout(1800) # Wait for XHR availability request to fire
                 except Exception:
                     pass
 

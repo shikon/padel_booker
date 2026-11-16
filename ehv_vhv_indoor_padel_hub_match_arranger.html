@@ -1119,7 +1119,7 @@ jobs:
               </div>
             </td>
 
-            ${rowSlots.map(({ venue, data }) => {
+${rowSlots.map(({ venue, data }) => {
               const slotKey = `${venue.id}|${state.selectedDate}|${timeStr}|${state.duration}`;
               const isShortlisted = state.match.shortlist.some(s => s.key === slotKey);
 
@@ -1147,12 +1147,16 @@ jobs:
                 `;
               }
 
-              if (data.openCourts === 0) {
+              // Fix: Explicitly check openCourts (matching availability.json schema)
+              const openCount = typeof data.openCourts === 'number' ? data.openCourts : 0;
+              const maxC = data.maxCourts || 6;
+
+              if (openCount === 0) {
                 return `
                   <td class="p-2.5 align-middle border-r border-slate-800/40 last:border-r-0">
                     <div class="rounded-xl bg-slate-950/50 border border-slate-800/50 p-2.5 flex items-center justify-between opacity-50">
                       <div>
-                        <span class="text-xs font-mono text-slate-500 line-through">0/${data.maxCourts} Indoor</span>
+                        <span class="text-xs font-mono text-slate-500 line-through">0/${maxC} Indoor</span>
                         <div class="text-[10px] text-slate-600">Full</div>
                       </div>
                       <a href="${venue.bookingUrl}" target="_blank" rel="noopener noreferrer" class="text-[10px] font-mono text-slate-500 hover:text-slate-300 underline" title="Check waiting list on club portal">
@@ -1163,12 +1167,14 @@ jobs:
                 `;
               }
 
-              const urgencyClass = data.openCourts <= 2
+              const urgencyClass = openCount <= 2
                 ? 'border-amber-500/40 bg-amber-500/[0.06]'
                 : 'border-emerald-500/30 bg-emerald-500/[0.05]';
 
-              const dotColor = data.openCourts <= 2 ? 'bg-amber-400' : 'bg-emerald-400';
-              const textColor = data.openCourts <= 2 ? 'text-amber-300' : 'text-emerald-300';
+              const dotColor = openCount <= 2 ? 'bg-amber-400' : 'bg-emerald-400';
+              const textColor = openCount <= 2 ? 'text-amber-300' : 'text-emerald-300';
+              const ppPrice = data.perPlayerPrice ? data.perPlayerPrice.toFixed(2) : '11.25';
+              const courtNamesList = Array.isArray(data.availableCourtNames) ? data.availableCourtNames.join(', ') : 'Indoor Court';
 
               return `
                 <td class="p-2 align-top border-r border-slate-800/40 last:border-r-0">
@@ -1181,14 +1187,14 @@ jobs:
                       <div class="flex items-center justify-between gap-1 mb-1">
                         <span class="inline-flex items-center gap-1.5 text-xs font-mono font-bold ${textColor}">
                           <span class="w-2 h-2 rounded-full ${dotColor}"></span>
-                          ${data.openCourts}/${data.maxCourts} Open
+                          ${openCount}/${maxC} Open
                         </span>
-                        <span class="text-[11px] font-mono text-slate-300 font-semibold" title="Total: €${data.totalPrice.toFixed(2)}">
-                          €${data.perPlayerPrice.toFixed(2)}<span class="text-[10px] text-slate-400">/pp</span>
+                        <span class="text-[11px] font-mono text-slate-300 font-semibold" title="Total: €${(data.totalPrice || 45).toFixed(2)}">
+                          €${ppPrice}<span class="text-[10px] text-slate-400">/pp</span>
                         </span>
                       </div>
-                      <p class="text-[10px] text-slate-400 truncate mb-2" title="${data.availableCourtNames.join(', ')}">
-                        ${data.availableCourtNames[0]}${data.availableCourtNames.length > 1 ? ` +${data.availableCourtNames.length - 1} more` : ''}
+                      <p class="text-[10px] text-slate-400 truncate mb-2" title="${courtNamesList}">
+                        ${courtNamesList}
                       </p>
                     </div>
 
@@ -1201,7 +1207,7 @@ jobs:
                         <i class="fa-solid ${isShortlisted ? 'fa-check' : 'fa-plus'} text-[10px]"></i>
                         <span>${isShortlisted ? 'In Poll' : 'Shortlist'}</span>
                       </button>
-                      <button onclick="openDirectBooking('${venue.id}', '${state.selectedDate}', '${timeStr}', ${state.duration})" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-padel-turf hover:text-slate-950 text-slate-300 border border-slate-700 text-[11px] font-semibold transition" title="Book directly on ${venue.name} (${venue.platform})">
+                      <button onclick="openDirectBooking('${venue.id}', '${state.selectedDate}', '${timeStr}', ${state.duration})" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-padel-turf hover:text-slate-950 text-slate-300 border border-slate-700 text-[11px] font-semibold transition" title="Book directly">
                         Book ↗
                       </button>
                     </div>

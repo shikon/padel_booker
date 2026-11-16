@@ -19,14 +19,16 @@ VENUE_MAX_COURTS = {
 
 def time_to_mins(t_str):
     try:
-        h, m = map(int, str(t_str)[:5].split(":"))
-        return h * 60 + m
+        parts = str(t_str)[:5].split(":")
+        return int(parts[0]) * 60 + int(parts[1])
     except Exception:
         return -1
 
 
 def mins_to_time(mins):
-    return f"{(mins // 60) % 24:02d}:{mins % 60:02d}"
+    hh = (mins // 60) % 24
+    mm = mins % 60
+    return f"{hh:02d}:{mm:02d}"
 
 
 def parse_price(price_val):
@@ -58,7 +60,6 @@ def parse_duration(val):
 
 
 def fetch_playtomic_via_browser(context):
-    """Fetches Playtomic slots from inside Chromium on playtomic.io to avoid 403 WAF blocks."""
     blocks = []
     page = context.new_page()
     try:
@@ -66,12 +67,12 @@ def fetch_playtomic_via_browser(context):
         page.wait_for_timeout(2000)
 
         tenants_url = (
-            f"https://api.app.playtomic.io/v1/tenants"
+            "https://api.app.playtomic.io/v1/tenants"
             f"?coordinate={VHV_COORDS[0]},{VHV_COORDS[1]}&radius=10000&sport_id=PADEL"
         )
         tenants = page.evaluate(
             """async (url) => {
-                const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+                const res = await fetch(url, { headers: { Accept: 'application/json' } });
                 if (!res.ok) return { error: res.status };
                 return await res.json();
             }""",
@@ -80,7 +81,6 @@ def fetch_playtomic_via_browser(context):
 
         if not isinstance(tenants, list):
             print(f"[Playtomic] Tenant lookup response: {tenants}")
-            page.close()
             return blocks
 
         now_nl = datetime.now(TZ_NL)
@@ -90,24 +90,24 @@ def fetch_playtomic_via_browser(context):
                 continue
 
             tid = t.get("tenant_id")
-            resources = {
-                res["resource_id"]: res.get("name", "DL Indoor Padel")
-                for res in t.get("resources", [])
-                if res.get("sport_id") == "PADEL"
-            }
+            resources = {}
+            for res in t.get("resources", []):
+                if res.get("sport_id") == "PADEL":
+                    resources[res["resource_id"]] = res.get("name", "DL Indoor Padel")
+
             print(f"[Playtomic] Matched '{name}' ({tid}) with {len(resources)} courts")
 
             for day_offset in range(DAYS_AHEAD):
                 target_date = (now_nl + timedelta(days=day_offset)).date()
                 avail_url = (
-                    f"https://api.app.playtomic.io/v1/availability"
+                    "https://api.app.playtomic.io/v1/availability"
                     f"?tenant_id={tid}&sport_id=PADEL"
                     f"&local_start_min={target_date}T07:00:00"
                     f"&local_start_max={target_date}T23:30:00"
                 )
                 avail = page.evaluate(
                     """async (url) => {
-                        const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+                        const res = await fetch(url, { headers: { Accept: 'application/json' } });
                         if (!res.ok) return [];
                         return await res.json();
                     }""",
@@ -152,9 +152,9 @@ def fetch_playtomic_via_browser(context):
 
 
 def extract_widget_blocks(payload, default_venue_id, fallback_date, url_hint=""):
-    """Safely extracts available court slots from Bookaball / FOYS JSON payloads."""
     blocks = []
-    if any(w in url_hint.lower() for w in ("occupied", "busy", "my-bookings", "translations")):
+    skip_words = ("occupied", "busy", "my-bookings", "translations")
+    if any(w in url_hint.lower() for w in skip_words):
         return blocks
 
     def walk(node, venue=default_venue_id, court="Indoor Court", date=fallback_date):
@@ -165,7 +165,8 @@ def extract_widget_blocks(payload, default_venue_id, fallback_date, url_hint="")
         if not isinstance(node, dict):
             return
 
-        blob = " ".join(str(v).lower() for v in node.values() if isinstance(v, (str, int)))
+        str_vals = [str(v).lower() for v in node.values() if isinstance(v, (str, int))]
+        blob = " ".join(str_vals)
         if "beurs" in blob:
             venue = "peakz_beurs"
         elif "vijfkamp" in blob:
@@ -182,8 +183,13 @@ def extract_widget_blocks(payload, default_venue_id, fallback_date, url_hint="")
         status_str = str(node.get("status", "")).lower()
         is_avail = node.get("available", node.get("is_available", node.get("isAvailable", True)))
         is_booked = node.get("booked", node.get("is_booked", False))
+        start_val = (
+            node.get("start_time")
+            or node.get("startTime")
+            or node.get("start")
+            or node.get("from")
+        )
 
-        start_val = node.get("start_time") or node.get("startTime") or node.get("start") or node.get("from")
         if (
             isinstance(start_val, str)
             and is_avail is not False
@@ -196,15 +202,15 @@ def extract_widget_blocks(payload, default_venue_id, fallback_date, url_hint="")
             t_str = iso_m.group(2) if iso_m else (time_m.group(1) if time_m else None)
             dur = parse_duration(node.get("duration") or node.get("duration_minutes"))
 
-            # Ignore opening-hours entries like duration="15:00:00" (900 mins)
             if t_str and 420 <= time_to_mins(t_str) <= 1380 and dur in (30, 45, 60, 90, 120):
+                raw_price = node.get("price") or node.get("amount") or node.get("total_price")
                 blocks.append({
                     "venueId": venue,
                     "date": d_str,
                     "time": t_str,
                     "duration": dur,
                     "courtName": court,
-                    "price": parse_price(node.get("price") or node.get("amount") or node.get("total_price")),
+                    "price": parse_price(raw_price),
                 })
 
         for v in node.values():
@@ -219,7 +225,6 @@ def extract_widget_blocks(payload, default_venue_id, fallback_date, url_hint="")
 
 
 def scrape_widget_venues(context):
-    """Intercepts JSON responses from Bookaball (The Padellers VHV) and FOYS (Peakz EHV)."""
     all_blocks = []
     now_nl = datetime.now(TZ_NL)
     targets = [
@@ -258,8 +263,11 @@ def scrape_widget_venues(context):
 
         print(f"[Widget] Captured {len(captured)} JSON responses for {default_venue}")
         for resp_url, payload in captured:
-            keys_preview = list(payload.keys())[:6] if isinstance(payload, dict) else f"list[{len(payload)}]"
-            print(f"  -> {resp_url[:95]} | {keys_preview}")
+            if isinstance(payload, dict):
+                preview = list(payload.keys())[:6]
+            else:
+                preview = f"list[{len(payload)}]"
+            print(f"  -> {resp_url[:90]} | {preview}")
             all_blocks.extend(
                 extract_widget_blocks(payload, default_venue, now_nl.strftime("%Y-%m-%d"), resp_url)
             )
@@ -277,6 +285,94 @@ def build_slot_map(raw_blocks):
     aggregated = defaultdict(lambda: {"courts": set(), "prices": []})
     for (venue_id, date_str, court_name), blocks in by_court.items():
         blocks.sort(key=lambda x: time_to_mins(x["time"]))
-        start_map = {
-            time_to_mins(b["time"]): (parse_duration(b.get("duration")), float(b.get("price") or 0))
-            for b in blocks
+        start_map = {}
+        for b in blocks:
+            sm = time_to_mins(b["time"])
+            dur = parse_duration(b.get("duration"))
+            pr = float(b.get("price") or 0)
+            start_map[sm] = (dur, pr)
+
+        for start_m, (first_dur, first_price) in start_map.items():
+            for target_dur in (60, 90, 120):
+                if first_dur == target_dur:
+                    key = (venue_id, date_str, mins_to_time(start_m), target_dur)
+                    aggregated[key]["courts"].add(court_name)
+                    if first_price > 0:
+                        aggregated[key]["prices"].append(first_price)
+                elif first_dur == 30:
+                    steps = target_dur // 30
+                    total_p = 0.0
+                    ok = True
+                    for s in range(steps):
+                        next_m = start_m + s * 30
+                        if next_m not in start_map:
+                            ok = False
+                            break
+                        total_p += start_map[next_m][1]
+                    if ok:
+                        key = (venue_id, date_str, mins_to_time(start_m), target_dur)
+                        aggregated[key]["courts"].add(court_name)
+                        if total_p > 0:
+                            aggregated[key]["prices"].append(total_p)
+
+    slots_out = {}
+    for (venue_id, date_str, time_str, dur), info in aggregated.items():
+        courts = sorted(info["courts"])
+        open_count = len(courts)
+        if open_count == 0:
+            continue
+        max_c = max(VENUE_MAX_COURTS.get(venue_id, open_count), open_count)
+        if info["prices"]:
+            avg_price = round(sum(info["prices"]) / len(info["prices"]), 2)
+        else:
+            avg_price = round(30.0 * (dur / 60), 2)
+        slot_key = f"{venue_id}_{date_str}_{time_str}_{dur}"
+        slots_out[slot_key] = {
+            "openCourts": open_count,
+            "maxCourts": max_c,
+            "totalPrice": avg_price,
+            "perPlayerPrice": round(avg_price / 4, 2),
+            "isPeak": 17 <= int(time_str[:2]) <= 21,
+            "availableCourtNames": courts,
+            "supported": True,
+        }
+    return slots_out
+
+
+def main():
+    all_blocks = []
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context(
+            user_agent=(
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+            ),
+            locale="nl-NL",
+            timezone_id="Europe/Amsterdam",
+        )
+        all_blocks.extend(fetch_playtomic_via_browser(context))
+        all_blocks.extend(scrape_widget_venues(context))
+        browser.close()
+
+    slots_map = build_slot_map(all_blocks)
+    club_status = {}
+    for vid in VENUE_MAX_COURTS:
+        count = sum(1 for k in slots_map if k.startswith(f"{vid}_"))
+        st = "live" if count > 0 else "portal_only"
+        club_status[vid] = st
+        print(f"[Summary] {vid}: {count} slots ({st})")
+
+    output = {
+        "updatedAt": datetime.now(timezone.utc).isoformat(),
+        "source": "GitHub Actions Live Sync",
+        "clubStatus": club_status,
+        "slots": slots_map,
+    }
+    with open("availability.json", "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+    print(f"Wrote {len(slots_map)} slot keys to availability.json")
+
+
+if __name__ == "__main__":
+    main()

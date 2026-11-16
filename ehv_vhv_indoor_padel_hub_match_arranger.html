@@ -1931,23 +1931,25 @@ jobs:
 
     async function tryLoadExternalAvailabilityJson(showFeedback = false) {
       try {
-        const res = await fetch('./availability.json', { cache: 'no-store' });
+        // Fix: Determine correct path whether hosted at root or subdirectory /padel_booker/
+        const basePath = window.location.pathname.includes('/padel_booker') ? '/padel_booker/availability.json' : './availability.json';
+        const res = await fetch(basePath, { cache: 'no-store' });
         if (res.ok) {
           const data = await res.json();
           state.externalJsonData = data;
           state.dataSource = `Live JSON (${data.updatedAt ? new Date(data.updatedAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : 'Synced'})`;
           document.getElementById('syncLabel').textContent = state.dataSource;
           if (showFeedback) {
-            showToast('Loaded ./availability.json from GitHub Pages repo!', 'success');
+            showToast('Loaded availability.json successfully!', 'success');
           }
           renderAll();
           return true;
         }
       } catch (err) {
-        // Expected when running without availability.json present yet
+        console.warn('Could not load availability.json:', err);
       }
       if (showFeedback) {
-        showToast('No ./availability.json found in root yet — using Smart VHV/EHV Indoor Engine. See Tab 2 to enable the GitHub Action!', 'info');
+        showToast('Could not fetch availability.json check browser network tab.', 'info');
       }
       return false;
     }

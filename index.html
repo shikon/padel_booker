@@ -834,46 +834,17 @@ jobs:
               return liveSlot;
             }
     
-            const status = state.externalJsonData.clubStatus?.[venueId];
             const maxCourts = courtType === 'SINGLE' ? venue.indoorSingleCourts : venue.indoorDoubleCourts;
-    
-            // If this club's live feed succeeded, an absent slot means it is genuinely sold out (0 open)
-            if (status === 'live') {
-              return {
-                openCourts: 0,
-                maxCourts,
-                totalPrice: 0,
-                perPlayerPrice: 0,
-                isPeak: false,
-                availableCourtNames: [],
-                supported: true
-              };
-            }
-
-        // If the club's widget couldn't be scraped headlessly, show 0/Portal link rather than fake courts
-        return {
-          openCourts: 0,
-          maxCourts,
-          totalPrice: 0,
-          perPlayerPrice: 0,
-          isPeak: false,
-          availableCourtNames: [],
-          supported: true
-        };
-      }
-
-      // If filtering Single courts and venue has 0 single courts
-      if (courtType === 'SINGLE' && venue.indoorSingleCourts === 0) {
-        return {
-          openCourts: 0,
-          maxCourts: 0,
-          totalPrice: 0,
-          perPlayerPrice: 0,
-          isPeak: false,
-          availableCourtNames: [],
-          supported: false
-        };
-      }
+            return {
+              openCourts: 0,
+              maxCourts,
+              totalPrice: 0,
+              perPlayerPrice: 0,
+              isPeak: false,
+              availableCourtNames: [],
+              supported: true
+            };
+          }
 
       const maxCourts = courtType === 'SINGLE'
         ? venue.indoorSingleCourts

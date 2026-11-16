@@ -1,16 +1,16 @@
 name: Update Padel Availability
 
 on:
-  workflow_dispatch: # Enables manual "Run workflow" button on demand
+  workflow_dispatch:
   schedule:
-    - cron: '*/30 * * * *' # Runs automatically every 30 minutes
+    - cron: '*/30 * * * *'
 
 permissions:
   contents: write
 
 jobs:
   fetch-courts:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install requests playwright
-          playwright install chromium
+          playwright install --with-deps chromium
 
       - name: Fetch live VHV & EHV indoor courts
         run: python fetch_courts.py

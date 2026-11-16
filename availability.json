@@ -5,6 +5,8 @@
     "padellers_vhv": "portal_only",
     "peakz_beurs": "live",
     "peakz_vijfkamp": "live",
+    "peakz_beurs": "live",
+    "peakz_vijfkamp": "live",
     "david_lloyd_vhv": "portal_only"
   },
   "slots": {

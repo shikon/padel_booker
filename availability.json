@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T01:27:46.640151+00:00",
+  "updatedAt": "2026-11-20T08:49:19.231494+00:00",
   "source": "GitHub Actions Live Sync",
   "clubStatus": {
     "padellers_vhv": "live",
@@ -8,50 +8,6 @@
     "david_lloyd_vhv": "portal_only"
   },
   "slots": {
-    "padellers_vhv_2026-11-20_09:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 25.0,
-      "perPlayerPrice": 6.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-20_09:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 37.5,
-      "perPlayerPrice": 9.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-20_09:30_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 25.0,
-      "perPlayerPrice": 6.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-20_09:30_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 37.5,
-      "perPlayerPrice": 9.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-11-20_10:00_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -316,50 +272,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-11-21_09:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 25.0,
-      "perPlayerPrice": 6.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-21_09:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 37.5,
-      "perPlayerPrice": 9.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-21_09:30_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 25.0,
-      "perPlayerPrice": 6.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-21_09:30_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 37.5,
-      "perPlayerPrice": 9.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-11-21_10:00_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -619,50 +531,6 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-22_09:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 25.0,
-      "perPlayerPrice": 6.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-22_09:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 37.5,
-      "perPlayerPrice": 9.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-22_09:30_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 25.0,
-      "perPlayerPrice": 6.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-22_09:30_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 37.5,
-      "perPlayerPrice": 9.38,
-      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -7636,43 +7504,25 @@
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-20_08:00_60": {
-      "openCourts": 6,
-      "maxCourts": 7,
-      "totalPrice": 28.0,
-      "perPlayerPrice": 7.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 3 | 🎥",
-        "Baan 4 Mollie",
-        "Baan 5",
-        "Baan 6",
-        "Baan 7"
-      ],
-      "supported": true
-    },
     "peakz_vijfkamp_2026-11-20_10:30_60": {
-      "openCourts": 2,
+      "openCourts": 1,
       "maxCourts": 7,
       "totalPrice": 32.67,
       "perPlayerPrice": 8.17,
       "isPeak": false,
       "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 2"
+        "Baan 1 | 🎥"
       ],
       "supported": true
     },
     "peakz_vijfkamp_2026-11-20_10:30_90": {
-      "openCourts": 2,
+      "openCourts": 1,
       "maxCourts": 7,
       "totalPrice": 49.0,
       "perPlayerPrice": 12.25,
       "isPeak": false,
       "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 2"
+        "Baan 1 | 🎥"
       ],
       "supported": true
     },
@@ -7701,37 +7551,11 @@
       ],
       "supported": true
     },
-    "peakz_vijfkamp_2026-11-20_08:00_90": {
-      "openCourts": 3,
-      "maxCourts": 7,
-      "totalPrice": 42.0,
-      "perPlayerPrice": 10.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 4 Mollie",
-        "Baan 6",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-20_08:30_60": {
-      "openCourts": 3,
-      "maxCourts": 7,
-      "totalPrice": 28.0,
-      "perPlayerPrice": 7.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 4 Mollie",
-        "Baan 6",
-        "Baan 7"
-      ],
-      "supported": true
-    },
     "peakz_vijfkamp_2026-11-20_11:00_60": {
       "openCourts": 3,
       "maxCourts": 7,
-      "totalPrice": 29.28,
-      "perPlayerPrice": 7.32,
+      "totalPrice": 29.67,
+      "perPlayerPrice": 7.42,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 4 Mollie",
@@ -7741,14 +7565,13 @@
       "supported": true
     },
     "peakz_vijfkamp_2026-11-20_12:30_60": {
-      "openCourts": 3,
+      "openCourts": 2,
       "maxCourts": 7,
       "totalPrice": 28.0,
       "perPlayerPrice": 7.0,
       "isPeak": false,
       "availableCourtNames": [
         "Baan 5",
-        "Baan 6",
         "Baan 7"
       ],
       "supported": true
@@ -7786,39 +7609,6 @@
       "availableCourtNames": [
         "Baan 5",
         "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-20_11:00_90": {
-      "openCourts": 1,
-      "maxCourts": 7,
-      "totalPrice": 45.5,
-      "perPlayerPrice": 11.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 6"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-20_12:00_60": {
-      "openCourts": 1,
-      "maxCourts": 7,
-      "totalPrice": 28.0,
-      "perPlayerPrice": 7.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 6"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-20_12:00_90": {
-      "openCourts": 1,
-      "maxCourts": 7,
-      "totalPrice": 42.0,
-      "perPlayerPrice": 10.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 6"
       ],
       "supported": true
     },

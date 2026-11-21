@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T23:17:50.704772+00:00",
+  "updatedAt": "2026-11-21T04:09:21.563699+00:00",
   "source": "GitHub Actions Live Sync",
   "clubStatus": {
     "padellers_vhv": "live",
@@ -6806,48 +6806,14 @@
       ],
       "supported": true
     },
-    "peakz_beurs_2026-11-21_19:00_60": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 35.0,
-      "perPlayerPrice": 8.75,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 1 | 🎥"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-21_19:00_90": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 52.5,
-      "perPlayerPrice": 13.12,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 1 | 🎥"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-21_19:00_120": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 70.0,
-      "perPlayerPrice": 17.5,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 1 | 🎥"
-      ],
-      "supported": true
-    },
     "peakz_beurs_2026-11-21_20:00_60": {
-      "openCourts": 2,
+      "openCourts": 1,
       "maxCourts": 8,
       "totalPrice": 35.0,
       "perPlayerPrice": 8.75,
       "isPeak": true,
       "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 7"
+        "Baan 1 | 🎥"
       ],
       "supported": true
     },
@@ -6944,7 +6910,7 @@
       "supported": true
     },
     "peakz_beurs_2026-11-21_20:30_60": {
-      "openCourts": 5,
+      "openCourts": 4,
       "maxCourts": 8,
       "totalPrice": 35.0,
       "perPlayerPrice": 8.75,
@@ -6953,13 +6919,12 @@
         "Baan 3",
         "Baan 4",
         "Baan 6",
-        "Baan 7",
         "Baan 8"
       ],
       "supported": true
     },
     "peakz_beurs_2026-11-21_20:30_90": {
-      "openCourts": 5,
+      "openCourts": 4,
       "maxCourts": 8,
       "totalPrice": 52.5,
       "perPlayerPrice": 13.12,
@@ -6968,13 +6933,12 @@
         "Baan 3",
         "Baan 4",
         "Baan 6",
-        "Baan 7",
         "Baan 8"
       ],
       "supported": true
     },
     "peakz_beurs_2026-11-21_21:30_60": {
-      "openCourts": 5,
+      "openCourts": 4,
       "maxCourts": 8,
       "totalPrice": 35.0,
       "perPlayerPrice": 8.75,
@@ -6983,13 +6947,12 @@
         "Baan 3",
         "Baan 4",
         "Baan 6",
-        "Baan 7",
         "Baan 8"
       ],
       "supported": true
     },
     "peakz_beurs_2026-11-21_21:30_90": {
-      "openCourts": 5,
+      "openCourts": 4,
       "maxCourts": 8,
       "totalPrice": 52.5,
       "perPlayerPrice": 13.12,
@@ -6998,19 +6961,7 @@
         "Baan 3",
         "Baan 4",
         "Baan 6",
-        "Baan 7",
         "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-21_16:30_60": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 36.5,
-      "perPlayerPrice": 9.12,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 5 | 🎥"
       ],
       "supported": true
     },
@@ -7042,83 +6993,6 @@
       "maxCourts": 8,
       "totalPrice": 35.0,
       "perPlayerPrice": 8.75,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-21_18:30_90": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 52.5,
-      "perPlayerPrice": 13.12,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-21_18:30_120": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 70.0,
-      "perPlayerPrice": 17.5,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-21_19:30_60": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 35.0,
-      "perPlayerPrice": 8.75,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-21_19:30_90": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 52.5,
-      "perPlayerPrice": 13.12,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-21_19:30_120": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 70.0,
-      "perPlayerPrice": 17.5,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-21_20:00_90": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 52.5,
-      "perPlayerPrice": 13.12,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-21_20:00_120": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 70.0,
-      "perPlayerPrice": 17.5,
       "isPeak": true,
       "availableCourtNames": [
         "Baan 7"

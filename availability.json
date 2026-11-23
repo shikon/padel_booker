@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-11-23T09:23:59.285690+00:00",
+  "updatedAt": "2026-11-23T21:39:31.838752+00:00",
   "source": "GitHub Actions Live Sync",
   "clubStatus": {
     "padellers_vhv": "live",
-    "peakz_beurs": "live",
-    "peakz_vijfkamp": "live",
+    "peakz_beurs": "portal_only",
+    "peakz_vijfkamp": "portal_only",
     "david_lloyd_vhv": "portal_only"
   },
   "slots": {
-    "padellers_vhv_2026-11-23_10:30_60": {
+    "padellers_vhv_2026-11-24_09:00_60": {
       "openCourts": 1,
       "maxCourts": 6,
       "totalPrice": 26.0,
@@ -19,7 +19,7 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-11-23_10:30_90": {
+    "padellers_vhv_2026-11-24_09:00_90": {
       "openCourts": 1,
       "maxCourts": 6,
       "totalPrice": 39.0,
@@ -30,7 +30,7 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-11-23_11:00_60": {
+    "padellers_vhv_2026-11-24_09:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
       "totalPrice": 26.0,
@@ -41,7 +41,7 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-11-23_11:00_90": {
+    "padellers_vhv_2026-11-24_09:30_90": {
       "openCourts": 1,
       "maxCourts": 6,
       "totalPrice": 39.0,
@@ -52,7 +52,7 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-11-23_11:30_60": {
+    "padellers_vhv_2026-11-24_10:00_60": {
       "openCourts": 1,
       "maxCourts": 6,
       "totalPrice": 26.0,
@@ -63,254 +63,12 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-11-23_11:30_90": {
+    "padellers_vhv_2026-11-24_10:00_90": {
       "openCourts": 1,
       "maxCourts": 6,
       "totalPrice": 39.0,
       "perPlayerPrice": 9.75,
       "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_12:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 26.0,
-      "perPlayerPrice": 6.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_12:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 39.0,
-      "perPlayerPrice": 9.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_12:30_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 26.0,
-      "perPlayerPrice": 6.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_12:30_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 39.0,
-      "perPlayerPrice": 9.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_13:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 26.0,
-      "perPlayerPrice": 6.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_13:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 39.0,
-      "perPlayerPrice": 9.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_13:30_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 26.0,
-      "perPlayerPrice": 6.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_13:30_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 39.0,
-      "perPlayerPrice": 9.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_14:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 26.0,
-      "perPlayerPrice": 6.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_14:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 39.0,
-      "perPlayerPrice": 9.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_14:30_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 26.0,
-      "perPlayerPrice": 6.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_14:30_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 39.0,
-      "perPlayerPrice": 9.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_15:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 28.33,
-      "perPlayerPrice": 7.08,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_15:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 42.5,
-      "perPlayerPrice": 10.62,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_15:30_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 30.67,
-      "perPlayerPrice": 7.67,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_15:30_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 46.0,
-      "perPlayerPrice": 11.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_16:30_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_16:30_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_21:30_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 37.0,
-      "perPlayerPrice": 9.25,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-23_21:30_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 55.5,
-      "perPlayerPrice": 13.88,
-      "isPeak": true,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -558,28 +316,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-11-24_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-24_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-11-24_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -602,6 +338,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-11-24_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-24_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-11-24_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -619,6 +377,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-25_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-25_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-25_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-25_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-25_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-25_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -866,28 +690,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-11-25_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-25_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-11-25_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -910,6 +712,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-11-25_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-25_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-11-25_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -927,6 +751,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-26_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-26_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-26_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-26_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-26_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-26_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -1174,28 +1064,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-11-26_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-26_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-11-26_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -1218,6 +1086,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-11-26_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-26_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-11-26_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -1235,6 +1125,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-27_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-27_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-27_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-27_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-27_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-27_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -1482,28 +1438,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-11-27_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-27_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-11-27_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -1526,6 +1460,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-11-27_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-27_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-11-27_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -1543,6 +1499,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-28_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-28_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-28_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-28_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-28_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-28_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -1790,28 +1812,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-11-28_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-28_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-11-28_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -1834,6 +1834,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-11-28_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-28_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-11-28_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -1851,6 +1873,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-29_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-29_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-29_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-29_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-29_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-29_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -2098,28 +2186,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-11-29_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-29_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-11-29_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -2142,6 +2208,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-11-29_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-29_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-11-29_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -2159,6 +2247,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-30_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-30_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-30_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-30_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-30_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-30_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -2406,28 +2560,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-11-30_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-11-30_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-11-30_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -2450,6 +2582,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-11-30_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-11-30_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-11-30_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -2467,6 +2621,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-01_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-01_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-01_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-01_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-01_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-01_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -2714,28 +2934,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-12-01_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-12-01_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-12-01_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -2758,6 +2956,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-12-01_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-01_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-12-01_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -2775,6 +2995,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-02_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-02_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-02_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-02_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-02_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-02_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -3022,28 +3308,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-12-02_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-12-02_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-12-02_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -3066,6 +3330,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-12-02_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-02_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-12-02_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -3083,6 +3369,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-03_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-03_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-03_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-03_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-03_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-03_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -3330,28 +3682,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-12-03_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-12-03_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-12-03_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -3374,6 +3704,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-12-03_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-03_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-12-03_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -3391,6 +3743,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-04_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-04_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-04_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-04_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-04_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-04_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -3638,28 +4056,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-12-04_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-12-04_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-12-04_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -3682,6 +4078,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-12-04_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-04_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-12-04_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -3699,6 +4117,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-05_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-05_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-05_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-05_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-05_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-05_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -3946,28 +4430,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-12-05_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-12-05_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-12-05_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -3990,6 +4452,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-12-05_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-05_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-12-05_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -4007,6 +4491,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-06_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-06_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-06_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-06_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-06_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-06_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -4254,28 +4804,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-12-06_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-12-06_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-12-06_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -4298,6 +4826,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-12-06_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-06_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-12-06_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -4315,6 +4865,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-07_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-07_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-07_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-07_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-07_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-07_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -4562,28 +5178,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-12-07_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-12-07_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-12-07_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -4606,6 +5200,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-12-07_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-07_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-12-07_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -4623,6 +5239,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-08_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-08_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-08_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-08_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-08_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-08_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -4870,28 +5552,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-12-08_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-12-08_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-12-08_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -4914,6 +5574,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-12-08_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-08_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-12-08_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -4931,6 +5613,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-09_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-09_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-09_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-09_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-09_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-09_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -5178,28 +5926,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-12-09_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-12-09_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-12-09_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -5222,6 +5948,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-12-09_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-09_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-12-09_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -5239,6 +5987,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-10_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-10_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-10_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-10_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-10_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-10_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -5486,28 +6300,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-12-10_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-12-10_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-12-10_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -5530,6 +6322,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-12-10_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-10_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-12-10_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -5547,6 +6361,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-11_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-11_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-11_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-11_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-11_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-11_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -5794,28 +6674,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-12-11_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-12-11_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-12-11_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -5838,6 +6696,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-12-11_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-11_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-12-11_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -5855,6 +6735,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-12_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-12_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-12_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-12_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-12_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-12_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -6102,28 +7048,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-12-12_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-12-12_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-12-12_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -6146,6 +7070,28 @@
       ],
       "supported": true
     },
+    "padellers_vhv_2026-12-12_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-12_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
     "padellers_vhv_2026-12-12_21:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -6163,6 +7109,72 @@
       "totalPrice": 55.5,
       "perPlayerPrice": 13.88,
       "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-13_09:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-13_09:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-13_09:30_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-13_09:30_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-13_10:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 26.0,
+      "perPlayerPrice": 6.5,
+      "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-13_10:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 39.0,
+      "perPlayerPrice": 9.75,
+      "isPeak": false,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -6410,28 +7422,6 @@
       ],
       "supported": true
     },
-    "padellers_vhv_2026-12-13_16:00_60": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 33.0,
-      "perPlayerPrice": 8.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "padellers_vhv_2026-12-13_16:00_90": {
-      "openCourts": 1,
-      "maxCourts": 6,
-      "totalPrice": 49.5,
-      "perPlayerPrice": 12.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Indoor Baan 1"
-      ],
-      "supported": true
-    },
     "padellers_vhv_2026-12-13_16:30_60": {
       "openCourts": 1,
       "maxCourts": 6,
@@ -6449,6 +7439,28 @@
       "totalPrice": 49.5,
       "perPlayerPrice": 12.38,
       "isPeak": false,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-13_21:00_60": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 37.0,
+      "perPlayerPrice": 9.25,
+      "isPeak": true,
+      "availableCourtNames": [
+        "Indoor Baan 1"
+      ],
+      "supported": true
+    },
+    "padellers_vhv_2026-12-13_21:00_90": {
+      "openCourts": 1,
+      "maxCourts": 6,
+      "totalPrice": 55.5,
+      "perPlayerPrice": 13.88,
+      "isPeak": true,
       "availableCourtNames": [
         "Indoor Baan 1"
       ],
@@ -6473,822 +7485,6 @@
       "isPeak": true,
       "availableCourtNames": [
         "Indoor Baan 1"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_12:30_60": {
-      "openCourts": 7,
-      "maxCourts": 8,
-      "totalPrice": 28.0,
-      "perPlayerPrice": 7.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_14:30_60": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 29.25,
-      "perPlayerPrice": 7.31,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_14:30_90": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 43.88,
-      "perPlayerPrice": 10.97,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_21:00_60": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 39.25,
-      "perPlayerPrice": 9.81,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 1 | 🎥"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_21:00_90": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 58.88,
-      "perPlayerPrice": 14.72,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 1 | 🎥"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_21:00_120": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 78.5,
-      "perPlayerPrice": 19.62,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 1 | 🎥"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_22:00_60": {
-      "openCourts": 5,
-      "maxCourts": 8,
-      "totalPrice": 35.0,
-      "perPlayerPrice": 8.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 2 Mollie",
-        "Baan 5 | 🎥",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_22:00_90": {
-      "openCourts": 5,
-      "maxCourts": 8,
-      "totalPrice": 52.5,
-      "perPlayerPrice": 13.12,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 2 Mollie",
-        "Baan 5 | 🎥",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_22:00_120": {
-      "openCourts": 5,
-      "maxCourts": 8,
-      "totalPrice": 70.0,
-      "perPlayerPrice": 17.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 2 Mollie",
-        "Baan 5 | 🎥",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_22:30_60": {
-      "openCourts": 4,
-      "maxCourts": 8,
-      "totalPrice": 35.0,
-      "perPlayerPrice": 8.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 3",
-        "Baan 4",
-        "Baan 6"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_22:30_90": {
-      "openCourts": 4,
-      "maxCourts": 8,
-      "totalPrice": 52.5,
-      "perPlayerPrice": 13.12,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 3",
-        "Baan 4",
-        "Baan 6"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_23:00_60": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 35.0,
-      "perPlayerPrice": 8.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 1 | 🎥",
-        "Baan 2 Mollie",
-        "Baan 5 | 🎥",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_10:30_60": {
-      "openCourts": 7,
-      "maxCourts": 8,
-      "totalPrice": 31.67,
-      "perPlayerPrice": 7.92,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 5 | 🎥",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_10:30_90": {
-      "openCourts": 7,
-      "maxCourts": 8,
-      "totalPrice": 47.5,
-      "perPlayerPrice": 11.88,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 5 | 🎥",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_10:30_120": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 63.0,
-      "perPlayerPrice": 15.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_11:30_60": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 28.0,
-      "perPlayerPrice": 7.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_11:30_90": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 42.0,
-      "perPlayerPrice": 10.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_12:00_60": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 28.0,
-      "perPlayerPrice": 7.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_12:00_90": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 42.0,
-      "perPlayerPrice": 10.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_12:00_120": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 56.0,
-      "perPlayerPrice": 14.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_12:30_90": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 42.0,
-      "perPlayerPrice": 10.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_13:00_60": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 28.0,
-      "perPlayerPrice": 7.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_15:00_60": {
-      "openCourts": 7,
-      "maxCourts": 8,
-      "totalPrice": 31.81,
-      "perPlayerPrice": 7.95,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 5 | 🎥",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_15:00_90": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 48.67,
-      "perPlayerPrice": 12.17,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 5 | 🎥",
-        "Baan 6",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_15:00_120": {
-      "openCourts": 4,
-      "maxCourts": 8,
-      "totalPrice": 66.0,
-      "perPlayerPrice": 16.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 5 | 🎥",
-        "Baan 6"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_16:00_60": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 39.07,
-      "perPlayerPrice": 9.77,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2 Mollie",
-        "Baan 3",
-        "Baan 4",
-        "Baan 5 | 🎥",
-        "Baan 6",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_11:30_120": {
-      "openCourts": 5,
-      "maxCourts": 8,
-      "totalPrice": 56.0,
-      "perPlayerPrice": 14.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_12:30_120": {
-      "openCourts": 5,
-      "maxCourts": 8,
-      "totalPrice": 56.0,
-      "perPlayerPrice": 14.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_13:00_90": {
-      "openCourts": 5,
-      "maxCourts": 8,
-      "totalPrice": 42.0,
-      "perPlayerPrice": 10.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_13:00_120": {
-      "openCourts": 5,
-      "maxCourts": 8,
-      "totalPrice": 56.0,
-      "perPlayerPrice": 14.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_13:30_60": {
-      "openCourts": 5,
-      "maxCourts": 8,
-      "totalPrice": 28.0,
-      "perPlayerPrice": 7.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_13:30_90": {
-      "openCourts": 5,
-      "maxCourts": 8,
-      "totalPrice": 42.0,
-      "perPlayerPrice": 10.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_13:30_120": {
-      "openCourts": 4,
-      "maxCourts": 8,
-      "totalPrice": 56.0,
-      "perPlayerPrice": 14.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 6",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_14:00_60": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 28.0,
-      "perPlayerPrice": 7.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 5 | 🎥",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_14:00_90": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 42.0,
-      "perPlayerPrice": 10.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 5 | 🎥",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_14:00_120": {
-      "openCourts": 6,
-      "maxCourts": 8,
-      "totalPrice": 56.0,
-      "perPlayerPrice": 14.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 5 | 🎥",
-        "Baan 6",
-        "Baan 7",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_14:30_120": {
-      "openCourts": 3,
-      "maxCourts": 8,
-      "totalPrice": 61.0,
-      "perPlayerPrice": 15.25,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_15:30_60": {
-      "openCourts": 5,
-      "maxCourts": 8,
-      "totalPrice": 35.55,
-      "perPlayerPrice": 8.89,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 5 | 🎥",
-        "Baan 6",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_15:30_90": {
-      "openCourts": 5,
-      "maxCourts": 8,
-      "totalPrice": 53.32,
-      "perPlayerPrice": 13.33,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 5 | 🎥",
-        "Baan 6",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_16:00_90": {
-      "openCourts": 3,
-      "maxCourts": 8,
-      "totalPrice": 60.21,
-      "perPlayerPrice": 15.05,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_16:00_120": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 81.5,
-      "perPlayerPrice": 20.38,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_16:30_60": {
-      "openCourts": 3,
-      "maxCourts": 8,
-      "totalPrice": 41.06,
-      "perPlayerPrice": 10.27,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 4",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_16:30_90": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 62.5,
-      "perPlayerPrice": 15.62,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_17:00_60": {
-      "openCourts": 2,
-      "maxCourts": 8,
-      "totalPrice": 43.5,
-      "perPlayerPrice": 10.88,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 3",
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_15:30_120": {
-      "openCourts": 2,
-      "maxCourts": 8,
-      "totalPrice": 73.75,
-      "perPlayerPrice": 18.44,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 4",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_21:30_60": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 37.83,
-      "perPlayerPrice": 9.46,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 6"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_21:30_90": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 56.75,
-      "perPlayerPrice": 14.19,
-      "isPeak": true,
-      "availableCourtNames": [
-        "Baan 6"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_11:00_60": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 29.75,
-      "perPlayerPrice": 7.44,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_11:00_90": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 44.62,
-      "perPlayerPrice": 11.15,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_beurs_2026-11-23_11:00_120": {
-      "openCourts": 1,
-      "maxCourts": 8,
-      "totalPrice": 59.5,
-      "perPlayerPrice": 14.88,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-23_12:00_60": {
-      "openCourts": 5,
-      "maxCourts": 7,
-      "totalPrice": 28.0,
-      "perPlayerPrice": 7.0,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 2",
-        "Baan 3 | 🎥",
-        "Baan 4 Mollie",
-        "Baan 5",
-        "Baan 6"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-23_22:30_60": {
-      "openCourts": 4,
-      "maxCourts": 7,
-      "totalPrice": 35.0,
-      "perPlayerPrice": 8.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 3 | 🎥",
-        "Baan 5",
-        "Baan 6",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-23_15:00_60": {
-      "openCourts": 4,
-      "maxCourts": 7,
-      "totalPrice": 28.83,
-      "perPlayerPrice": 7.21,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 4 Mollie",
-        "Baan 5",
-        "Baan 6",
-        "Baan 7"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-23_15:00_90": {
-      "openCourts": 1,
-      "maxCourts": 7,
-      "totalPrice": 47.0,
-      "perPlayerPrice": 11.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 4 Mollie"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-23_13:30_60": {
-      "openCourts": 1,
-      "maxCourts": 7,
-      "totalPrice": 27.0,
-      "perPlayerPrice": 6.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-23_13:30_90": {
-      "openCourts": 1,
-      "maxCourts": 7,
-      "totalPrice": 40.5,
-      "perPlayerPrice": 10.12,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-23_13:30_120": {
-      "openCourts": 1,
-      "maxCourts": 7,
-      "totalPrice": 54.0,
-      "perPlayerPrice": 13.5,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 8"
-      ],
-      "supported": true
-    },
-    "peakz_vijfkamp_2026-11-23_14:30_60": {
-      "openCourts": 1,
-      "maxCourts": 7,
-      "totalPrice": 27.0,
-      "perPlayerPrice": 6.75,
-      "isPeak": false,
-      "availableCourtNames": [
-        "Baan 8"
       ],
       "supported": true
     }
